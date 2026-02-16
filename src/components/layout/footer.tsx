@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINKS, SITE_NAME, CONTACT_EMAIL, CONTACT_PHONE, SOCIAL_LINKS, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/constants";
 import { NewsletterForm } from "./newsletter-form";
 
@@ -9,7 +10,15 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h3 className="font-heading text-2xl font-bold text-ivory">{SITE_NAME}</h3>
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt={SITE_NAME}
+                width={975}
+                height={113}
+                className="h-8 w-auto brightness-0 invert"
+              />
+            </Link>
             <p className="mt-4 text-sm leading-relaxed text-ivory/60">
               NYC&apos;s premier catering and events company. From elegant
               receptions to our signature pizza trucks, we bring exceptional
