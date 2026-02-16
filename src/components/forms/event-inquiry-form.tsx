@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 
 export function EventInquiryForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   if (submitted) {
     return (
@@ -26,10 +28,28 @@ export function EventInquiryForm() {
   return (
     <form
       className="space-y-6 rounded-lg bg-white p-8 shadow-sm"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        // TODO: Integrate with Formspree or similar service
-        setSubmitted(true);
+        setLoading(true);
+        setError("");
+        const data = new FormData(e.currentTarget);
+        data.append("_form_type", "Event Inquiry");
+        try {
+          const res = await fetch("https://formspree.io/f/mnjbdepb", {
+            method: "POST",
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+          if (res.ok) {
+            setSubmitted(true);
+          } else {
+            setError("Something went wrong. Please try again.");
+          }
+        } catch {
+          setError("Something went wrong. Please try again.");
+        } finally {
+          setLoading(false);
+        }
       }}
     >
       <h3 className="font-heading text-2xl font-bold text-charcoal">
@@ -38,44 +58,47 @@ export function EventInquiryForm() {
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="e-name">Name</Label>
-          <Input id="e-name" placeholder="Your name" required />
+          <Input id="e-name" name="name" placeholder="Your name" required />
         </div>
         <div className="space-y-2">
           <Label htmlFor="e-email">Email</Label>
-          <Input id="e-email" type="email" placeholder="you@email.com" required />
+          <Input id="e-email" name="email" type="email" placeholder="you@email.com" required />
         </div>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="e-date">Preferred Date</Label>
-          <Input id="e-date" type="date" required />
+          <Input id="e-date" name="event_date" type="date" required />
         </div>
         <div className="space-y-2">
           <Label htmlFor="e-guests">Expected Guests</Label>
-          <Input id="e-guests" type="number" placeholder="100" required />
+          <Input id="e-guests" name="guests" type="number" placeholder="100" required />
         </div>
       </div>
       <div className="space-y-2">
         <Label htmlFor="e-type">Event Type</Label>
-        <Input id="e-type" placeholder="e.g. Wedding, Corporate, Party, Festival" required />
+        <Input id="e-type" name="event_type" placeholder="e.g. Wedding, Corporate, Party, Festival" required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="e-venue">Venue / Location</Label>
-        <Input id="e-venue" placeholder="Venue name or address" />
+        <Input id="e-venue" name="venue" placeholder="Venue name or address" />
       </div>
       <div className="space-y-2">
         <Label htmlFor="e-details">Tell Us More</Label>
         <Textarea
           id="e-details"
+          name="details"
           placeholder="Your vision, theme, special requirements..."
           rows={4}
         />
       </div>
+      {error && <p className="text-sm text-red-600">{error}</p>}
       <Button
         type="submit"
+        disabled={loading}
         className="w-full bg-gold text-charcoal hover:bg-gold-light font-semibold"
       >
-        Submit Inquiry
+        {loading ? "Sending..." : "Submit Inquiry"}
       </Button>
     </form>
   );
