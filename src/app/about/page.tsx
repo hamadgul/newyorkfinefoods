@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/sections/hero";
 import { CTASection } from "@/components/sections/cta-section";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { teamMembers, stats } from "@/data/team";
 
 export const metadata: Metadata = {
@@ -95,7 +96,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team — commented out until real photos and descriptions are ready
       <section className="bg-cream py-24">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
@@ -127,6 +128,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Stats */}
       <section className="bg-ivory py-24">

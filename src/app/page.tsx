@@ -40,15 +40,6 @@ const galleryImages = [
   "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80",
 ];
 
-const clientLogos = [
-  "Goldman Sachs",
-  "JPMorgan",
-  "Google NYC",
-  "Spotify",
-  "WeWork",
-  "Bloomberg",
-];
-
 const instagramPosts = [
   "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80",
   "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80",
@@ -97,7 +88,7 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ivory/70 md:text-xl">
             From elegant receptions to wood-fired pizza parties — we bring
-            restaurant-quality dining to every occasion across New York City.
+            restaurant-quality dining to every occasion across New York City & Tri-State Area.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
@@ -216,25 +207,6 @@ export default function HomePage() {
 
       {/* ── TESTIMONIALS ── */}
       <TestimonialsSection />
-
-      {/* ── CLIENT LOGOS ── */}
-      <section className="bg-ivory py-16">
-        <div className="mx-auto max-w-5xl px-6">
-          <p className="text-center text-sm font-medium uppercase tracking-widest text-charcoal/40">
-            Trusted by Leading Companies
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-16">
-            {clientLogos.map((name) => (
-              <span
-                key={name}
-                className="font-heading text-lg font-bold text-charcoal/20 transition-colors duration-300 hover:text-charcoal/40 md:text-xl"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── INSTAGRAM — Prominent section ── */}
       <section className="bg-charcoal py-24">

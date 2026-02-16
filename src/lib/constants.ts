@@ -3,9 +3,9 @@ export const SITE_TAGLINE = "Elevating Every Event with Exceptional Cuisine";
 export const SITE_DESCRIPTION =
   "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.";
 
-export const CONTACT_EMAIL = "info@newyorkfinefoods.com";
+export const CONTACT_EMAIL = "Brian@newyorkfinefoods.com";
 export const CONTACT_PHONE = "(212) 555-0198";
-export const CONTACT_ADDRESS = "245 West 29th Street, New York, NY 10001";
+// export const CONTACT_ADDRESS = "245 West 29th Street, New York, NY 10001";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },

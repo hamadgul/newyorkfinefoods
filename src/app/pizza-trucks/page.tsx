@@ -11,39 +11,31 @@ export const metadata: Metadata = {
     "Book our wood-fired pizza trucks for your next event. Authentic Neapolitan pizza served fresh, anywhere in NYC.",
 };
 
-const trucks = [
-  {
-    name: "The Original",
-    description:
-      "Our flagship truck — a beautifully restored vintage vehicle with a custom-built wood-fired oven.",
-    image:
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
-    capacity: "Up to 150 guests",
-  },
-  {
-    name: "Brooklyn",
-    description:
-      "Sleek and modern, Brooklyn brings artisan pizza to corporate events and upscale gatherings.",
-    image:
-      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80",
-    capacity: "Up to 200 guests",
-  },
+const truckFeatures = [
+  "Custom wood-fired ovens",
+  "900°F cooking temp",
+  "90-second cook time",
+  "Up to 200+ guests",
+  "Full setup & cleanup",
+  "Professional service staff",
 ];
 
 const idealFor = [
-  { title: "Weddings", icon: "💒" },
-  { title: "Corporate Events", icon: "🏢" },
-  { title: "Block Parties", icon: "🎉" },
-  { title: "Festivals", icon: "🎪" },
-  { title: "Birthday Parties", icon: "🎂" },
-  { title: "Team Building", icon: "🤝" },
+  "Weddings",
+  "Corporate Events",
+  "Block Parties",
+  "Festivals",
+  "Birthday Parties",
+  "Team Building",
+  "Graduations",
+  "Holiday Parties",
 ];
 
 const steps = [
   {
     step: "01",
-    title: "Choose Your Truck",
-    description: "Select the truck and menu that fits your event style.",
+    title: "Tell Us About Your Event",
+    description: "Share your date, location, guest count, and any special requests.",
   },
   {
     step: "02",
@@ -128,18 +120,18 @@ export default function PizzaTrucksPage() {
 
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-ivory/40">
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">2</span>
-              Trucks
-            </span>
-            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
-            <span className="text-center text-xs uppercase tracking-widest">
               <span className="block font-heading text-2xl font-bold text-ivory/70">200+</span>
               Max Guests
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">8</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70">9</span>
               Signature Pies
+            </span>
+            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
+            <span className="text-center text-xs uppercase tracking-widest">
+              <span className="block font-heading text-2xl font-bold text-ivory/70">Wood-Fired</span>
+              Neapolitan Style
             </span>
           </div>
         </div>
@@ -147,39 +139,57 @@ export default function PizzaTrucksPage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ivory to-transparent" />
       </section>
 
-      {/* Truck Showcase */}
+      {/* ── PIZZA TRUCK SHOWCASE ── */}
       <section className="bg-ivory py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
-            Meet Our Fleet
-          </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-gold/50" />
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {trucks.map((truck) => (
-              <div
-                key={truck.name}
-                className="group overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={truck.image}
-                    alt={truck.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent" />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-2xl font-bold text-charcoal">
-                    {truck.name}
-                  </h3>
-                  <p className="mt-2 text-charcoal/60">{truck.description}</p>
-                  <p className="mt-3 text-sm font-semibold text-gold">
-                    {truck.capacity}
-                  </p>
-                </div>
+          <div className="flex flex-col items-center gap-12 lg:flex-row">
+            {/* Image */}
+            <div className="relative w-full overflow-hidden rounded-2xl lg:w-1/2">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="https://images.unsplash.com/photo-1600628421055-4d30de868b8f?w=1200&q=80"
+                  alt="Wood-fired pizza truck"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-charcoal/30 to-transparent" />
               </div>
-            ))}
+            </div>
+
+            {/* Details */}
+            <div className="w-full lg:w-1/2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
+                Wood-Fired &amp; Mobile
+              </p>
+              <h2 className="mt-2 font-heading text-3xl font-bold text-charcoal md:text-4xl">
+                Our Pizza Trucks
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-charcoal/70">
+                Our custom-built, wood-fired pizza trucks bring authentic
+                Neapolitan-style pizza straight to your event. Each truck houses
+                a handcrafted oven that reaches 900°F, producing perfectly
+                charred, restaurant-quality pies in just 90 seconds. Whether
+                it&apos;s a wedding, corporate event, or backyard party — we
+                show up, set up, and serve unforgettable pizza from start to
+                finish.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {truckFeatures.map((f) => (
+                  <span
+                    key={f}
+                    className="rounded-full border border-charcoal/10 bg-charcoal/5 px-4 py-2 text-sm font-medium text-charcoal/80"
+                  >
+                    {f}
+                  </span>
+                ))}
+              </div>
+              <Link
+                href="#book"
+                className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
+              >
+                Book a Truck
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -194,50 +204,76 @@ export default function PizzaTrucksPage() {
         />
       </div>
 
-      {/* How It Works */}
-      <section className="bg-cream py-24">
+      {/* ── HOW IT WORKS ── */}
+      <section className="bg-charcoal py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
-            How It Works
-          </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-gold/50" />
-          <div className="mt-16 grid gap-8 md:grid-cols-4">
-            {steps.map((s, i) => (
-              <div key={s.step} className="relative text-center">
-                {i < steps.length - 1 && (
-                  <div className="absolute right-0 top-8 hidden h-px w-full translate-x-1/2 bg-gold/20 md:block" />
-                )}
-                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 font-heading text-2xl font-bold text-gold">
-                  {s.step}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-semibold text-charcoal">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-sm text-charcoal/60">{s.description}</p>
-              </div>
-            ))}
+          <div className="text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+              Simple &amp; Seamless
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-ivory md:text-4xl">
+              How It Works
+            </h2>
+            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          </div>
+
+          <div className="relative mt-16">
+            {/* Connecting line */}
+            <div className="absolute left-6 top-0 hidden h-full w-px bg-gold/20 md:left-1/2 md:block" />
+
+            <div className="space-y-12 md:space-y-16">
+              {steps.map((s, i) => (
+                <div
+                  key={s.step}
+                  className={`relative flex flex-col gap-6 md:flex-row md:items-center ${
+                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Step number — centered on the line */}
+                  <div className="absolute left-0 z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-gold bg-charcoal font-heading text-lg font-bold text-gold md:left-1/2 md:-translate-x-1/2">
+                    {s.step}
+                  </div>
+
+                  {/* Content card */}
+                  <div
+                    className={`ml-16 rounded-xl border border-ivory/10 bg-ivory/5 p-6 backdrop-blur-sm md:ml-0 md:w-[calc(50%-3rem)] ${
+                      i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
+                    }`}
+                  >
+                    <h3 className="font-heading text-xl font-bold text-ivory">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-ivory/60">
+                      {s.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Ideal For */}
+      {/* ── IDEAL FOR ── */}
       <section className="bg-ivory py-24">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
-            Ideal For
-          </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-gold/50" />
-          <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-3">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+              Perfect for Any Occasion
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-charcoal md:text-4xl">
+              Ideal For
+            </h2>
+            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          </div>
+          <div className="mx-auto mt-14 flex flex-wrap items-center justify-center gap-4">
             {idealFor.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              <span
+                key={item}
+                className="rounded-full border border-charcoal/10 bg-white px-6 py-3 font-heading text-sm font-semibold text-charcoal shadow-sm transition-all duration-300 hover:border-gold hover:shadow-md"
               >
-                <span className="text-3xl">{item.icon}</span>
-                <p className="mt-3 font-heading text-lg font-semibold text-charcoal">
-                  {item.title}
-                </p>
-              </div>
+                {item}
+              </span>
             ))}
           </div>
         </div>

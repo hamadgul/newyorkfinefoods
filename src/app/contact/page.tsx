@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { ContactForm } from "@/components/forms/contact-form";
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS } from "@/lib/constants";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -33,10 +33,6 @@ export default function ContactPage() {
                 </h3>
                 <ul className="mt-6 space-y-4">
                   <li>
-                    <p className="text-sm font-medium text-charcoal/40">Address</p>
-                    <p className="mt-1 text-charcoal">{CONTACT_ADDRESS}</p>
-                  </li>
-                  <li>
                     <p className="text-sm font-medium text-charcoal/40">Phone</p>
                     <a
                       href={`tel:${CONTACT_PHONE}`}
@@ -64,19 +60,6 @@ export default function ContactPage() {
                 </ul>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="overflow-hidden rounded-lg bg-charcoal/5">
-                <div className="flex h-64 items-center justify-center">
-                  <div className="text-center">
-                    <p className="font-heading text-lg font-semibold text-charcoal/40">
-                      Map
-                    </p>
-                    <p className="mt-1 text-sm text-charcoal/30">
-                      245 West 29th Street, New York, NY
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SITE_NAME, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS, SOCIAL_LINKS, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/constants";
+import { NAV_LINKS, SITE_NAME, CONTACT_EMAIL, CONTACT_PHONE, SOCIAL_LINKS, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/constants";
 import { NewsletterForm } from "./newsletter-form";
 
 export function Footer() {
@@ -50,7 +50,6 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-lg font-semibold text-ivory">Contact</h4>
             <ul className="mt-4 space-y-3 text-sm">
-              <li>{CONTACT_ADDRESS}</li>
               <li>
                 <a href={`tel:${CONTACT_PHONE}`} className="transition-colors hover:text-gold">
                   {CONTACT_PHONE}
