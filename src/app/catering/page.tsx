@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] = [
-  { src: "/catering/1.jpg", type: "image", caption: "Plated fine dining" },
-  { src: "/catering/3.mp4", type: "video", caption: "Fresh from the kitchen" },
-  { src: "/catering/2.jpg", type: "image", caption: "Seasonal dishes" },
-  { src: "/catering/4.mp4", type: "video", caption: "Artful presentation" },
+  { src: "/catering/1.jpg", type: "image", caption: "Neopolitan Personal Pizza" },
+  { src: "/catering/3.mp4", type: "video", caption: "No One Does Pizza Like Us" },
+  { src: "/catering/2.jpg", type: "image", caption: "Did Someone Order Sandwiches?" },
+  { src: "/catering/4.mp4", type: "video", caption: "The Best Canoli's period." },
   { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", type: "image", caption: "Restaurant-quality plating" },
   { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80", type: "image", caption: "Fresh ingredients" },
 ];
