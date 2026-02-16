@@ -41,7 +41,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
@@ -58,14 +58,14 @@ export function Navbar() {
 
         <Link
           href="/contact"
-          className="hidden rounded-full bg-gold px-6 py-2 text-sm font-bold uppercase tracking-wider text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-md hover:shadow-gold/20 md:inline-block"
+          className="hidden rounded-full bg-gold px-6 py-2 text-sm font-bold uppercase tracking-wider text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-md hover:shadow-gold/20 lg:inline-block"
         >
           Book Now
         </Link>
 
         {/* Mobile nav */}
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="lg:hidden">
             <Button variant="ghost" size="icon" className="text-ivory">
               <Menu className="h-6 w-6" />
             </Button>
