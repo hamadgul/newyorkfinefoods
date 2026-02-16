@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -28,8 +29,15 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-heading text-2xl font-bold text-ivory">
-          {SITE_NAME}
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            src="/logo.png"
+            alt={SITE_NAME}
+            width={975}
+            height={113}
+            className="h-7 w-auto brightness-0 invert sm:h-8 md:h-9"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -63,8 +71,14 @@ export function Navbar() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="bg-charcoal border-charcoal w-72">
-            <SheetTitle className="font-heading text-xl text-ivory">
-              {SITE_NAME}
+            <SheetTitle>
+              <Image
+                src="/logo.png"
+                alt={SITE_NAME}
+                width={975}
+                height={113}
+                className="h-6 w-auto brightness-0 invert"
+              />
             </SheetTitle>
             <ul className="mt-8 space-y-4">
               {NAV_LINKS.map((link) => (
