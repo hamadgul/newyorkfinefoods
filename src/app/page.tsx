@@ -23,7 +23,7 @@ const services = [
   {
     title: "Pizza Trucks",
     description:
-      "Wood-fired Neapolitan pizza, served fresh at your doorstep.",
+      "Wood-fired Neapolitan pizza, served fresh wherever you want.",
     image: "/pizza-trucks-service.jpg",
     href: "/pizza-trucks",
   },

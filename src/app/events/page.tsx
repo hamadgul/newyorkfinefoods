@@ -11,6 +11,11 @@ export const metadata: Metadata = {
 };
 
 const eventServices = [
+  "Event planning",
+  "On-site staff",
+  "Furniture rentals",
+  "Bar service",
+  "Entertainment (DJ, live music)",
   "Custom Menu Design",
   "Full-Service Staffing",
   "Bar & Beverage Programs",
