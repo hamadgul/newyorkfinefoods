@@ -19,7 +19,7 @@ export default function ContactPage() {
         compact
       />
 
-      <section className="bg-ivory py-24">
+      <section className="bg-ivory py-12 sm:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Form */}
