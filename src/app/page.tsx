@@ -31,22 +31,21 @@ const services = [
   },
 ];
 
-const galleryImages = [
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
-  "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80",
-  "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
-  "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80",
-  "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80",
+const galleryItems: { src: string; type: "image" | "video" }[] = [
+  { src: "/gallery/1.jpg", type: "image" },
+  { src: "/gallery/4.mp4", type: "video" },
+  { src: "/gallery/2.jpg", type: "image" },
+  { src: "/gallery/5.mp4", type: "video" },
+  { src: "/gallery/3.jpg", type: "image" },
+  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80", type: "image" },
 ];
 
-const instagramPosts = [
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80",
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80",
-  "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80",
-  "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80",
-  "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80",
-  "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80",
+const instagramPosts: { src: string; type: "image" | "video" }[] = [
+  { src: "/instagram/1.jpg", type: "image" },
+  { src: "/instagram/4.mp4", type: "video" },
+  { src: "/instagram/2.jpg", type: "image" },
+  { src: "/instagram/5.mp4", type: "video" },
+  { src: "/instagram/3.jpg", type: "image" },
 ];
 
 export default function HomePage() {
@@ -187,17 +186,28 @@ export default function HomePage() {
             <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
           </div>
           <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-            {galleryImages.map((img, i) => (
+            {galleryItems.map((item, i) => (
               <div
                 key={i}
                 className="group relative aspect-square overflow-hidden rounded-lg"
               >
-                <Image
-                  src={img}
-                  alt={`Gallery image ${i + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                {item.type === "video" ? (
+                  <video
+                    src={item.src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={`Gallery image ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/20" />
               </div>
             ))}
@@ -223,8 +233,8 @@ export default function HomePage() {
             </p>
             <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
-            {instagramPosts.map((img, i) => (
+          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+            {instagramPosts.map((post, i) => (
               <a
                 key={i}
                 href={INSTAGRAM_URL}
@@ -232,12 +242,23 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="group relative aspect-square overflow-hidden rounded-lg"
               >
-                <Image
-                  src={img}
-                  alt={`Instagram post ${i + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                {post.type === "video" ? (
+                  <video
+                    src={post.src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <Image
+                    src={post.src}
+                    alt={`Instagram post ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 flex items-center justify-center bg-charcoal/0 transition-all duration-300 group-hover:bg-charcoal/50">
                   <svg
                     className="h-8 w-8 text-ivory opacity-0 transition-opacity duration-300 group-hover:opacity-100"
