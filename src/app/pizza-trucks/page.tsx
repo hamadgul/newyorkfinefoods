@@ -73,7 +73,7 @@ export default function PizzaTrucksPage() {
           <div className="relative hidden md:grid md:grid-rows-2">
             <div className="relative overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80"
+                src="/trucks/2.jpg"
                 alt=""
                 fill
                 className="object-cover"
@@ -81,7 +81,7 @@ export default function PizzaTrucksPage() {
             </div>
             <div className="relative overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80"
+                src="/trucks/3.jpg"
                 alt=""
                 fill
                 className="object-cover"
@@ -147,7 +147,7 @@ export default function PizzaTrucksPage() {
             <div className="relative w-full overflow-hidden rounded-2xl lg:w-1/2">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1600628421055-4d30de868b8f?w=1200&q=80"
+                  src="/trucks/1.jpg"
                   alt="Wood-fired pizza truck"
                   fill
                   className="object-cover"
@@ -190,6 +190,53 @@ export default function PizzaTrucksPage() {
                 Book a Truck
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TRUCK GALLERY ── */}
+      <section className="bg-charcoal py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center">
+            <h2 className="font-heading text-3xl font-bold text-ivory md:text-4xl">
+              See Our Trucks in Action
+            </h2>
+            <p className="mt-4 text-lg text-ivory/50">
+              From setup to service — real moments from real events.
+            </p>
+            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          </div>
+          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            {[
+              { src: "/trucks/1.jpg", type: "image" as const },
+              { src: "/trucks/4.mp4", type: "video" as const },
+              { src: "/trucks/2.jpg", type: "image" as const },
+              { src: "/trucks/3.jpg", type: "image" as const },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative aspect-square overflow-hidden rounded-lg"
+              >
+                {item.type === "video" ? (
+                  <video
+                    src={item.src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={`Pizza truck ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
+                <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/20" />
+              </div>
+            ))}
           </div>
         </div>
       </section>

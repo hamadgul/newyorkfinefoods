@@ -12,31 +12,13 @@ export const metadata: Metadata = {
     "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
 };
 
-const foodShowcase = [
-  {
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-    caption: "Plated fine dining",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
-    caption: "Seasonal dishes",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80",
-    caption: "Artful presentation",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=800&q=80",
-    caption: "Fresh ingredients",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
-    caption: "Wood-fired specialties",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&q=80",
-    caption: "Dessert artistry",
-  },
+const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] = [
+  { src: "/catering/1.jpg", type: "image", caption: "Plated fine dining" },
+  { src: "/catering/3.mp4", type: "video", caption: "Fresh from the kitchen" },
+  { src: "/catering/2.jpg", type: "image", caption: "Seasonal dishes" },
+  { src: "/catering/4.mp4", type: "video", caption: "Artful presentation" },
+  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", type: "image", caption: "Restaurant-quality plating" },
+  { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80", type: "image", caption: "Fresh ingredients" },
 ];
 
 const steps = [
@@ -147,12 +129,23 @@ export default function CateringPage() {
                 key={i}
                 className="group relative aspect-[4/3] overflow-hidden rounded-xl"
               >
-                <Image
-                  src={item.image}
-                  alt={item.caption}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                {item.type === "video" ? (
+                  <video
+                    src={item.src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.caption}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium text-ivory opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {item.caption}
