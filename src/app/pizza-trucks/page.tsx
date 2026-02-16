@@ -188,7 +188,7 @@ export default function PizzaTrucksPage() {
       <div id="menu">
         <MenuSection
           title="Our Pizza Menu"
-          subtitle="Hand-stretched dough, premium ingredients, fired in our wood-burning oven."
+          subtitle="Neapolitan-style, hand-stretched dough, premium ingredients, fired in our wood-burning oven."
           items={pizzaMenu}
           dark
         />

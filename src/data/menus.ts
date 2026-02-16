@@ -84,12 +84,13 @@ export const cateringMenus: MenuCategory[] = [
 ];
 
 export const pizzaMenu: MenuItem[] = [
-  { name: "Margherita Classica", description: "San Marzano tomatoes, fresh mozzarella, basil, olive oil" },
-  { name: "Pepperoni & Honey", description: "Cup-and-char pepperoni, mozzarella, hot honey drizzle" },
-  { name: "Truffle Mushroom", description: "Wild mushroom medley, fontina, truffle oil, fresh thyme" },
-  { name: "Prosciutto & Arugula", description: "Prosciutto di Parma, arugula, shaved parmesan, lemon" },
-  { name: "BBQ Chicken", description: "Smoked chicken, red onion, cilantro, house BBQ sauce" },
-  { name: "Spicy Sausage", description: "Italian sausage, roasted peppers, caramelized onions, chili flakes" },
-  { name: "Quattro Formaggi", description: "Mozzarella, gorgonzola, fontina, pecorino romano" },
-  { name: "Seasonal Special", description: "Chef's rotating creation with seasonal ingredients" },
+  { name: "Marinara (No Cheese)", description: "Tomato sauce, basil, fresh garlic, oregano, EVOO" },
+  { name: "Margherita (Cheese)", description: "Tomato sauce, fior di latte, basil, parmigiano, EVOO" },
+  { name: "Bianca (White)", description: "No sauce, fior di latte, basil, parmigiano, fresh garlic, oregano, EVOO" },
+  { name: "Pepperoni", description: "Tomato sauce, fior di latte, basil, parmigiano, rosa grande pepperoni, EVOO" },
+  { name: "Sausage", description: "Tomato sauce, fior di latte, basil, parmigiano, crumbled Italian sausage, EVOO" },
+  { name: "Diavola (Spicy)", description: "Tomato sauce, fior di latte, basil, parmigiano, hot soppressata, jalapeño, hot honey, EVOO" },
+  { name: "Mushroom Truffle", description: "No sauce, fior di latte, basil, parmigiano, cremini mushroom, white truffle oil, EVOO" },
+  { name: "Prosciutto di Parma", description: "Tomato sauce, fior di latte, basil, arugula, prosciutto di Parma, shaved parmigiano, EVOO" },
+  { name: "Burrata", description: "No sauce, burrata mozzarella, basil, parmigiano, cherry tomato, shaved parmigiano, EVOO" },
 ];
