@@ -101,7 +101,7 @@ export default function PizzaTrucksPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
             Our wood-fired pizza trucks bring authentic Neapolitan pizza —
-            made fresh, served hot — to any event, anywhere in New York City.
+            made fresh, served hot — to any event, anywhere in New York City or the Tri-State Area.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link

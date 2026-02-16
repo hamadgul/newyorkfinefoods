@@ -9,8 +9,7 @@ const services = [
     title: "Catering",
     description:
       "Chef-crafted menus for intimate dinners to grand galas.",
-    image:
-      "https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80",
+    image: "/catering-service.jpg",
     href: "/catering",
   },
   {
@@ -25,8 +24,7 @@ const services = [
     title: "Pizza Trucks",
     description:
       "Wood-fired Neapolitan pizza, served fresh at your doorstep.",
-    image:
-      "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80",
+    image: "/pizza-trucks-service.jpg",
     href: "/pizza-trucks",
   },
 ];
@@ -56,21 +54,32 @@ export default function HomePage() {
         {/* Background collage grid */}
         <div className="absolute inset-0 grid grid-cols-3 grid-rows-2">
           {[
-            "https://images.unsplash.com/photo-1555244162-803834f70033?w=800&q=80",
-            "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-            "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
-            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
-            "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
-            "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80",
-          ].map((img, i) => (
+            { src: "/hero/1.jpg", type: "image" as const },
+            { src: "/hero/2.jpg", type: "image" as const },
+            { src: "/hero/3.jpg", type: "image" as const },
+            { src: "/hero/4.jpg", type: "image" as const },
+            { src: "/hero/5.jpg", type: "image" as const },
+            { src: "/hero/6.mp4", type: "video" as const },
+          ].map((item, i) => (
             <div key={i} className="relative overflow-hidden">
-              <Image
-                src={img}
-                alt=""
-                fill
-                className="object-cover"
-                priority={i < 3}
-              />
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={item.src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  priority={i < 3}
+                />
+              )}
             </div>
           ))}
         </div>
