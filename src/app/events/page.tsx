@@ -45,34 +45,34 @@ export default function EventsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal/80" />
         </div>
 
-        <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+        <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
             Weddings &middot; Corporate &middot; Celebrations
           </p>
-          <h1 className="mt-6 font-heading text-5xl font-bold leading-[1.1] text-ivory md:text-7xl lg:text-8xl">
+          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Events That<br />
             <span className="text-gold">Leave a Mark</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ivory/70 md:text-xl">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
             From concept to the last dance — we design, plan, and cater
             extraordinary events that your guests will talk about for years.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
               href="#inquiry"
-              className="rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
+              className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
               Plan Your Event
             </Link>
             <Link
               href="#types"
-              className="rounded-full border border-ivory/30 px-10 py-4 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold"
+              className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
             >
               See Event Types
             </Link>
           </div>
 
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-ivory/40">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-ivory/40 sm:mt-16 sm:gap-8">
             <span className="text-center text-xs uppercase tracking-widest">
               <span className="block font-heading text-2xl font-bold text-ivory/70">500+</span>
               Events Produced

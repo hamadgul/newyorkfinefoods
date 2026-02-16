@@ -32,22 +32,22 @@ export function Hero({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-6 pt-20 text-center">
-        <div className="mx-auto mb-8 h-px w-20 bg-gold/60" />
+      <div className="relative z-10 mx-auto max-w-4xl px-6 pt-24 pb-12 text-center">
+        <div className="mx-auto mb-6 h-px w-20 bg-gold/60 sm:mb-8" />
         <h1
           className={`font-heading font-bold leading-tight text-ivory ${
-            compact ? "text-3xl md:text-5xl" : "text-4xl md:text-6xl lg:text-7xl"
+            compact ? "text-2xl sm:text-3xl md:text-5xl" : "text-3xl sm:text-4xl md:text-6xl lg:text-7xl"
           }`}
         >
           {title}
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ivory/80 md:text-xl">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ivory/80 sm:mt-6 md:text-xl">
           {subtitle}
         </p>
         {ctaText && (
           <Link
             href={ctaHref}
-            className="mt-10 inline-block rounded-full bg-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
+            className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20 sm:mt-10 sm:px-10 sm:py-3.5"
           >
             {ctaText}
           </Link>
