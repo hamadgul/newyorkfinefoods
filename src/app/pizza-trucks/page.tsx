@@ -64,12 +64,13 @@ export default function PizzaTrucksPage() {
         {/* Background — dramatic pizza close-up with side-by-side action shots */}
         <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-3">
           <div className="relative col-span-1 md:col-span-2 overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80"
-              alt=""
-              fill
-              className="object-cover"
-              priority
+            <video
+              src="/gallery/4.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-full w-full object-cover"
             />
           </div>
           <div className="relative hidden md:grid md:grid-rows-2">
