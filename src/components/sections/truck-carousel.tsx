@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { LazyVideo } from "@/components/ui/lazy-video";
 
 const galleryItems: { src: string; type: "image" | "video" }[] = [
   { src: "/trucks/1.jpg", type: "image" },
@@ -88,12 +89,8 @@ export function TruckCarousel() {
       className="group relative aspect-[4/3] w-[75vw] flex-shrink-0 overflow-hidden rounded-lg sm:w-[40vw] md:w-[28vw] lg:w-[22vw]"
     >
       {item.type === "video" ? (
-        <video
+        <LazyVideo
           src={item.src}
-          muted
-          loop
-          playsInline
-          autoPlay
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
       ) : (
@@ -101,6 +98,7 @@ export function TruckCarousel() {
           src={item.src}
           alt=""
           fill
+          loading="lazy"
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
       )}

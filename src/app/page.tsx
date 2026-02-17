@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/sections/cta-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import { INSTAGRAM_URL, INSTAGRAM_HANDLE } from "@/lib/constants";
 
 const services = [
@@ -160,6 +161,7 @@ export default function HomePage() {
                     src={service.image}
                     alt={service.title}
                     fill
+                    loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent" />
@@ -201,12 +203,8 @@ export default function HomePage() {
                 className="group relative aspect-square overflow-hidden rounded-lg"
               >
                 {item.type === "video" ? (
-                  <video
+                  <LazyVideo
                     src={item.src}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
@@ -214,6 +212,7 @@ export default function HomePage() {
                     src={item.src}
                     alt={`Gallery image ${i + 1}`}
                     fill
+                    loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 )}
@@ -252,12 +251,8 @@ export default function HomePage() {
                 className="group relative aspect-square overflow-hidden rounded-lg"
               >
                 {post.type === "video" ? (
-                  <video
+                  <LazyVideo
                     src={post.src}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
@@ -265,6 +260,7 @@ export default function HomePage() {
                     src={post.src}
                     alt={`Instagram post ${i + 1}`}
                     fill
+                    loading="lazy"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 )}

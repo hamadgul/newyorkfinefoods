@@ -153,6 +153,7 @@ export default function PizzaTrucksPage() {
                   src="/trucks/1.jpg"
                   alt="Wood-fired pizza truck"
                   fill
+                  loading="lazy"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-charcoal/30 to-transparent" />

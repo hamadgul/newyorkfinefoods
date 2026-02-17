@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MenuSection } from "@/components/sections/menu-section";
 import { CTASection } from "@/components/sections/cta-section";
 import { QuoteForm } from "@/components/forms/quote-form";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import { cateringMenus } from "@/data/menus";
 
 export const metadata: Metadata = {
@@ -130,12 +131,8 @@ export default function CateringPage() {
                 className="group relative aspect-[4/3] overflow-hidden rounded-xl"
               >
                 {item.type === "video" ? (
-                  <video
+                  <LazyVideo
                     src={item.src}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
@@ -143,6 +140,7 @@ export default function CateringPage() {
                     src={item.src}
                     alt={item.caption}
                     fill
+                    loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 )}
@@ -165,6 +163,7 @@ export default function CateringPage() {
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80"
                 alt="Chef at work"
                 fill
+                loading="lazy"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
