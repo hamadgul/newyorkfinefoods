@@ -31,6 +31,7 @@
 export interface MenuItem {
   name: string;
   description: string;
+  vegetarian?: boolean;
 }
 
 export interface MenuCategory {
@@ -84,13 +85,13 @@ export const cateringMenus: MenuCategory[] = [
 ];
 
 export const pizzaMenu: MenuItem[] = [
-  { name: "Marinara (No Cheese)", description: "Tomato sauce, basil, fresh garlic, oregano, EVOO" },
-  { name: "Margherita (Cheese)", description: "Tomato sauce, fior di latte, basil, parmigiano, EVOO" },
-  { name: "Bianca (White)", description: "No sauce, fior di latte, basil, parmigiano, fresh garlic, oregano, EVOO" },
+  { name: "Marinara (No Cheese)", description: "Tomato sauce, basil, fresh garlic, oregano, EVOO", vegetarian: true },
+  { name: "Margherita (Cheese)", description: "Tomato sauce, fior di latte, basil, parmigiano, EVOO", vegetarian: true },
+  { name: "Bianca (White)", description: "No sauce, fior di latte, basil, parmigiano, fresh garlic, oregano, EVOO", vegetarian: true },
   { name: "Pepperoni", description: "Tomato sauce, fior di latte, basil, parmigiano, rosa grande pepperoni, EVOO" },
   { name: "Sausage", description: "Tomato sauce, fior di latte, basil, parmigiano, crumbled Italian sausage, EVOO" },
   { name: "Diavola (Spicy)", description: "Tomato sauce, fior di latte, basil, parmigiano, hot soppressata, jalapeño, hot honey, EVOO" },
-  { name: "Mushroom Truffle", description: "No sauce, fior di latte, basil, parmigiano, cremini mushroom, white truffle oil, EVOO" },
+  { name: "Mushroom Truffle", description: "No sauce, fior di latte, basil, parmigiano, cremini mushroom, white truffle oil, EVOO", vegetarian: true },
   { name: "Prosciutto di Parma", description: "Tomato sauce, fior di latte, basil, arugula, prosciutto di Parma, shaved parmigiano, EVOO" },
-  { name: "Burrata", description: "No sauce, burrata mozzarella, basil, parmigiano, cherry tomato, shaved parmigiano, EVOO" },
+  { name: "Burrata", description: "No sauce, burrata mozzarella, basil, parmigiano, cherry tomato, shaved parmigiano, EVOO", vegetarian: true },
 ];

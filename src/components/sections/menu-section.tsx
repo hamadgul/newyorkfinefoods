@@ -30,6 +30,15 @@ export function MenuSection({
       <div className="flex items-center gap-3">
         <span className={`h-1.5 w-1.5 rounded-full ${dotColor}`} />
         <h3 className="font-heading text-lg font-semibold">{item.name}</h3>
+        {item.vegetarian && (
+          <span className="flex items-center gap-1 rounded-full bg-green-600/15 px-2 py-0.5 text-xs font-medium text-green-600" title="Vegetarian">
+            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M17 8c.7-1 1.5-2.5 2-5C13 3 9 7 8 12c-1 5 1 8 1 8s2.5-2 4-4c1.5-2 3-5 4-8z" />
+              <path d="M6 16c1-2 3-4 6-6" />
+            </svg>
+            Veggie
+          </span>
+        )}
       </div>
       <p className={`mt-1.5 pl-[18px] text-sm leading-relaxed ${descColor}`}>
         {item.description}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MenuSection } from "@/components/sections/menu-section";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
+import { TruckCarousel } from "@/components/sections/truck-carousel";
 import { pizzaMenu } from "@/data/menus";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ const truckFeatures = [
   "Custom wood-fired ovens",
   "900°F cooking temp",
   "90-second cook time",
+  "14\" & 10\" (personal) pies",
   "Up to 200+ guests",
   "Full setup & cleanup",
   "Professional service staff",
@@ -168,10 +170,12 @@ export default function PizzaTrucksPage() {
                 Our custom-built, wood-fired pizza trucks bring authentic
                 Neapolitan-style pizza straight to your event. Each truck houses
                 a handcrafted oven that reaches 900°F, producing perfectly
-                charred, restaurant-quality pies in just 90 seconds. Whether
-                it&apos;s a wedding, corporate event, or backyard party — we
-                show up, set up, and serve unforgettable pizza from start to
-                finish.
+                charred, restaurant-quality pies in just 90 seconds. We offer
+                both 14&quot; full-size and 10&quot; personal Neapolitan pizzas, and
+                can accommodate a wide range of custom requests beyond what&apos;s
+                listed on our menu. Whether it&apos;s a wedding, corporate event,
+                or backyard party — we show up, set up, and serve unforgettable
+                pizza from start to finish.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {truckFeatures.map((f) => (
@@ -206,37 +210,8 @@ export default function PizzaTrucksPage() {
             </p>
             <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {[
-              { src: "/trucks/1.jpg", type: "image" as const },
-              { src: "/trucks/4.mp4", type: "video" as const },
-              { src: "/trucks/2.jpg", type: "image" as const },
-              { src: "/trucks/3.jpg", type: "image" as const },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group relative aspect-square overflow-hidden rounded-lg"
-              >
-                {item.type === "video" ? (
-                  <video
-                    src={item.src}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={`Pizza truck ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                )}
-                <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/20" />
-              </div>
-            ))}
+          <div className="mt-14">
+            <TruckCarousel />
           </div>
         </div>
       </section>
@@ -245,7 +220,7 @@ export default function PizzaTrucksPage() {
       <div id="menu">
         <MenuSection
           title="Our Pizza Menu"
-          subtitle="Neapolitan-style, hand-stretched dough, premium ingredients, fired in our wood-burning oven."
+          subtitle="Neapolitan-style, hand-stretched dough, premium ingredients, fired in our wood-burning oven. Available in 14″ and 10″ (personal) sizes. Custom requests welcome."
           items={pizzaMenu}
           dark
         />
