@@ -8,14 +8,14 @@ const services = [
   {
     title: "Catering",
     description:
-      "Chef-crafted menus for intimate dinners to grand galas.",
+      "We bring restaurant-quality cuisine to your venue — custom menus, fresh preparation, and flawless service from 20 to 1,000 guests.",
     image: "/catering-service.jpg",
     href: "/catering",
   },
   {
     title: "Events",
     description:
-      "Weddings, corporate, and celebrations — planned to perfection.",
+      "We handle every detail — venue coordination, staffing, setup, and teardown — so you can enjoy the celebration.",
     image:
       "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
     href: "/events",
@@ -121,13 +121,13 @@ export default function HomePage() {
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">15+</span>
-              Years in NYC
+              <span className="block font-heading text-2xl font-bold text-ivory/70">500+</span>
+              Private Events Produced
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">98%</span>
-              Client Satisfaction
+              <span className="block font-heading text-2xl font-bold text-ivory/70 normal-case">Countless</span>
+              Pizza Trucks Available
             </span>
           </div>
         </div>

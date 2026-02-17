@@ -102,7 +102,7 @@ export default function CateringPage() {
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">15+</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70">30+</span>
               Years
             </span>
           </div>

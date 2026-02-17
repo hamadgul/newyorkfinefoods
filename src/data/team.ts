@@ -38,7 +38,7 @@ export const teamMembers: TeamMember[] = [
 
 export const stats = [
   { value: "2,500+", label: "Events Catered" },
-  { value: "15+", label: "Years of Experience" },
+  { value: "30+", label: "Years of Experience" },
   { value: "98%", label: "Client Satisfaction" },
   { value: "50+", label: "Team Members" },
 ];

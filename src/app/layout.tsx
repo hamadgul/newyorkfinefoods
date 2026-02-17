@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
   description:
     "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+  icons: {
+    icon: "/browserLogo.jpg",
+  },
 };
 
 export default function RootLayout({
