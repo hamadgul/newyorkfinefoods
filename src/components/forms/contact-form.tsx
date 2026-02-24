@@ -68,6 +68,24 @@ export function ContactForm() {
         <Input id="phone" name="phone" type="tel" placeholder="(555) 000-0000" />
       </div>
       <div className="space-y-2">
+        <Label htmlFor="serviceType">What are you booking?</Label>
+        <select
+          id="serviceType"
+          name="serviceType"
+          required
+          className="flex h-11 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-charcoal shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select a service
+          </option>
+          <option value="Catering">Catering</option>
+          <option value="Full Event Service">Full Event Service</option>
+          <option value="Pizza Truck">Pizza Truck</option>
+          <option value="All of the Above">All of the Above</option>
+        </select>
+      </div>
+      <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
         <Textarea
           id="message"
