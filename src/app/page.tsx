@@ -99,18 +99,12 @@ export default function HomePage() {
             From elegant receptions to wood-fired pizza parties — we bring
             restaurant-quality dining to every occasion across New York City &amp; the Tri-State Area.
           </p>
-          <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
+          <div className="mt-8 flex w-full flex-col sm:mt-10 sm:w-auto">
             <Link
               href="/contact"
               className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
               Book Your Event
-            </Link>
-            <Link
-              href="/catering"
-              className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
-            >
-              Explore Menus
             </Link>
           </div>
 
