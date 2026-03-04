@@ -63,25 +63,29 @@ export function ContactForm() {
   // Step 1: Service selection
   if (!serviceType) {
     return (
-      <div className="rounded-lg bg-white p-8 shadow-sm">
-        <h3 className="font-heading text-2xl font-bold text-charcoal">
+      <div className="rounded-xl bg-white p-8 shadow-lg ring-1 ring-charcoal/5 sm:p-10">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
+          Book With Us
+        </p>
+        <h3 className="mt-2 font-heading text-2xl font-bold text-charcoal sm:text-3xl">
           What are you looking for?
         </h3>
-        <p className="mt-2 text-sm text-charcoal/60">
+        <p className="mt-2 text-charcoal/60">
           Select a service and we&apos;ll tailor the form to your needs.
         </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className="mx-auto mt-2 h-px w-12 bg-gold/40" />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {serviceOptions.map((option) => (
             <button
               key={option.value}
               type="button"
               onClick={() => setServiceType(option.value)}
-              className="group rounded-xl border border-charcoal/10 bg-ivory/50 p-5 text-left transition-all duration-200 hover:border-gold hover:bg-gold/5 hover:shadow-md"
+              className="group rounded-xl border-2 border-charcoal/10 bg-ivory/30 p-6 text-left transition-all duration-200 hover:border-gold hover:bg-gold/5 hover:shadow-lg"
             >
-              <span className="block font-heading text-lg font-semibold text-charcoal transition-colors group-hover:text-gold">
+              <span className="block font-heading text-lg font-bold text-charcoal transition-colors group-hover:text-gold">
                 {option.label}
               </span>
-              <span className="mt-1 block text-sm text-charcoal/50">
+              <span className="mt-1.5 block text-sm leading-relaxed text-charcoal/50">
                 {option.description}
               </span>
             </button>

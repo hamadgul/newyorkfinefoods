@@ -19,47 +19,46 @@ export default function ContactPage() {
         compact
       />
 
-      <section className="bg-ivory py-12 sm:py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-12 lg:grid-cols-2">
-            {/* Form */}
-            <ContactForm />
+      {/* Form — centered and prominent */}
+      <section className="relative z-10 -mt-12 bg-transparent pb-0 sm:-mt-16">
+        <div className="mx-auto max-w-2xl px-6">
+          <ContactForm />
+        </div>
+      </section>
 
-            {/* Contact Info & Map */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-heading text-2xl font-bold text-charcoal">
-                  Contact Information
-                </h3>
-                <ul className="mt-6 space-y-4">
-                  <li>
-                    <p className="text-sm font-medium text-charcoal/40">Phone</p>
-                    <a
-                      href={`tel:${CONTACT_PHONE}`}
-                      className="mt-1 block text-charcoal transition-colors hover:text-gold"
-                    >
-                      {CONTACT_PHONE}
-                    </a>
-                  </li>
-                  <li>
-                    <p className="text-sm font-medium text-charcoal/40">Email</p>
-                    <a
-                      href={`mailto:${CONTACT_EMAIL}`}
-                      className="mt-1 block text-charcoal transition-colors hover:text-gold"
-                    >
-                      {CONTACT_EMAIL}
-                    </a>
-                  </li>
-                  <li>
-                    <p className="text-sm font-medium text-charcoal/40">Hours</p>
-                    <p className="mt-1 text-charcoal">
-                      Mon – Fri: 9:00 AM – 7:00 PM
-                    </p>
-                    <p className="text-charcoal">Sat – Sun: 10:00 AM – 5:00 PM</p>
-                  </li>
-                </ul>
-              </div>
-
+      {/* Contact info bar */}
+      <section className="bg-ivory py-16">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="grid gap-8 text-center sm:grid-cols-3">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40">
+                Phone
+              </p>
+              <a
+                href={`tel:${CONTACT_PHONE}`}
+                className="mt-2 block font-heading text-lg font-semibold text-charcoal transition-colors hover:text-gold"
+              >
+                {CONTACT_PHONE}
+              </a>
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40">
+                Email
+              </p>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="mt-2 block font-heading text-lg font-semibold text-charcoal transition-colors hover:text-gold"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40">
+                Hours
+              </p>
+              <p className="mt-2 font-heading text-lg font-semibold text-charcoal">
+                Mon–Fri 9–7 &middot; Sat–Sun 10–5
+              </p>
             </div>
           </div>
         </div>
