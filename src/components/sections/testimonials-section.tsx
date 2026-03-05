@@ -20,11 +20,10 @@ export function TestimonialsSection() {
               key={t.name}
               className="relative rounded-xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
             >
-              <span className="absolute -top-3 left-6 font-heading text-5xl leading-none text-gold/30">
-                &ldquo;
-              </span>
-              <p className="relative text-charcoal/80 leading-relaxed italic">
+              <p className="text-charcoal/80 leading-relaxed italic">
+                <span className="font-heading text-2xl leading-none text-gold/40">&ldquo;</span>
                 {t.quote}
+                <span className="font-heading text-2xl leading-none text-gold/40">&rdquo;</span>
               </p>
               <div className="mt-6 flex items-center gap-4 border-t border-charcoal/10 pt-5">
                 <div className="h-10 w-10 rounded-full bg-gold/15 flex items-center justify-center">
