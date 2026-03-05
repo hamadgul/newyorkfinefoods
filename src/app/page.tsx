@@ -291,6 +291,7 @@ export default function HomePage() {
         title="Ready to Elevate Your Next Event?"
         subtitle="Let's create something extraordinary together. Get in touch for a free consultation."
         ctaText="Get Started"
+        dark={false}
       />
     </>
   );
