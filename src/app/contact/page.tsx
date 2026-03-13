@@ -29,7 +29,7 @@ export default function ContactPage() {
       {/* Contact info bar */}
       <section className="bg-ivory py-16">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="grid gap-8 text-center sm:grid-cols-3">
+          <div className="grid gap-8 text-center sm:grid-cols-2">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40">
                 Phone
@@ -51,14 +51,6 @@ export default function ContactPage() {
               >
                 {CONTACT_EMAIL}
               </a>
-            </div>
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40">
-                Hours
-              </p>
-              <p className="mt-2 font-heading text-lg font-semibold text-charcoal">
-                Mon–Fri 9–7 &middot; Sat–Sun 10–5
-              </p>
             </div>
           </div>
         </div>

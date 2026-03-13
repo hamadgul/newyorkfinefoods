@@ -40,4 +40,11 @@ export const eventTypes: EventType[] = [
     image:
       "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&q=80",
   },
+  {
+    title: "Emergency Response / Disaster Relief",
+    description:
+      "Providing large-scale, reliable food service for emergency crews, disaster relief operations, and first responders — when it matters most.",
+    image:
+      "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=800&q=80",
+  },
 ];

@@ -9,15 +9,15 @@ import { pizzaMenu } from "@/data/menus";
 export const metadata: Metadata = {
   title: "Pizza Trucks",
   description:
-    "Book our wood-fired pizza trucks for your next event. Authentic Neapolitan pizza served fresh, anywhere in NYC.",
+    "Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.",
 };
 
 const truckFeatures = [
-  "Custom wood-fired ovens",
+  "Custom Neapolitan-style ovens",
   "900°F cooking temp",
   "90-second cook time",
   "14\" & 10\" (personal) pies",
-  "Up to 200+ guests",
+  "Up to 5,000 guests",
   "Full setup & cleanup",
   "Professional service staff",
 ];
@@ -96,15 +96,15 @@ export default function PizzaTrucksPage() {
 
         <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
-            Wood-Fired &middot; Mobile &middot; Unforgettable
+            Authentic Neapolitan Style Pizza &middot; Mobile &middot; Unforgettable
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Pizza That<br />
             <span className="text-gold">Comes to You</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            Our wood-fired pizza trucks bring authentic Neapolitan pizza —
-            made fresh, served hot — to any event, anywhere in New York City or the Tri-State Area.
+            Our Authentic Neapolitan Style Pizza trucks bring fresh, handcrafted pizza —
+            made to order, served hot — to any event, anywhere in New York City or the Tri-State Area.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
@@ -123,7 +123,7 @@ export default function PizzaTrucksPage() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-ivory/40 sm:mt-16 sm:gap-8">
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">200+</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70">5,000</span>
               Max Guests
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
@@ -133,7 +133,7 @@ export default function PizzaTrucksPage() {
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">Wood-Fired</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70">Authentic</span>
               Neapolitan Style
             </span>
           </div>
@@ -151,7 +151,7 @@ export default function PizzaTrucksPage() {
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src="/trucks/1.jpg"
-                  alt="Wood-fired pizza truck"
+                  alt="Authentic Neapolitan Style Pizza truck"
                   fill
                   loading="lazy"
                   className="object-cover"
@@ -163,15 +163,15 @@ export default function PizzaTrucksPage() {
             {/* Details */}
             <div className="w-full lg:w-1/2">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
-                Wood-Fired &amp; Mobile
+                Eco-Friendly &amp; Mobile
               </p>
               <h2 className="mt-2 font-heading text-3xl font-bold text-charcoal md:text-4xl">
                 Our Pizza Trucks
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-charcoal/70">
-                Our custom-built, wood-fired pizza trucks bring authentic
-                Neapolitan-style pizza straight to your event. Each truck houses
-                a handcrafted oven that reaches 900°F, producing perfectly
+                Our custom-built Authentic Neapolitan Style Pizza trucks bring
+                handcrafted pizza straight to your event. Each truck houses
+                a specially designed oven that reaches 900°F, producing perfectly
                 charred, restaurant-quality pies in just 90 seconds. We offer
                 both 14&quot; full-size and 10&quot; personal Neapolitan pizzas, and
                 can accommodate a wide range of custom requests beyond what&apos;s
