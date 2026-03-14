@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { NAV_LINKS, SITE_NAME, CONTACT_EMAIL, CONTACT_PHONE, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/constants";
+import { NAV_LINKS, SITE_NAME, CONTACT_PHONE, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/constants";
+import { ProtectedEmail } from "@/components/ui/protected-email";
 
 export function Footer() {
   return (
@@ -43,9 +44,7 @@ export function Footer() {
             {CONTACT_PHONE}
           </a>
           <span className="hidden text-ivory/20 sm:inline">|</span>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-gold">
-            {CONTACT_EMAIL}
-          </a>
+          <ProtectedEmail className="transition-colors hover:text-gold" />
           <span className="hidden text-ivory/20 sm:inline">|</span>
           <a
             href={INSTAGRAM_URL}

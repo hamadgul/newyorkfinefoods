@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { ContactForm } from "@/components/forms/contact-form";
-import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants";
+import { CONTACT_PHONE } from "@/lib/constants";
+import { ProtectedEmail } from "@/components/ui/protected-email";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -45,12 +46,7 @@ export default function ContactPage() {
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-charcoal/40">
                 Email
               </p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="mt-2 block font-heading text-lg font-semibold text-charcoal transition-colors hover:text-gold"
-              >
-                {CONTACT_EMAIL}
-              </a>
+              <ProtectedEmail className="mt-2 block font-heading text-lg font-semibold text-charcoal transition-colors hover:text-gold" />
             </div>
           </div>
         </div>
