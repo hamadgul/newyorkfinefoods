@@ -5,31 +5,31 @@ export function proxy() {
 
   // Content Security Policy
   const csp = [
-    // Default to self for everything except what's explicitly allowed
     "default-src 'self'",
-    // Scripts: allow self, inline scripts, and specific trusted domains
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
-    // Styles: allow self and inline styles
+    // Remove unsafe-eval; unsafe-inline is retained for Next.js hydration scripts
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
     "style-src 'self' 'unsafe-inline'",
-    // Images: allow self, data URLs, and image optimization
-    "img-src 'self' data: https:",
-    // Fonts: allow self and font optimization
+    // Restrict images to known domains only
+    "img-src 'self' data: https://images.unsplash.com",
     "font-src 'self'",
-    // Connect: allow self and specific domains for API calls
     "connect-src 'self' https://formspree.io",
-    // Frame ancestors: prevent clickjacking
     "frame-ancestors 'none'",
-    // Base URI: restrict to current origin
     "base-uri 'self'",
-    // Form action: allow same origin and Formspree
     "form-action 'self' https://formspree.io",
+    "upgrade-insecure-requests",
   ].join('; ');
 
   response.headers.set('Content-Security-Policy', csp);
-  response.headers.set('Referrer-Policy', 'no-referrer');
+  // strict-origin-when-cross-origin is safer than no-referrer for same-origin navigation
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('X-Frame-Options', 'DENY');
-  response.headers.set('X-XSS-Protection', '1; mode=block');
+  // Deprecated header — set to 0 per OWASP; rely on CSP for XSS protection instead
+  response.headers.set('X-XSS-Protection', '0');
+  // Force HTTPS for 1 year, including subdomains
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  // Disable browser features not needed by this site
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
 
   return response;
 }

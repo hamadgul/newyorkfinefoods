@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { FORMSPREE_ENDPOINT } from "@/lib/constants";
 
 type ServiceType = "" | "Catering" | "Full Event Service" | "Pizza Truck" | "All of the Above";
 
@@ -43,7 +44,7 @@ export function ContactForm() {
     data.append("_form_type", serviceType === "All of the Above" ? "Full Service Inquiry" : `${serviceType} Inquiry`);
     data.append("serviceType", serviceType);
     try {
-      const res = await fetch("https://formspree.io/f/mnjbdepb", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { FORMSPREE_ENDPOINT } from "@/lib/constants";
 
 export function PizzaBookingForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -35,7 +36,7 @@ export function PizzaBookingForm() {
         const data = new FormData(e.currentTarget);
         data.append("_form_type", "Pizza Truck Booking");
         try {
-          const res = await fetch("https://formspree.io/f/mnjbdepb", {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
             method: "POST",
             body: data,
             headers: { Accept: "application/json" },

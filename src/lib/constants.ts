@@ -19,6 +19,10 @@ export const NAV_LINKS = [
 export const INSTAGRAM_HANDLE = "@newyorkfinefoods";
 export const INSTAGRAM_URL = "https://www.instagram.com/newyorkfinefoods";
 
+// Formspree endpoint — override via NEXT_PUBLIC_FORMSPREE_ENDPOINT env var
+export const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/mnjbdepb';
+
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/newyorkfinefoods",
   facebook: "https://facebook.com/newyorkfinefoods",
