@@ -2,14 +2,14 @@
 
 **Date:** 2026-03-18
 **Site:** https://www.newyorkfinefoods.com
-**Framework:** Next.js 15, TypeScript, Tailwind CSS
+**Framework:** Next.js 16, TypeScript, Tailwind CSS
 **Scope:** Option B — Technical SEO + Blog Scaffold (no content authoring)
 
 ---
 
 ## 1. Context & Goals
 
-New York Fine Foods is an NYC-based premium catering, event planning, and Neapolitan pizza truck rental company. The site has 6 pages (home, about, catering, events, pizza-trucks, contact) and is built with the Next.js App Router.
+New York Fine Foods is an NYC-based premium catering, event planning, and Neapolitan pizza truck rental company. The site has 6 pages (home, about, catering, events, pizza-trucks, contact) and is built with the Next.js 16 App Router.
 
 **Goals:**
 - Rank for local NYC searches (catering, events, pizza trucks)
@@ -31,14 +31,17 @@ New York Fine Foods is an NYC-based premium catering, event planning, and Neapol
 
 ## 2. Architecture Overview
 
-Four work streams, each independent and additive:
+Four work streams. **Dependency:** Workstream 1 (sitemap) depends on Workstream 4 (blog scaffold) because `sitemap.ts` calls `getAllPosts()`.
 
-1. **Technical SEO Foundations** — robots, sitemap, metadataBase
-2. **Metadata Enhancements** — OG tags, Twitter cards, canonicals on all pages
-3. **JSON-LD Structured Data** — Organization, LocalBusiness, Service, WebSite schemas
-4. **Blog Scaffold** — routes, content pipeline, types, empty content directory
+**Implementation order: 4 → 1 → 2 → 3**
 
-All business data (name, URL, phone, email, social handles) is sourced from `src/lib/constants.ts` to keep a single source of truth.
+All business data sourced from `src/lib/constants.ts`. The following values are confirmed present:
+- `CONTACT_PHONE`: `(516) 205-7629`
+- `CONTACT_EMAIL`: `info@newyorkfinefoods.com`
+- `SITE_DESCRIPTION`: the full business description string (used as `description` in JSON-LD)
+- `INSTAGRAM_URL`: `https://www.instagram.com/newyorkfinefoods`
+- `SOCIAL_LINKS.facebook`: `https://facebook.com/newyorkfinefoods`
+- `SOCIAL_LINKS.twitter`: `https://twitter.com/nyfinefoods` → handle `@nyfinefoods`
 
 ---
 
@@ -47,10 +50,7 @@ All business data (name, URL, phone, email, social handles) is sourced from `src
 ### Files
 
 **`app/robots.ts`**
-Dynamic Next.js robots route. Allows all crawlers, disallows nothing, points to sitemap.
-
 ```ts
-// app/robots.ts
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -62,64 +62,72 @@ export default function robots(): MetadataRoute.Robots {
 ```
 
 **`app/sitemap.ts`**
-Dynamic sitemap covering all static routes + future blog posts. Reads `getAllPosts()` to append blog slugs automatically.
+Calls `getAllPosts()` from `src/lib/blog.ts`. Returns `[]` gracefully when no posts exist (no compile error, no sitemap entries added).
 
-| Route | Priority | Change Frequency |
-|-------|----------|-----------------|
-| `/` | 1.0 | weekly |
-| `/catering` | 0.8 | monthly |
-| `/events` | 0.8 | monthly |
-| `/pizza-trucks` | 0.8 | monthly |
-| `/about` | 0.6 | monthly |
-| `/contact` | 0.6 | monthly |
-| `/blog` | 0.6 | weekly |
-| `/blog/[slug]` | 0.7 | monthly (per post) |
+| Route | Priority | Change Frequency | `lastModified` |
+|-------|----------|-----------------|----------------|
+| `/` | 1.0 | weekly | `new Date()` (build time) |
+| `/catering` | 0.8 | monthly | `new Date()` |
+| `/events` | 0.8 | monthly | `new Date()` |
+| `/pizza-trucks` | 0.8 | monthly | `new Date()` |
+| `/about` | 0.6 | monthly | `new Date()` |
+| `/contact` | 0.6 | monthly | `new Date()` |
+| `/blog` | 0.6 | weekly | `new Date()` |
+| `/blog/[slug]` | 0.7 | monthly | Post frontmatter `date` field |
 
 **`metadataBase` in `app/layout.tsx`**
 ```ts
 metadataBase: new URL('https://www.newyorkfinefoods.com')
 ```
-This single addition unblocks all relative OG image URLs and canonical URL resolution.
 
 ---
 
 ## 4. Section 2: Metadata Enhancements
 
-### Root Layout (`app/layout.tsx`)
+### OG Image
 
-Add to the existing `metadata` export:
+Uses `/public/apple-touch-icon.png` (180×180px). **Known limitation:** standard OG images are 1200×630px. This is an accepted trade-off per client preference. Create `/public/og-image.png` (1200×630) and update metadata when available.
+
+Twitter card type is `summary` — appropriate for a square image.
+
+### Root Layout (`app/layout.tsx`)
 
 ```ts
 metadataBase: new URL('https://www.newyorkfinefoods.com'),
-keywords: ['NYC catering', 'catering company New York', 'event planning NYC',
-           'pizza truck rental NYC', 'Neapolitan pizza truck', 'corporate catering New York',
-           'wedding catering NYC', 'New York Fine Foods'],
+keywords: [
+  'NYC catering', 'catering company New York', 'event planning NYC',
+  'pizza truck rental NYC', 'Neapolitan pizza truck', 'corporate catering New York',
+  'wedding catering NYC', 'New York Fine Foods'
+],
 authors: [{ name: 'New York Fine Foods' }],
 openGraph: {
   type: 'website',
   locale: 'en_US',
   siteName: 'New York Fine Foods',
-  images: [{ url: '/favicon-48x48.png', width: 48, height: 48, alt: 'New York Fine Foods Logo' }],
+  images: [{
+    url: '/apple-touch-icon.png',
+    width: 180,
+    height: 180,
+    alt: 'New York Fine Foods Logo',
+  }],
 },
 twitter: {
   card: 'summary',
   site: '@nyfinefoods',
 },
-alternates: {
-  canonical: 'https://www.newyorkfinefoods.com',
-},
+// DO NOT add alternates.canonical here.
+// A root layout canonical would propagate the homepage URL to every page
+// that lacks an explicit per-page override — a significant SEO error.
 ```
 
-**OG image:** Uses the existing `/public/favicon-48x48.png` (or highest-res logo available). No new image assets required.
+### Per-Page Metadata (all 6 existing pages)
 
-### Per-Page Metadata (all 6 pages)
-
-Each page adds `openGraph`, `twitter`, and `alternates.canonical` to its existing metadata export. Example for `/catering`:
+Every page must have an explicit `alternates.canonical`. There is no canonical fallback from the layout. Example for `/catering`:
 
 ```ts
 export const metadata: Metadata = {
   title: 'Catering',
-  description: "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
+  description: "NYC's finest catering — restaurant-quality food crafted for your event.",
   alternates: { canonical: 'https://www.newyorkfinefoods.com/catering' },
   openGraph: {
     title: 'NYC Catering Services | New York Fine Foods',
@@ -133,7 +141,24 @@ export const metadata: Metadata = {
 }
 ```
 
-Same pattern applied to: home, about, events, pizza-trucks, contact.
+Same pattern for: home (`/`), about (`/about`), events (`/events`), pizza-trucks (`/pizza-trucks`), contact (`/contact`).
+
+### `/blog` Page Metadata
+
+The blog listing page shows "Coming Soon" content. It should **not** be indexed until real posts exist:
+
+```ts
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Catering tips, event planning guides, and more from New York Fine Foods.',
+  robots: { index: false, follow: true },
+  alternates: { canonical: 'https://www.newyorkfinefoods.com/blog' },
+  openGraph: { ... },
+  twitter: { ... },
+}
+```
+
+When the first post is published, remove `robots: { index: false, follow: true }` to allow indexing.
 
 ---
 
@@ -141,76 +166,121 @@ Same pattern applied to: home, about, events, pizza-trucks, contact.
 
 ### Component
 
-**`src/components/json-ld.tsx`** — A minimal server component that renders a `<script type="application/ld+json">` tag. Accepts a `data` prop of any Schema.org object.
+**`src/components/json-ld.tsx`** — Server component rendering `<script type="application/ld+json">`. Accepts `data: Record<string, unknown>`.
 
-### Root Layout Schemas (present on every page)
+### Root Layout Schemas
 
 **`Organization`:**
-- `@type`: Organization
-- `name`: New York Fine Foods
-- `url`: https://www.newyorkfinefoods.com
-- `logo`: favicon URL
-- `telephone`: (516) 205-7629
-- `email`: info@newyorkfinefoods.com
-- `sameAs`: Instagram, Facebook, Twitter URLs
-
-**`LocalBusiness` (subtype `CateringService`):**
-- `@type`: ["LocalBusiness", "CateringService"]
-- `name`, `url`, `telephone`, `email`
-- `address`: New York City, NY, US
-- `areaServed`: New York City
-- `priceRange`: $$$
-
-**`WebSite` with SearchAction:**
 ```json
 {
-  "@type": "WebSite",
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "New York Fine Foods",
   "url": "https://www.newyorkfinefoods.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.newyorkfinefoods.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "logo": "https://www.newyorkfinefoods.com/apple-touch-icon.png",
+  "telephone": "(516) 205-7629",
+  "email": "info@newyorkfinefoods.com",
+  "sameAs": [
+    "https://www.instagram.com/newyorkfinefoods",
+    "https://facebook.com/newyorkfinefoods",
+    "https://twitter.com/nyfinefoods"
+  ]
 }
 ```
 
+**`LocalBusiness`:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "CateringService"],
+  "name": "New York Fine Foods",
+  "url": "https://www.newyorkfinefoods.com",
+  "description": "<SITE_DESCRIPTION from constants.ts>",
+  "telephone": "(516) 205-7629",
+  "email": "info@newyorkfinefoods.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "addressCountry": "US"
+  },
+  "areaServed": "New York City",
+  "priceRange": "$$-$$$"
+}
+```
+
+**PostalAddress note:** `streetAddress` is intentionally omitted — no confirmed street address is present in `src/lib/constants.ts`. If the client confirms a street address, add a `CONTACT_ADDRESS` export to `constants.ts` and include `streetAddress` in the schema.
+
+**`priceRange` TODO:** Confirm `"$$-$$$"` with client before deploying. This value appears in Google's local knowledge panel. If the client prefers a different value, add `PRICE_RANGE` to `constants.ts` and reference it from the schema.
+
+**`WebSite`:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "New York Fine Foods",
+  "url": "https://www.newyorkfinefoods.com"
+}
+```
+`SearchAction` is intentionally omitted — the site has no search functionality.
+
 ### Service Page Schemas
 
-| Page | Schema type | Key fields |
-|------|-------------|-----------|
-| `/catering` | `Service` | name: "NYC Catering Services", areaServed: "New York City" |
-| `/events` | `Service` | name: "Event Planning NYC", areaServed: "New York City" |
-| `/pizza-trucks` | `Service` | name: "Neapolitan Pizza Truck Rental NYC", areaServed: "New York City" |
+| Page | `name` | `areaServed` |
+|------|--------|-------------|
+| `/catering` | "NYC Catering Services" | "New York City" |
+| `/events` | "Event Planning NYC" | "New York City" |
+| `/pizza-trucks` | "Neapolitan Pizza Truck Rental NYC" | "New York City" |
 
-### Blog Schema (future-ready)
+Each includes `@type: "Service"` and `provider` referencing the Organization.
 
-`app/blog/[slug]/page.tsx` renders an `Article` schema populated from post frontmatter:
-- `@type`: Article
-- `headline`, `description`, `datePublished`, `author`, `publisher`
+### Blog Post Schema
+
+`app/blog/[slug]/page.tsx` renders an `Article` schema only when a valid post is found (not on the Coming Soon page):
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "<post title>",
+  "description": "<post description>",
+  "datePublished": "<post date>",
+  "author": { "@type": "Organization", "name": "New York Fine Foods" },
+  "publisher": { "@type": "Organization", "name": "New York Fine Foods" }
+}
+```
 
 ---
 
 ## 6. Section 4: Blog Scaffold
+
+### Prerequisites
+
+Install `gray-matter` before implementing the blog scaffold:
+```bash
+npm install gray-matter
+npm install --save-dev @types/gray-matter
+```
 
 ### New Files
 
 ```
 app/
   blog/
-    page.tsx              # Listing page — "Coming Soon" UI, full metadata
+    page.tsx                # Coming Soon listing — robots: noindex until posts exist
     [slug]/
-      page.tsx            # Post page — generateMetadata(), 404 for unknown slugs
+      page.tsx              # Post page — generateMetadata(), 404, Article schema
 
 src/
   lib/
-    blog.ts               # getAllPosts(), getPostBySlug() reading from /content/blog/
+    blog.ts                 # getAllPosts(), getPostBySlug()
   types/
-    blog.ts               # BlogPost interface
+    blog.ts                 # BlogPost interface
 
 content/
   blog/
-    .gitkeep              # Keeps directory in git
-    _example.mdx          # Frontmatter template for future posts
+    .gitkeep                # Keeps directory in git
+    _example.md             # Frontmatter template (skipped by getAllPosts)
 ```
 
 ### `BlogPost` Interface
@@ -220,15 +290,25 @@ interface BlogPost {
   slug: string
   title: string
   description: string
-  date: string           // ISO 8601
+  date: string       // ISO 8601 e.g. "2026-01-01"
   tags: string[]
-  content: string        // MDX body
+  content: string    // Raw Markdown body
 }
 ```
 
-### MDX Frontmatter Template (`_example.mdx`)
+### Content Pipeline
 
-```mdx
+- **File format:** `.md` (plain Markdown — no MDX runtime required)
+- **Directory:** `content/blog/` (repo root)
+- **Parsing:** `gray-matter` (frontmatter) + Node.js `fs` (file reading)
+- `getAllPosts()`: reads all `.md` files from `content/blog/`, skips `_`-prefixed files, parses frontmatter, returns `BlogPost[]` sorted by `date` descending
+- `getPostBySlug(slug)`: returns `BlogPost | null`
+
+**Server boundary:** `src/lib/blog.ts` uses `fs` (Node.js-only). Add `import 'server-only'` at the top of the file to prevent accidental import into Client Components, which would cause a runtime error.
+
+### `_example.md` Frontmatter Template
+
+```md
 ---
 title: "Post Title Here"
 description: "One-sentence description for SEO meta."
@@ -241,11 +321,14 @@ Post content goes here.
 
 ### Blog Listing UI
 
-Simple "Coming Soon" placeholder with branded styling. No empty state that looks broken — just a clean message: "We're sharing our expertise soon. Check back for catering tips, event planning guides, and more."
+Clean branded page with copy:
+> "We're sharing our expertise soon. Check back for catering tips, event planning guides, and more."
+
+Noindexed until posts exist (see metadata in Section 4).
 
 ### Sitemap Integration
 
-`app/sitemap.ts` calls `getAllPosts()`. If the `/content/blog/` directory is empty, it returns an empty array and blog post entries are omitted from the sitemap gracefully.
+`getAllPosts()` returns `[]` when `content/blog/` has no real posts. Sitemap generates without error; no `/blog/[slug]` entries appear until posts are added.
 
 ---
 
@@ -253,31 +336,46 @@ Simple "Coming Soon" placeholder with branded styling. No empty state that looks
 
 | File | Action | Notes |
 |------|--------|-------|
-| `app/layout.tsx` | Modify | Add metadataBase, OG, Twitter, keywords, JSON-LD component |
-| `app/robots.ts` | Create | New dynamic robots route |
-| `app/sitemap.ts` | Create | New dynamic sitemap |
-| `app/page.tsx` | Modify | Add OG, Twitter, canonical to metadata |
-| `app/about/page.tsx` | Modify | Add OG, Twitter, canonical |
-| `app/catering/page.tsx` | Modify | Add OG, Twitter, canonical + Service schema |
-| `app/events/page.tsx` | Modify | Add OG, Twitter, canonical + Service schema |
-| `app/pizza-trucks/page.tsx` | Modify | Add OG, Twitter, canonical + Service schema |
-| `app/contact/page.tsx` | Modify | Add OG, Twitter, canonical |
-| `app/blog/page.tsx` | Create | Coming Soon listing page |
-| `app/blog/[slug]/page.tsx` | Create | Individual post page |
+| `app/layout.tsx` | Modify | metadataBase, OG, Twitter, keywords, 3 JSON-LD schemas |
+| `app/robots.ts` | Create | Dynamic robots route |
+| `app/sitemap.ts` | Create | Dynamic sitemap (implement after blog scaffold) |
+| `app/page.tsx` | Modify | OG, Twitter, canonical |
+| `app/about/page.tsx` | Modify | OG, Twitter, canonical |
+| `app/catering/page.tsx` | Modify | OG, Twitter, canonical + Service schema |
+| `app/events/page.tsx` | Modify | OG, Twitter, canonical + Service schema |
+| `app/pizza-trucks/page.tsx` | Modify | OG, Twitter, canonical + Service schema |
+| `app/contact/page.tsx` | Modify | OG, Twitter, canonical |
+| `app/blog/page.tsx` | Create | Coming Soon page (noindex) |
+| `app/blog/[slug]/page.tsx` | Create | Post page with generateMetadata + Article schema |
 | `src/components/json-ld.tsx` | Create | JSON-LD script component |
-| `src/lib/blog.ts` | Create | Blog utility functions |
-| `src/types/blog.ts` | Create | BlogPost type |
-| `content/blog/.gitkeep` | Create | Empty blog content directory |
-| `content/blog/_example.mdx` | Create | Frontmatter template |
+| `src/lib/blog.ts` | Create | getAllPosts(), getPostBySlug(), `import 'server-only'` |
+| `src/types/blog.ts` | Create | BlogPost interface |
+| `content/blog/.gitkeep` | Create | Empty content directory |
+| `content/blog/_example.md` | Create | Frontmatter template |
 
 **Total: 6 modified files, 10 new files**
+**Implementation order: 4 (Blog Scaffold) → 1 (Robots + Sitemap) → 2 (Metadata) → 3 (JSON-LD)**
 
 ---
 
-## 8. Out of Scope
+## 8. Known Limitations & TODOs
 
-- Keyword research and copy rewrites (Option C — can be added later)
+| Item | Status | Notes |
+|------|--------|-------|
+| OG image size | Accepted trade-off | 180×180 used now; create `/public/og-image.png` (1200×630) and update metadata when available |
+| `priceRange` | TODO | Confirm `"$$-$$$"` with client; move to `constants.ts` as `PRICE_RANGE` |
+| `streetAddress` in schema | Omitted | Add `CONTACT_ADDRESS` to `constants.ts` if client confirms address |
+| Blog noindex | Intentional | Remove `robots: { index: false }` from `/blog` metadata once first post is published |
+| Twitter handle | TODO | Confirm `@nyfinefoods` account is active before deploying Twitter metadata |
+| `gray-matter` package | Prerequisite | Run `npm install gray-matter` before implementing blog scaffold |
+
+---
+
+## 9. Out of Scope
+
+- Keyword research and copy rewrites
 - Blog content / actual posts
 - Google Search Console verification tag (already set up)
 - Analytics integration (already set up)
-- Performance optimization (separate concern)
+- Performance optimization
+- Site search functionality
