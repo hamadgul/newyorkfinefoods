@@ -40,8 +40,8 @@ All business data sourced from `src/lib/constants.ts`. The following values are 
 - `CONTACT_EMAIL`: `info@newyorkfinefoods.com`
 - `SITE_DESCRIPTION`: the full business description string (used as `description` in JSON-LD)
 - `INSTAGRAM_URL`: `https://www.instagram.com/newyorkfinefoods`
-- `SOCIAL_LINKS.facebook`: `https://facebook.com/newyorkfinefoods`
-- `SOCIAL_LINKS.twitter`: `https://twitter.com/nyfinefoods` → handle `@nyfinefoods`
+
+**Social presence:** Instagram only. No Facebook or Twitter/X accounts exist. `sameAs` in JSON-LD and social metadata use Instagram only.
 
 ---
 
@@ -86,9 +86,7 @@ metadataBase: new URL('https://www.newyorkfinefoods.com')
 
 ### OG Image
 
-Uses `/public/apple-touch-icon.png` (180×180px). **Known limitation:** standard OG images are 1200×630px. This is an accepted trade-off per client preference. Create `/public/og-image.png` (1200×630) and update metadata when available.
-
-Twitter card type is `summary` — appropriate for a square image.
+Uses `/public/OGImage.png` — a proper branded image provided by the client. Twitter card type is `summary_large_image` (banner format, appropriate for a full-size OG image).
 
 ### Root Layout (`app/layout.tsx`)
 
@@ -105,15 +103,12 @@ openGraph: {
   locale: 'en_US',
   siteName: 'New York Fine Foods',
   images: [{
-    url: '/apple-touch-icon.png',
-    width: 180,
-    height: 180,
-    alt: 'New York Fine Foods Logo',
+    url: '/OGImage.png',
+    alt: 'New York Fine Foods',
   }],
 },
 twitter: {
-  card: 'summary',
-  site: '@nyfinefoods',
+  card: 'summary_large_image',
 },
 // DO NOT add alternates.canonical here.
 // A root layout canonical would propagate the homepage URL to every page
@@ -177,13 +172,11 @@ When the first post is published, remove `robots: { index: false, follow: true }
   "@type": "Organization",
   "name": "New York Fine Foods",
   "url": "https://www.newyorkfinefoods.com",
-  "logo": "https://www.newyorkfinefoods.com/apple-touch-icon.png",
+  "logo": "https://www.newyorkfinefoods.com/OGImage.png",
   "telephone": "(516) 205-7629",
   "email": "info@newyorkfinefoods.com",
   "sameAs": [
-    "https://www.instagram.com/newyorkfinefoods",
-    "https://facebook.com/newyorkfinefoods",
-    "https://twitter.com/nyfinefoods"
+    "https://www.instagram.com/newyorkfinefoods"
   ]
 }
 ```
@@ -336,7 +329,7 @@ Noindexed until posts exist (see metadata in Section 4).
 
 | File | Action | Notes |
 |------|--------|-------|
-| `app/layout.tsx` | Modify | metadataBase, OG, Twitter, keywords, 3 JSON-LD schemas |
+| `app/layout.tsx` | Modify | metadataBase, OG (`/OGImage.png`), Twitter `summary_large_image`, keywords, 3 JSON-LD schemas |
 | `app/robots.ts` | Create | Dynamic robots route |
 | `app/sitemap.ts` | Create | Dynamic sitemap (implement after blog scaffold) |
 | `app/page.tsx` | Modify | OG, Twitter, canonical |
@@ -362,11 +355,9 @@ Noindexed until posts exist (see metadata in Section 4).
 
 | Item | Status | Notes |
 |------|--------|-------|
-| OG image size | Accepted trade-off | 180×180 used now; create `/public/og-image.png` (1200×630) and update metadata when available |
 | `priceRange` | TODO | Confirm `"$$-$$$"` with client; move to `constants.ts` as `PRICE_RANGE` |
 | `streetAddress` in schema | Omitted | Add `CONTACT_ADDRESS` to `constants.ts` if client confirms address |
 | Blog noindex | Intentional | Remove `robots: { index: false }` from `/blog` metadata once first post is published |
-| Twitter handle | TODO | Confirm `@nyfinefoods` account is active before deploying Twitter metadata |
 | `gray-matter` package | Prerequisite | Run `npm install gray-matter` before implementing blog scaffold |
 
 ---
