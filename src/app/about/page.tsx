@@ -6,9 +6,23 @@ import { CTASection } from "@/components/sections/cta-section";
 import { teamMembers, stats } from "@/data/team";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: 'About',
   description:
     "Learn about New York Fine Foods — our story, our values, and the passionate team behind NYC's premier catering company.",
+  alternates: {
+    canonical: 'https://www.newyorkfinefoods.com/about',
+  },
+  openGraph: {
+    title: 'About | New York Fine Foods',
+    description:
+      "Learn about New York Fine Foods — our story, our values, and the passionate team behind NYC's premier catering company.",
+    url: 'https://www.newyorkfinefoods.com/about',
+  },
+  twitter: {
+    title: 'About | New York Fine Foods',
+    description:
+      "Learn about New York Fine Foods — our story, our values, and the passionate team behind NYC's premier catering company.",
+  },
 };
 
 const values = [

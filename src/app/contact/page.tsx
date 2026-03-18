@@ -5,9 +5,23 @@ import { CONTACT_PHONE } from "@/lib/constants";
 import { ProtectedEmail } from "@/components/ui/protected-email";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: 'Contact',
   description:
-    "Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.",
+    'Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.',
+  alternates: {
+    canonical: 'https://www.newyorkfinefoods.com/contact',
+  },
+  openGraph: {
+    title: 'Contact | New York Fine Foods',
+    description:
+      'Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.',
+    url: 'https://www.newyorkfinefoods.com/contact',
+  },
+  twitter: {
+    title: 'Contact | New York Fine Foods',
+    description:
+      'Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.',
+  },
 };
 
 export default function ContactPage() {

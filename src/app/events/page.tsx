@@ -5,9 +5,23 @@ import { EventInquiryForm } from "@/components/forms/event-inquiry-form";
 import { eventTypes } from "@/data/events";
 
 export const metadata: Metadata = {
-  title: "Events",
+  title: 'Events',
   description:
-    "Full-service event planning and catering for weddings, corporate events, parties, and festivals in NYC.",
+    'Full-service event planning and catering for weddings, corporate events, parties, and festivals in NYC.',
+  alternates: {
+    canonical: 'https://www.newyorkfinefoods.com/events',
+  },
+  openGraph: {
+    title: 'Event Planning NYC | New York Fine Foods',
+    description:
+      'Full-service event planning and catering for weddings, corporate events, parties, and festivals in NYC.',
+    url: 'https://www.newyorkfinefoods.com/events',
+  },
+  twitter: {
+    title: 'Event Planning NYC | New York Fine Foods',
+    description:
+      'Full-service event planning and catering for weddings, corporate events, parties, and festivals in NYC.',
+  },
 };
 
 const eventServices = [

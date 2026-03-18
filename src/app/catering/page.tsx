@@ -8,9 +8,23 @@ import { LazyVideo } from "@/components/ui/lazy-video";
 import { cateringMenus } from "@/data/menus";
 
 export const metadata: Metadata = {
-  title: "Catering",
+  title: 'Catering',
   description:
     "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
+  alternates: {
+    canonical: 'https://www.newyorkfinefoods.com/catering',
+  },
+  openGraph: {
+    title: 'NYC Catering Services | New York Fine Foods',
+    description:
+      "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
+    url: 'https://www.newyorkfinefoods.com/catering',
+  },
+  twitter: {
+    title: 'NYC Catering Services | New York Fine Foods',
+    description:
+      "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
+  },
 };
 
 const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] = [

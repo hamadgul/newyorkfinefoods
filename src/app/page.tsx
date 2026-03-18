@@ -1,9 +1,32 @@
+import type { Metadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/sections/cta-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { INSTAGRAM_URL, INSTAGRAM_HANDLE } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: 'New York Fine Foods | NYC Catering, Events & Pizza Trucks',
+  },
+  description:
+    "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+  alternates: {
+    canonical: 'https://www.newyorkfinefoods.com',
+  },
+  openGraph: {
+    title: 'New York Fine Foods | NYC Catering, Events & Pizza Trucks',
+    description:
+      "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+    url: 'https://www.newyorkfinefoods.com',
+  },
+  twitter: {
+    title: 'New York Fine Foods | NYC Catering, Events & Pizza Trucks',
+    description:
+      "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+  },
+}
 
 const services = [
   {

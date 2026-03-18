@@ -7,9 +7,23 @@ import { TruckCarousel } from "@/components/sections/truck-carousel";
 import { pizzaMenu } from "@/data/menus";
 
 export const metadata: Metadata = {
-  title: "Pizza Trucks",
+  title: 'Pizza Trucks',
   description:
-    "Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.",
+    'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+  alternates: {
+    canonical: 'https://www.newyorkfinefoods.com/pizza-trucks',
+  },
+  openGraph: {
+    title: 'Neapolitan Pizza Truck Rental NYC | New York Fine Foods',
+    description:
+      'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+    url: 'https://www.newyorkfinefoods.com/pizza-trucks',
+  },
+  twitter: {
+    title: 'Neapolitan Pizza Truck Rental NYC | New York Fine Foods',
+    description:
+      'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+  },
 };
 
 const truckFeatures = [
