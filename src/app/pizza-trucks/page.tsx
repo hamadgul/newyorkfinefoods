@@ -253,7 +253,7 @@ export default function PizzaTrucksPage() {
       <div id="menu">
         <MenuSection
           title="Our Pizza Menu"
-          subtitle="Neapolitan-style, hand-stretched dough, premium ingredients, fired in our wood-burning oven. Available in 14″ and 10″ (personal) sizes. Custom requests welcome."
+          subtitle="Neapolitan-style, hand-stretched dough, premium ingredients, fired in our state of the art custom oven. Available in 14″ and 10″ (personal) sizes. Custom requests welcome."
           items={pizzaMenu}
           dark
         />
