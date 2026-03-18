@@ -46,6 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    url: `https://www.newyorkfinefoods.com/blog/${post.slug}`,
     author: {
       '@type': 'Organization',
       name: 'New York Fine Foods',

@@ -11,7 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/pizza-trucks`, priority: 0.8, changeFrequency: 'monthly', lastModified: new Date() },
     { url: `${BASE}/about`,        priority: 0.6, changeFrequency: 'monthly', lastModified: new Date() },
     { url: `${BASE}/contact`,      priority: 0.6, changeFrequency: 'monthly', lastModified: new Date() },
-    { url: `${BASE}/blog`,         priority: 0.6, changeFrequency: 'weekly',  lastModified: new Date() },
+    // /blog is excluded while the listing page carries robots: noindex.
+    // Add it back when the first post is published and noindex is removed.
+
   ]
 
   const postRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
