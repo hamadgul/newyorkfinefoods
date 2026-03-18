@@ -5,6 +5,7 @@ import { MenuSection } from "@/components/sections/menu-section";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
 import { TruckCarousel } from "@/components/sections/truck-carousel";
 import { pizzaMenu } from "@/data/menus";
+import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
   title: 'Pizza Trucks',
@@ -25,6 +26,21 @@ export const metadata: Metadata = {
       'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
   },
 };
+
+const pizzaTruckServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Neapolitan Pizza Truck Rental NYC',
+  description:
+    'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+  provider: {
+    '@type': 'Organization',
+    name: 'New York Fine Foods',
+    url: 'https://www.newyorkfinefoods.com',
+  },
+  areaServed: 'New York City',
+  url: 'https://www.newyorkfinefoods.com/pizza-trucks',
+}
 
 const truckFeatures = [
   "Custom Neapolitan-style ovens",
@@ -73,6 +89,7 @@ const steps = [
 export default function PizzaTrucksPage() {
   return (
     <>
+      <JsonLd data={pizzaTruckServiceSchema} />
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
         {/* Background — dramatic pizza close-up with side-by-side action shots */}

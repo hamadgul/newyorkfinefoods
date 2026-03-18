@@ -6,6 +6,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { QuoteForm } from "@/components/forms/quote-form";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { cateringMenus } from "@/data/menus";
+import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
   title: 'Catering',
@@ -26,6 +27,21 @@ export const metadata: Metadata = {
       "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
   },
 };
+
+const cateringServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'NYC Catering Services',
+  description:
+    "NYC's finest catering — restaurant-quality food crafted for your event.",
+  provider: {
+    '@type': 'Organization',
+    name: 'New York Fine Foods',
+    url: 'https://www.newyorkfinefoods.com',
+  },
+  areaServed: 'New York City',
+  url: 'https://www.newyorkfinefoods.com/catering',
+}
 
 const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] = [
   { src: "/catering/1.jpg", type: "image", caption: "Neopolitan Personal Pizza" },
@@ -62,6 +78,7 @@ const steps = [
 export default function CateringPage() {
   return (
     <>
+      <JsonLd data={cateringServiceSchema} />
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4">

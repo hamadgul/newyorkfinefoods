@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/blog'
+import { JsonLd } from '@/components/json-ld'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -39,8 +40,29 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug)
   if (!post) notFound()
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    author: {
+      '@type': 'Organization',
+      name: 'New York Fine Foods',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'New York Fine Foods',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.newyorkfinefoods.com/OGImage.png',
+      },
+    },
+  }
+
   return (
     <article className="mx-auto max-w-3xl px-6 py-24">
+      <JsonLd data={articleSchema} />
       <h1 className="font-playfair mb-4 text-4xl font-bold text-stone-900">
         {post.title}
       </h1>

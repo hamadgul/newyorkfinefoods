@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { EventInquiryForm } from "@/components/forms/event-inquiry-form";
 import { eventTypes } from "@/data/events";
+import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
   title: 'Events',
@@ -23,6 +24,21 @@ export const metadata: Metadata = {
       'Full-service event planning and catering for weddings, corporate events, parties, and festivals in NYC.',
   },
 };
+
+const eventsServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Event Planning NYC',
+  description:
+    'Full-service event planning and catering for weddings, corporate events, parties, and festivals in NYC.',
+  provider: {
+    '@type': 'Organization',
+    name: 'New York Fine Foods',
+    url: 'https://www.newyorkfinefoods.com',
+  },
+  areaServed: 'New York City',
+  url: 'https://www.newyorkfinefoods.com/events',
+}
 
 const eventServices = [
   "Event planning",
@@ -50,6 +66,7 @@ const eventGallery = [
 export default function EventsPage() {
   return (
     <>
+      <JsonLd data={eventsServiceSchema} />
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
         {/* Cinematic background — single striking image */}
