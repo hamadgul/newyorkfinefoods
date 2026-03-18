@@ -4,6 +4,14 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { JsonLd } from '@/components/json-ld';
+import {
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  CONTACT_PHONE,
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+} from '@/lib/constants';
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -17,6 +25,45 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
 });
+
+// TODO: confirm priceRange with client before deploying — appears in Google's local knowledge panel
+const PRICE_RANGE = '$$-$$$'
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_NAME,
+  url: 'https://www.newyorkfinefoods.com',
+  logo: 'https://www.newyorkfinefoods.com/OGImage.png',
+  telephone: CONTACT_PHONE,
+  email: CONTACT_EMAIL,
+  sameAs: [INSTAGRAM_URL],
+}
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'CateringService'],
+  name: SITE_NAME,
+  url: 'https://www.newyorkfinefoods.com',
+  description: SITE_DESCRIPTION,
+  telephone: CONTACT_PHONE,
+  email: CONTACT_EMAIL,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'New York',
+    addressRegion: 'NY',
+    addressCountry: 'US',
+  },
+  areaServed: 'New York City',
+  priceRange: PRICE_RANGE,
+}
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: 'https://www.newyorkfinefoods.com',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.newyorkfinefoods.com'),
@@ -69,6 +116,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={localBusinessSchema} />
+        <JsonLd data={webSiteSchema} />
         <Navbar />
         <main>{children}</main>
         <Footer />
