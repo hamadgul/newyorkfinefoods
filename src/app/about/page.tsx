@@ -52,7 +52,7 @@ export default function AboutPage() {
   return (
     <>
       <Hero
-        backgroundImage="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&q=80"
+        backgroundImage="/pizza-trucks-service.jpg"
         title="Our Story"
         subtitle="Born in New York, driven by passion, defined by excellence."
       />

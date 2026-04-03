@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface HeroProps {
   backgroundImage: string;
   title: string;
   subtitle: string;
+  eyebrow?: string;
   ctaText?: string;
   ctaHref?: string;
   compact?: boolean;
@@ -13,50 +15,75 @@ export function Hero({
   backgroundImage,
   title,
   subtitle,
+  eyebrow,
   ctaText,
   ctaHref = "/contact",
   compact = false,
 }: HeroProps) {
+  const isExternal = backgroundImage.startsWith("http");
+
   return (
     <section
-      className={`relative flex items-center justify-center overflow-hidden ${
-        compact ? "min-h-[50vh]" : "min-h-[90vh]"
+      className={`relative overflow-hidden bg-charcoal ${
+        compact ? "min-h-[55vh]" : "min-h-screen"
       }`}
     >
       {/* Background */}
-      <div
-        className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
+      <div className="absolute inset-0">
+        {isExternal ? (
+          <div
+            className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+        ) : (
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
       </div>
+      <div className="absolute inset-0 bg-charcoal/75 backdrop-blur-[1px]" />
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ivory to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-6 pt-24 pb-12 text-center">
-        <div className="mx-auto mb-6 h-px w-20 bg-gold/60 sm:mb-8" />
+      <div
+        className={`relative z-10 flex flex-col items-center px-6 text-center ${
+          compact ? "min-h-[55vh] justify-center pt-24 pb-12" : "min-h-screen justify-start pt-64 pb-12"
+        }`}
+      >
+        {eyebrow && (
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
+            {eyebrow}
+          </p>
+        )}
         <h1
-          className={`font-heading font-bold leading-tight text-ivory ${
-            compact ? "text-2xl sm:text-3xl md:text-5xl" : "text-3xl sm:text-4xl md:text-6xl lg:text-7xl"
+          className={`font-heading font-bold leading-[1.1] text-ivory ${
+            eyebrow ? "mt-4 sm:mt-6" : ""
+          } ${
+            compact
+              ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+              : "text-4xl sm:text-5xl md:text-7xl lg:text-8xl"
           }`}
         >
           {title}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ivory/80 sm:mt-6 md:text-xl">
+        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
           {subtitle}
         </p>
         {ctaText && (
           <Link
             href={ctaHref}
-            className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20 sm:mt-10 sm:px-10 sm:py-3.5"
+            className="mt-8 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:mt-10 sm:px-10 sm:py-4"
           >
             {ctaText}
           </Link>
         )}
-        <div className="mx-auto mt-10 h-px w-20 bg-gold/60" />
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-ivory to-transparent" />
     </section>
   );
 }

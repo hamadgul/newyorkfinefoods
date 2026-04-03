@@ -7,20 +7,20 @@ import { ProtectedEmail } from "@/components/ui/protected-email";
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.',
+    'Get in touch with New York Fine Foods. Book a pizza truck or catering for your next event in NYC &amp; the Tri-State Area.',
   alternates: {
     canonical: 'https://www.newyorkfinefoods.com/contact',
   },
   openGraph: {
     title: 'Contact | New York Fine Foods',
     description:
-      'Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.',
+      'Get in touch with New York Fine Foods. Book a pizza truck or catering for your next event in NYC &amp; the Tri-State Area.',
     url: 'https://www.newyorkfinefoods.com/contact',
   },
   twitter: {
     title: 'Contact | New York Fine Foods',
     description:
-      'Get in touch with New York Fine Foods. Reach out for event inquiries, catering quotes, and pizza truck bookings.',
+      'Get in touch with New York Fine Foods. Book a pizza truck or catering for your next event in NYC &amp; the Tri-State Area.',
   },
 };
 
@@ -28,7 +28,7 @@ export default function ContactPage() {
   return (
     <>
       <Hero
-        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1555244162-803834f70033?w=1600&q=80"
         title="Get in Touch"
         subtitle="We'd love to hear about your event. Reach out and let's start planning."
         compact
