@@ -43,7 +43,7 @@ export function Navbar() {
         {/* Desktop nav */}
         <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="relative pb-1">
               <Link
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-gold ${
@@ -52,6 +52,9 @@ export function Navbar() {
               >
                 {link.label}
               </Link>
+              {pathname === link.href && (
+                <span className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-gold" />
+              )}
             </li>
           ))}
         </ul>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CTASection } from "@/components/sections/cta-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { LazyVideo } from "@/components/ui/lazy-video";
+import { FadeIn } from "@/components/ui/fade-in";
 import { INSTAGRAM_URL, INSTAGRAM_HANDLE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -131,19 +132,19 @@ export default function HomePage() {
           </div>
 
           {/* Quick trust signals */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-ivory/40 sm:mt-16 sm:gap-8">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 border-t border-ivory/10 pt-6 text-ivory/40 sm:mt-16 sm:gap-8 sm:pt-8">
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">2,500+</span>
+              <span className="block font-heading text-3xl font-bold text-ivory sm:text-4xl">2,500+</span>
               Events Catered
             </span>
-            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
+            <span className="hidden h-8 w-px bg-ivory/15 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">NYC</span>
+              <span className="block font-heading text-3xl font-bold text-ivory sm:text-4xl">NYC</span>
               &amp; Tri-State Area
             </span>
-            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
+            <span className="hidden h-8 w-px bg-ivory/15 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70 normal-case">9</span>
+              <span className="block font-heading text-3xl font-bold text-ivory normal-case sm:text-4xl">9</span>
               Signature Pies
             </span>
           </div>
@@ -156,85 +157,132 @@ export default function HomePage() {
       {/* ── SERVICES ── */}
       <section className="bg-ivory py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center">
-            <h2 className="font-heading text-3xl font-bold text-charcoal md:text-4xl">
-              What We Do
-            </h2>
-            <p className="mt-4 text-lg text-charcoal/60">
-              Two ways we make your next event unforgettable.
-            </p>
-            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
-          </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-2 md:max-w-3xl md:mx-auto">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="group overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="relative h-60 overflow-hidden">
+          <FadeIn>
+            <div className="mb-14 text-center">
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold">
+                Our Services
+              </p>
+              <h2 className="mt-2 font-heading text-3xl font-bold text-charcoal md:text-5xl">
+                What We Do
+              </h2>
+              <p className="mx-auto mt-4 max-w-sm text-charcoal/55">
+                Two ways we make your next event unforgettable.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="grid gap-6 md:grid-cols-2">
+            {services.map((service, i) => (
+              <FadeIn key={service.title} delay={i * 120}>
+                <Link
+                  href={service.href}
+                  className="group relative block aspect-[4/3] overflow-hidden rounded-xl"
+                >
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
                     loading="lazy"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent" />
-                  <h3 className="absolute bottom-4 left-5 font-heading text-2xl font-bold text-ivory">
-                    {service.title}
-                  </h3>
-                </div>
-                <div className="p-6">
-                  <p className="text-sm leading-relaxed text-charcoal/60">
-                    {service.description}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold transition-all group-hover:gap-2">
-                    Learn More
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                  </span>
-                </div>
-              </Link>
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-7">
+                    <span className="mb-3 inline-block rounded-full bg-burgundy/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ivory/90">
+                      {service.title === "Pizza Trucks" ? "Mobile" : "Full Service"}
+                    </span>
+                    <h3 className="font-heading text-2xl font-bold text-ivory md:text-3xl">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ivory/65">
+                      {service.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold transition-all duration-300 group-hover:gap-3">
+                      Explore <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── GALLERY — Even grid ── */}
+      {/* ── GALLERY — Editorial mixed grid ── */}
       <section className="bg-charcoal py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center">
-            <h2 className="font-heading text-3xl font-bold text-ivory md:text-4xl">
-              A Taste of Our Work
-            </h2>
-            <p className="mt-4 text-lg text-ivory/50">
-              Every dish tells a story. Here are some of ours.
-            </p>
-            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          <FadeIn>
+            <div className="mb-14 text-center">
+              <h2 className="font-heading text-3xl font-bold text-ivory md:text-5xl">
+                A Taste of Our Work
+              </h2>
+              <p className="mt-3 font-heading text-lg italic text-ivory/35">
+                Every dish tells a story.
+              </p>
+            </div>
+          </FadeIn>
+          {/* Desktop: editorial mixed grid. Mobile: 2-col uniform */}
+          <div
+            className="grid grid-cols-2 gap-3 md:gap-4"
+            style={{
+              gridTemplateColumns: undefined,
+            }}
+          >
+            <div className="col-span-1 aspect-square overflow-hidden rounded-lg md:hidden group relative">
+              <Image src={galleryItems[0].src} alt="Gallery 1" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="col-span-1 aspect-square overflow-hidden rounded-lg md:hidden group relative">
+              <LazyVideo src={galleryItems[1].src} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="col-span-1 aspect-square overflow-hidden rounded-lg md:hidden group relative">
+              <Image src={galleryItems[2].src} alt="Gallery 3" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="col-span-1 aspect-square overflow-hidden rounded-lg md:hidden group relative">
+              <LazyVideo src={galleryItems[3].src} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="col-span-1 aspect-square overflow-hidden rounded-lg md:hidden group relative">
+              <Image src={galleryItems[4].src} alt="Gallery 5" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="col-span-1 aspect-square overflow-hidden rounded-lg md:hidden group relative">
+              <Image src={galleryItems[5].src} alt="Gallery 6" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-            {galleryItems.map((item, i) => (
-              <div
-                key={i}
-                className="group relative aspect-square overflow-hidden rounded-lg"
-              >
-                {item.type === "video" ? (
-                  <LazyVideo
-                    src={item.src}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={`Gallery image ${i + 1}`}
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                )}
-                <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/20" />
-              </div>
-            ))}
+          {/* Desktop editorial grid */}
+          <div
+            className="hidden md:grid md:gap-4"
+            style={{
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gridTemplateRows: "300px 300px 220px",
+            }}
+          >
+            {/* Item 0: wide */}
+            <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 3", gridRow: "1 / 2" }}>
+              <Image src={galleryItems[0].src} alt="Gallery 1" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+            </div>
+            {/* Item 1: tall */}
+            <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "3 / 4", gridRow: "1 / 3" }}>
+              <LazyVideo src={galleryItems[1].src} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+            </div>
+            {/* Item 2 */}
+            <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }}>
+              <Image src={galleryItems[2].src} alt="Gallery 3" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+            </div>
+            {/* Item 3 */}
+            <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }}>
+              <LazyVideo src={galleryItems[3].src} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+            </div>
+            {/* Item 4 */}
+            <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }}>
+              <Image src={galleryItems[4].src} alt="Gallery 5" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+            </div>
+            {/* Item 5: wide bottom */}
+            <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "2 / 4", gridRow: "3 / 4" }}>
+              <Image src={galleryItems[5].src} alt="Gallery 6" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+            </div>
           </div>
         </div>
       </section>
@@ -245,18 +293,20 @@ export default function HomePage() {
       {/* ── INSTAGRAM — Prominent section ── */}
       <section className="bg-charcoal py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
-              Follow Along
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-bold text-ivory md:text-4xl">
-              {INSTAGRAM_HANDLE}
-            </h2>
-            <p className="mt-4 text-ivory/50">
-              Behind the scenes, fresh dishes, and event highlights from across NYC.
-            </p>
-            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
-          </div>
+          <FadeIn>
+            <div className="text-center">
+              <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+                Follow Along
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-bold text-ivory md:text-4xl">
+                {INSTAGRAM_HANDLE}
+              </h2>
+              <p className="mt-4 text-ivory/50">
+                Behind the scenes, fresh dishes, and event highlights from across NYC.
+              </p>
+              <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+            </div>
+          </FadeIn>
           <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
             {instagramPosts.map((post, i) => (
               <a
