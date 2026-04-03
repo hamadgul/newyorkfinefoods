@@ -25,14 +25,14 @@ export function Hero({
   return (
     <section
       className={`relative overflow-hidden bg-charcoal ${
-        compact ? "min-h-[55vh]" : "min-h-[70vh] md:min-h-screen"
+        compact ? "min-h-[55vh]" : "min-h-[50vh] md:min-h-screen"
       }`}
     >
       {/* Background */}
       <div className="absolute inset-0">
         {isExternal ? (
           <div
-            className="absolute inset-0 scale-105 bg-contain bg-center bg-no-repeat md:bg-cover"
+            className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
         ) : (
@@ -40,7 +40,7 @@ export function Hero({
             src={backgroundImage}
             alt=""
             fill
-            className="object-contain md:object-cover"
+            className="object-cover"
             priority
           />
         )}
@@ -53,7 +53,9 @@ export function Hero({
       {/* Content */}
       <div
         className={`relative z-10 flex flex-col items-center px-6 text-center ${
-          compact ? "min-h-[55vh] justify-center pt-24 pb-12" : "min-h-[70vh] md:min-h-screen justify-center md:justify-start pt-0 md:pt-64 pb-12"
+          compact
+            ? "min-h-[55vh] justify-center pt-24 pb-12"
+            : "min-h-[50vh] md:min-h-screen justify-center md:justify-start pt-0 md:pt-64 pb-12"
         }`}
       >
         {eyebrow && (
