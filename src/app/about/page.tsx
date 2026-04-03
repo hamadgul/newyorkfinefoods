@@ -55,6 +55,7 @@ export default function AboutPage() {
         backgroundImage="/pizza-trucks-service.jpg"
         title="Our Story"
         subtitle="Born in New York, driven by passion, defined by excellence."
+        compact
       />
 
       {/* Brand Story */}
