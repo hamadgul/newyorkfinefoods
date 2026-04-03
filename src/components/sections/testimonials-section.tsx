@@ -19,27 +19,27 @@ export function TestimonialsSection() {
           </div>
         </FadeIn>
 
-        <div className="grid gap-px bg-charcoal/10 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 100} className="bg-cream">
-              <div className="p-8 md:p-10">
-                <div className="select-none font-heading text-7xl font-bold leading-none text-gold/30">
+            <FadeIn key={t.name} delay={i * 100}>
+              <div className="flex h-full flex-col rounded-xl border border-charcoal/10 bg-white p-7">
+                <div className="select-none font-heading text-5xl font-bold leading-none text-gold/30">
                   &ldquo;
                 </div>
-                <p className="mt-2 font-heading text-lg italic leading-relaxed text-charcoal/75">
+                <p className="mt-3 flex-1 text-base italic leading-relaxed text-charcoal/75">
                   {t.quote}
                 </p>
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/15">
+                <div className="mt-6 flex min-w-0 items-center gap-3 border-t border-charcoal/8 pt-5">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/15">
                     <span className="font-heading text-sm font-bold text-gold">
                       {t.name.charAt(0)}
                     </span>
                   </div>
-                  <div className="min-w-0">
-                    <p className="font-heading font-bold text-charcoal">{t.name}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-heading font-bold text-charcoal">{t.name}</p>
                     <p className="truncate text-sm text-charcoal/50">{t.role}</p>
                   </div>
-                  <span className="ml-auto shrink-0 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold">
+                  <span className="shrink-0 rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 text-xs font-medium text-gold">
                     {t.service}
                   </span>
                 </div>

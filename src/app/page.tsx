@@ -184,7 +184,7 @@ export default function HomePage() {
                     loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/10" />
                   <div className="absolute bottom-0 left-0 right-0 p-7">
                     <span className="mb-3 inline-block rounded-full bg-burgundy/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ivory/90">
                       {service.title === "Pizza Trucks" ? "Mobile" : "Full Service"}
