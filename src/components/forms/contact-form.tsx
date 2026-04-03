@@ -11,7 +11,7 @@ type ServiceType = "" | "Catering" | "Pizza Truck";
 
 const serviceOptions: { value: ServiceType; label: string; description: string }[] = [
   { value: "Catering", label: "Catering", description: "Chef-crafted menus for your event" },
-  { value: "Pizza Truck", label: "Pizza Truck", description: "Wood-fired pizza at your doorstep" },
+  { value: "Pizza Truck", label: "Pizza Truck", description: "Neopolitan-fired pizza at your doorstep" },
 ];
 
 export function ContactForm() {

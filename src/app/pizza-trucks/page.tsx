@@ -262,7 +262,7 @@ export default function PizzaTrucksPage() {
               className="mx-auto w-auto max-h-[120px] opacity-80"
             />
             <h2 className="mt-2 font-heading text-5xl font-bold text-charcoal/80 md:text-6xl">
-              Our Pizza Menu
+              Pizza Menu
             </h2>
             <p className="mt-2 text-charcoal/60">
               Neapolitan-style, hand-stretched dough, premium ingredients, fired in our custom oven.
