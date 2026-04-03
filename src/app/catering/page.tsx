@@ -194,21 +194,26 @@ export default function CateringPage() {
       </section>
 
       {/* ── CATERING MENU ── */}
-      <section id="menu" className="bg-white py-20">
+      <section id="menu" className="bg-white py-10">
         <div className="mx-auto max-w-3xl px-6">
 
           {/* Header block */}
-          <div className="border-b border-charcoal/15 pb-10 text-center">
-            <p className="font-heading text-2xl font-bold tracking-wide text-charcoal">
-              — NEW YORK FINE FOODS —
-            </p>
-            <p className="mt-1 text-charcoal/60">www.newyorkfinefoods.com</p>
-            <a href={`tel:${CONTACT_PHONE}`} className="text-charcoal/60 hover:text-gold transition-colors">
-              {CONTACT_PHONE}
-            </a>
-            <h2 className="mt-8 font-heading text-5xl font-bold text-charcoal/80 md:text-6xl">
+          <div className="pb-2 text-center">
+            <Image
+              src="/OGImage.png"
+              alt="New York Fine Foods"
+              width={600}
+              height={150}
+              className="mx-auto w-auto max-h-[120px] opacity-80"
+            />
+            <h2 className="mt-2 font-heading text-5xl font-bold text-charcoal/80 md:text-6xl">
               Catering Menu
             </h2>
+            <p className="mt-2 text-charcoal/60">www.newyorkfinefoods.com</p>
+            <a href={`tel:${CONTACT_PHONE}`} className="block text-charcoal/60 transition-colors hover:text-gold">
+              {CONTACT_PHONE}
+            </a>
+            <div className="mt-4 h-px w-full bg-charcoal/15" />
           </div>
 
           {/* Hot Trays */}

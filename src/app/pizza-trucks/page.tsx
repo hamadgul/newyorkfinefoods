@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MenuSection } from "@/components/sections/menu-section";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
 import { TruckCarousel } from "@/components/sections/truck-carousel";
 import { pizzaMenu } from "@/data/menus";
@@ -249,15 +248,56 @@ export default function PizzaTrucksPage() {
         </div>
       </section>
 
-      {/* Pizza Menu */}
-      <div id="menu">
-        <MenuSection
-          title="Our Pizza Menu"
-          subtitle="Neapolitan-style, hand-stretched dough, premium ingredients, fired in our state of the art custom oven. Available in 14″ and 10″ (personal) sizes. Custom requests welcome."
-          items={pizzaMenu}
-          dark
-        />
-      </div>
+      {/* ── PIZZA MENU ── */}
+      <section id="menu" className="bg-white py-10">
+        <div className="mx-auto max-w-3xl px-6">
+
+          {/* Header block */}
+          <div className="pb-2 text-center">
+            <Image
+              src="/OGImage.png"
+              alt="New York Fine Foods"
+              width={600}
+              height={150}
+              className="mx-auto w-auto max-h-[120px] opacity-80"
+            />
+            <h2 className="mt-2 font-heading text-5xl font-bold text-charcoal/80 md:text-6xl">
+              Our Pizza Menu
+            </h2>
+            <p className="mt-2 text-charcoal/60">
+              Neapolitan-style, hand-stretched dough, premium ingredients, fired in our custom oven.
+              Available in 14&quot; and 10&quot; (personal) sizes. Custom requests welcome.
+            </p>
+            <div className="mt-4 h-px w-full bg-charcoal/15" />
+          </div>
+
+          {/* Pizza items */}
+          <div className="mt-2 divide-y divide-charcoal/8">
+            {pizzaMenu.map((item) => (
+              <div key={item.name} className="flex items-baseline justify-between gap-6 py-4">
+                <div>
+                  <span className="font-heading text-lg text-charcoal">{item.name}</span>
+                  {item.vegetarian && (
+                    <span className="ml-2 rounded-full border border-green-600/40 px-2 py-0.5 text-xs font-medium text-green-700">
+                      V
+                    </span>
+                  )}
+                  <p className="mt-0.5 text-sm text-charcoal/55">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Footer notice */}
+          <div className="mt-10 space-y-3 pt-4 text-center">
+            <p className="font-semibold text-charcoal">
+              Custom Requests Welcome
+            </p>
+            <p className="text-sm italic text-charcoal/50">Prices are subject to change</p>
+          </div>
+
+        </div>
+      </section>
 
       {/* ── HOW IT WORKS ── */}
       <section className="bg-charcoal py-24">
