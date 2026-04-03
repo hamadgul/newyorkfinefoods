@@ -113,8 +113,7 @@ export default function HomePage() {
             <span className="text-gold">Unforgettable Events</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            Authentic Neapolitan pizza trucks and full-service catering — brought to
-            your event anywhere in New York City &amp; the Tri-State Area.
+            Authentic Neapolitan pizza trucks and full-service catering — Anywhere in New York City &amp; the Tri-State Area.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
