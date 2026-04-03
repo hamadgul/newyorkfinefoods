@@ -266,7 +266,7 @@ export default function PizzaTrucksPage() {
             </h2>
             <p className="mt-2 text-charcoal/60">
               Neapolitan-style, hand-stretched dough, premium ingredients, fired in our custom oven.
-              Available in 14&quot; and 10&quot; (personal) sizes. Custom requests welcome.
+              Available in 14&quot; and 10&quot; (personal) sizes.
             </p>
             <div className="mt-4 h-px w-full bg-charcoal/15" />
           </div>
