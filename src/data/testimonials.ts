@@ -2,36 +2,36 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
-  event: string;
+  service: string;
 }
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "New York Fine Foods made our wedding absolutely magical. Every guest raved about the food for weeks afterward. The attention to detail was extraordinary.",
-    name: "Sarah & Michael",
-    role: "Bride & Groom",
-    event: "Wedding Reception",
-  },
-  {
-    quote:
-      "We've used NYFF for our annual corporate gala three years running. They consistently deliver restaurant-quality food at scale — a rare find in New York.",
+      "We hired NYFF to cater our company's annual dinner and it was flawless. Restaurant-quality food, impeccable service, and a team that handled every detail. We'll be booking them again.",
     name: "David Chen",
-    role: "VP of Events, Sterling Partners",
-    event: "Corporate Gala",
+    role: "VP of Operations, Sterling Partners",
+    service: "Corporate Catering",
   },
   {
     quote:
-      "The pizza truck was the highlight of our block party! The team was professional, the pizza was incredible, and everyone had an amazing time.",
+      "The pizza truck was an absolute hit at our rooftop party. Wood-fired Neapolitan pizza straight from the truck — guests were lining up all night. Totally worth it.",
     name: "Maria Rodriguez",
-    role: "Community Organizer",
-    event: "Block Party",
+    role: "Private Client",
+    service: "Pizza Truck",
   },
   {
     quote:
-      "From the tasting to the final plate, the team was organized, responsive, and creative. They brought our vision to life beautifully.",
-    name: "James & Priya",
-    role: "Hosts",
-    event: "Engagement Party",
+      "NYFF catered our product launch event for 200 guests. The presentation was stunning, the food was delicious, and the team was professional from start to finish.",
+    name: "Ashley Park",
+    role: "Head of Marketing, Vela Studio",
+    service: "Corporate Catering",
+  },
+  {
+    quote:
+      "We brought in their pizza truck for a neighborhood block party and it was the talk of the summer. The crew was friendly, fast, and the pizza was genuinely some of the best I've had in New York.",
+    name: "James Okafor",
+    role: "Community Organizer",
+    service: "Pizza Truck",
   },
 ];

@@ -9,7 +9,7 @@ export function TestimonialsSection() {
             What Our Clients Say
           </h2>
           <p className="mt-4 text-lg text-charcoal/60">
-            Every event is a story — here are a few of our favorites.
+            Hear from clients who&apos;ve experienced our catering and pizza truck services.
           </p>
           <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
         </div>
@@ -36,7 +36,7 @@ export function TestimonialsSection() {
                     {t.name}
                   </p>
                   <p className="text-sm text-charcoal/50">
-                    {t.role} — {t.event}
+                    {t.role} — {t.service}
                   </p>
                 </div>
               </div>
