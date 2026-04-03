@@ -53,7 +53,7 @@ export function Hero({
       {/* Content */}
       <div
         className={`relative z-10 flex flex-col items-center px-6 text-center ${
-          compact ? "min-h-[55vh] justify-center pt-24 pb-12" : "min-h-[70vh] md:min-h-screen justify-start pt-32 md:pt-64 pb-12"
+          compact ? "min-h-[55vh] justify-center pt-24 pb-12" : "min-h-[70vh] md:min-h-screen justify-center md:justify-start pt-0 md:pt-64 pb-12"
         }`}
       >
         {eyebrow && (
