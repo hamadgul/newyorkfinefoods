@@ -8,48 +8,40 @@ import { INSTAGRAM_URL, INSTAGRAM_HANDLE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'New York Fine Foods | NYC Catering, Events & Pizza Trucks',
+    absolute: 'New York Fine Foods | NYC Catering & Pizza Trucks',
   },
   description:
-    "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+    "NYC's premier catering and pizza truck company. From intimate gatherings to large celebrations, we bring fine dining to every occasion.",
   alternates: {
     canonical: 'https://www.newyorkfinefoods.com',
   },
   openGraph: {
-    title: 'New York Fine Foods | NYC Catering, Events & Pizza Trucks',
+    title: 'New York Fine Foods | NYC Catering & Pizza Trucks',
     description:
-      "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+      "NYC's premier catering and pizza truck company. From intimate gatherings to large celebrations, we bring fine dining to every occasion.",
     url: 'https://www.newyorkfinefoods.com',
   },
   twitter: {
-    title: 'New York Fine Foods | NYC Catering, Events & Pizza Trucks',
+    title: 'New York Fine Foods | NYC Catering & Pizza Trucks',
     description:
-      "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+      "NYC's premier catering and pizza truck company. From intimate gatherings to large celebrations, we bring fine dining to every occasion.",
   },
 }
 
 const services = [
+  {
+    title: "Pizza Trucks",
+    description:
+      "Authentic Neapolitan pizza cooked in 90 seconds at 900°F — brought straight to your event anywhere in NYC & the Tri-State Area.",
+    image: "/pizza-trucks-service.jpg",
+    href: "/pizza-trucks",
+  },
   {
     title: "Catering",
     description:
       "We bring restaurant-quality cuisine to your venue — custom menus, fresh preparation, and flawless service from 20 to 1,000 guests.",
     image: "/catering-service.jpg",
     href: "/catering",
-  },
-  {
-    title: "Events",
-    description:
-      "We handle every detail — venue coordination, staffing, setup, and teardown — so you can enjoy the celebration.",
-    image:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
-    href: "/events",
-  },
-  {
-    title: "Food Trucks",
-    description:
-      "From authentic Neapolitan pizza to tacos, burgers, coffee, and more — we have a wide range of food trucks. You want it? We probably have it.",
-    image: "/pizza-trucks-service.jpg",
-    href: "/pizza-trucks",
   },
 ];
 
@@ -112,22 +104,28 @@ export default function HomePage() {
         {/* Hero content */}
         <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
-            NYC Catering &middot; Events &middot; Pizza Trucks
+            NYC Pizza Trucks &middot; Catering
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Exceptional Food<br />
             <span className="text-gold">Unforgettable Events</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            From elegant receptions to authentic neopolitan pizza parties — we bring
-            restaurant-quality dining to every occasion across New York City &amp; the Tri-State Area.
+            Authentic Neapolitan pizza trucks and full-service catering — brought to
+            your event anywhere in New York City &amp; the Tri-State Area.
           </p>
-          <div className="mt-8 flex w-full flex-col sm:mt-10 sm:w-auto">
+          <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
-              href="/contact"
+              href="/pizza-trucks#book"
               className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
-              Book Your Event
+              Book a Pizza Truck
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
+            >
+              Book Catering
             </Link>
           </div>
 
@@ -139,13 +137,13 @@ export default function HomePage() {
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">500+</span>
-              Private Events Produced
+              <span className="block font-heading text-2xl font-bold text-ivory/70">NYC</span>
+              &amp; Tri-State Area
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70 normal-case">Countless</span>
-              Pizza Trucks Available
+              <span className="block font-heading text-2xl font-bold text-ivory/70 normal-case">9</span>
+              Signature Pies
             </span>
           </div>
         </div>
@@ -162,11 +160,11 @@ export default function HomePage() {
               What We Do
             </h2>
             <p className="mt-4 text-lg text-charcoal/60">
-              Three ways we make your next event unforgettable.
+              Two ways we make your next event unforgettable.
             </p>
             <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-2 md:max-w-3xl md:mx-auto">
             {services.map((service) => (
               <Link
                 key={service.title}

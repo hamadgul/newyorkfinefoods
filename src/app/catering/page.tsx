@@ -1,47 +1,44 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MenuSection } from "@/components/sections/menu-section";
-import { CTASection } from "@/components/sections/cta-section";
-import { QuoteForm } from "@/components/forms/quote-form";
 import { LazyVideo } from "@/components/ui/lazy-video";
-import { cateringMenus } from "@/data/menus";
-import { JsonLd } from '@/components/json-ld'
+import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/json-ld";
+import { CONTACT_PHONE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: 'Catering',
+  title: "Catering",
   description:
-    "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
+    "New York Fine Foods catering menu — hot trays, salads, party heros, and more. Call to book.",
   alternates: {
-    canonical: 'https://www.newyorkfinefoods.com/catering',
+    canonical: "https://www.newyorkfinefoods.com/catering",
   },
   openGraph: {
-    title: 'NYC Catering Services | New York Fine Foods',
+    title: "Catering Menu | New York Fine Foods",
     description:
-      "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
-    url: 'https://www.newyorkfinefoods.com/catering',
+      "New York Fine Foods catering menu — hot trays, salads, party heros, and more. Call to book.",
+    url: "https://www.newyorkfinefoods.com/catering",
   },
   twitter: {
-    title: 'NYC Catering Services | New York Fine Foods',
+    title: "Catering Menu | New York Fine Foods",
     description:
-      "NYC's finest catering — restaurant-quality food crafted for your event. Request a custom quote today.",
+      "New York Fine Foods catering menu — hot trays, salads, party heros, and more. Call to book.",
   },
 };
 
 const cateringServiceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'NYC Catering Services',
-  description:
-    "NYC's finest catering — restaurant-quality food crafted for your event.",
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "NYC Catering Services",
+  description: "New York Fine Foods catering — hot trays, salads, party heros, and more.",
   provider: {
-    '@type': 'Organization',
-    name: 'New York Fine Foods',
-    url: 'https://www.newyorkfinefoods.com',
+    "@type": "Organization",
+    name: "New York Fine Foods",
+    url: "https://www.newyorkfinefoods.com",
   },
-  areaServed: 'New York City',
-  url: 'https://www.newyorkfinefoods.com/catering',
-}
+  areaServed: "New York City",
+  url: "https://www.newyorkfinefoods.com/catering",
+};
 
 const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] = [
   { src: "/catering/1.jpg", type: "image", caption: "Neopolitan Personal Pizza" },
@@ -52,33 +49,45 @@ const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] 
   { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80", type: "image", caption: "Fresh ingredients" },
 ];
 
-const steps = [
-  {
-    step: "01",
-    title: "Consultation",
-    description: "Tell us about your event, vision, and preferences. We listen.",
-  },
-  {
-    step: "02",
-    title: "Custom Proposal",
-    description: "We design a food experience tailored to your event and budget.",
-  },
-  {
-    step: "03",
-    title: "Tasting",
-    description: "Experience your dishes firsthand at a private tasting session.",
-  },
-  {
-    step: "04",
-    title: "The Event",
-    description: "Sit back and enjoy. We handle every detail, start to finish.",
-  },
+const hotTrays: { name: string; half: string; full: string; note?: string }[] = [
+  { name: "Baked Ziti", half: "$50", full: "$90" },
+  { name: "Rigatoni Bolognese", half: "$60", full: "$100" },
+  { name: "Penne Ala Vodka", half: "$50", full: "$90" },
+  { name: "Chicken Parmigiana", half: "$70", full: "$120" },
+  { name: "Chicken Francaise", half: "$70", full: "$120" },
+  { name: "Chicken Marsala", half: "$70", full: "$120" },
+  { name: "Eggplant Parmigiana", half: "$60", full: "$90" },
+  { name: "Eggplant Rollatini", half: "$60", full: "$90" },
+  { name: "Sausage & Peppers", half: "$60", full: "$100" },
+  { name: "Tray of Meatballs", half: "$60", full: "$90", note: "Add Tray of Spaghetti +$30" },
+  { name: "Shrimp Francaise", half: "$80", full: "$120" },
+  { name: "Fried Shrimp", half: "$75", full: "$130" },
+  { name: "Chicken Fingers", half: "$60", full: "$110" },
 ];
+
+const tossedSalads: { name: string; half: string; full: string; note?: string }[] = [
+  { name: "Tossed Salad", half: "$30", full: "$50", note: "Add Grilled Chicken, Chicken Salad, Tuna Salad +$10" },
+  { name: "Antipasto Salad", half: "$40", full: "$60" },
+  { name: "Chef Salad", half: "$40", full: "$60" },
+  { name: "Caesar Salad", half: "$30", full: "$50", note: "Add Grilled Chicken +$10" },
+];
+
+const partyHeroSizes = [
+  { size: "2 Ft.", serves: "8 people" },
+  { size: "3 Ft.", serves: "10 people" },
+  { size: "4 Ft.", serves: "14 people" },
+  { size: "5 Ft.", serves: "18 people" },
+  { size: "6 Ft.", serves: "22 people" },
+  { size: "8 Ft.", serves: "30 people" },
+];
+
+const sideSalads = ["Potato Salad", "Pasta Salad", "Macaroni Salad", "Coleslaw"];
 
 export default function CateringPage() {
   return (
     <>
       <JsonLd data={cateringServiceSchema} />
+
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4">
@@ -95,30 +104,29 @@ export default function CateringPage() {
         </div>
         <div className="absolute inset-0 bg-charcoal/80 backdrop-blur-[2px]" />
 
-        <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
+        <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-24 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
-            NYC&apos;s Finest Catering
+            Hot Trays &middot; Party Heros &middot; Custom Menus
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Food Worth<br />
             <span className="text-gold">Celebrating</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            Restaurant-quality cuisine, crafted by our chefs and delivered
-            flawlessly to your event — every plate, every detail, every time.
+            Hot trays, salads, party heros, and more — brought to your event anywhere in NYC &amp; the Tri-State Area.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
-              href="#quote"
+              href="/contact"
               className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
-              Get a Quote
+              Book Catering
             </Link>
             <Link
-              href="#food"
+              href="#menu"
               className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
             >
-              See Our Food
+              View Menu
             </Link>
           </div>
 
@@ -134,8 +142,8 @@ export default function CateringPage() {
             </span>
             <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">30+</span>
-              Years
+              <span className="block font-heading text-2xl font-bold text-ivory/70">NYC</span>
+              &amp; Tri-State Area
             </span>
           </div>
         </div>
@@ -143,7 +151,7 @@ export default function CateringPage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ivory to-transparent" />
       </section>
 
-      {/* ── FOOD SHOWCASE — The star of the page ── */}
+      {/* ── FOOD SHOWCASE ── */}
       <section id="food" className="bg-ivory py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center">
@@ -185,107 +193,139 @@ export default function CateringPage() {
         </div>
       </section>
 
-      {/* ── WHY OUR FOOD — Story-driven, not menu-driven ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80"
-                alt="Chef at work"
-                fill
-                loading="lazy"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
+      {/* ── CATERING MENU ── */}
+      <section id="menu" className="bg-white py-20">
+        <div className="mx-auto max-w-3xl px-6">
+
+          {/* Header block */}
+          <div className="border-b border-charcoal/15 pb-10 text-center">
+            <p className="font-heading text-2xl font-bold tracking-wide text-charcoal">
+              — NEW YORK FINE FOODS —
+            </p>
+            <p className="mt-1 text-charcoal/60">www.newyorkfinefoods.com</p>
+            <a href={`tel:${CONTACT_PHONE}`} className="text-charcoal/60 hover:text-gold transition-colors">
+              {CONTACT_PHONE}
+            </a>
+            <h2 className="mt-8 font-heading text-5xl font-bold text-charcoal/80 md:text-6xl">
+              Catering Menu
+            </h2>
+          </div>
+
+          {/* Hot Trays */}
+          <div className="mt-10">
+            <div className="grid grid-cols-[1fr_3.5rem_3.5rem] items-baseline gap-x-4 border-b-2 border-charcoal pb-2">
+              <h3 className="font-heading text-2xl font-bold text-charcoal">Hot Trays</h3>
+              <span className="text-right font-heading text-lg font-bold text-charcoal">½</span>
+              <span className="text-right font-heading text-lg font-bold text-charcoal">Full</span>
             </div>
-            <div>
-              <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
-                Our Approach
-              </p>
-              <h2 className="mt-4 font-heading text-3xl font-bold text-ivory md:text-4xl">
-                Crafted by Chefs,<br />Not a Catering Line
-              </h2>
-              <p className="mt-6 leading-relaxed text-ivory/70">
-                Most caterers reheat. We cook. Every dish is prepared fresh on-site
-                or in our kitchen hours before service — the same way a top restaurant
-                would plate it. That&apos;s the difference your guests taste.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {[
-                  "Seasonal, locally-sourced ingredients",
-                  "Executive chef on-site at every event",
-                  "Restaurant-quality plating and presentation",
-                  "Dietary accommodations handled with care",
-                  "From 20-person dinners to 1,000-guest galas",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-ivory/80">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="#quote"
-                className="mt-10 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
-              >
-                Start Planning
-              </Link>
+            <div className="mt-2 divide-y divide-charcoal/8">
+              {hotTrays.map((item) => (
+                <div key={item.name} className="grid grid-cols-[1fr_3.5rem_3.5rem] items-baseline gap-x-4 py-2.5">
+                  <div>
+                    <span className="font-heading text-lg text-charcoal">{item.name}</span>
+                    {item.note && (
+                      <p className="mt-0.5 text-sm italic text-charcoal/55">{item.note}</p>
+                    )}
+                  </div>
+                  <span className="text-right text-charcoal/80">{item.half}</span>
+                  <span className="text-right font-semibold text-charcoal">{item.full}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── HOW IT WORKS ── */}
-      <section className="bg-cream py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
-            How It Works
-          </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-gold/50" />
-          <div className="mt-16 grid gap-8 md:grid-cols-4">
-            {steps.map((s, i) => (
-              <div key={s.step} className="relative text-center">
-                {i < steps.length - 1 && (
-                  <div className="absolute right-0 top-8 hidden h-px w-full translate-x-1/2 bg-gold/20 md:block" />
-                )}
-                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 font-heading text-2xl font-bold text-gold">
-                  {s.step}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-semibold text-charcoal">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-sm text-charcoal/60">{s.description}</p>
-              </div>
-            ))}
+          {/* Tossed Salad */}
+          <div className="mt-10">
+            <div className="grid grid-cols-[1fr_3.5rem_3.5rem] items-baseline gap-x-4 border-b-2 border-charcoal pb-2">
+              <h3 className="font-heading text-2xl font-bold text-charcoal">Tossed Salad</h3>
+              <span className="text-right font-heading text-lg font-bold text-charcoal">½</span>
+              <span className="text-right font-heading text-lg font-bold text-charcoal">Full</span>
+            </div>
+            <div className="mt-2 divide-y divide-charcoal/8">
+              {tossedSalads.map((item) => (
+                <div key={item.name} className="grid grid-cols-[1fr_3.5rem_3.5rem] items-baseline gap-x-4 py-2.5">
+                  <div>
+                    <span className="font-heading text-lg text-charcoal">{item.name}</span>
+                    {item.note && (
+                      <p className="mt-0.5 text-sm italic text-charcoal/55">({item.note})</p>
+                    )}
+                  </div>
+                  <span className="text-right text-charcoal/80">{item.half}</span>
+                  <span className="text-right font-semibold text-charcoal">{item.full}</span>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Catering for All Occasions header */}
+          <div className="mt-16 border-t border-charcoal/15 pt-12 text-center">
+            <h2 className="font-heading text-3xl font-bold text-charcoal md:text-4xl">
+              Catering for All Occasions
+            </h2>
+          </div>
+
+          {/* Party Heros */}
+          <div className="mt-10 text-center">
+            <h3 className="font-heading text-2xl font-bold underline underline-offset-4 text-charcoal">
+              Party Heros
+            </h3>
+            <p className="mt-3 text-charcoal/70">Prices Starting at $20/ft</p>
+            <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-charcoal">
+              {partyHeroSizes.map((h) => (
+                <p key={h.size} className="font-heading text-lg">
+                  {h.size} <span className="font-normal text-charcoal/70">(serves {h.serves})</span>
+                </p>
+              ))}
+            </div>
+            <p className="mt-5 text-sm italic text-charcoal/60">
+              (Shapes, Numbers, &amp; Letters Available by Special Request)
+            </p>
+          </div>
+
+          {/* Side Salads By The Pound */}
+          <div className="mt-12">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b-2 border-charcoal pb-2">
+              <h3 className="font-heading text-2xl font-bold text-charcoal">Side Salads By The Pound</h3>
+              <span className="font-heading text-lg italic text-charcoal/70">$6 per lb</span>
+            </div>
+            <div className="mt-4 grid grid-cols-2 gap-x-8 gap-y-2 text-center">
+              {sideSalads.map((s) => (
+                <p key={s} className="font-heading text-lg text-charcoal">{s}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Assorted Sandwich & Wrap Platters */}
+          <div className="mt-10">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b-2 border-charcoal pb-2">
+              <h3 className="font-heading text-2xl font-bold text-charcoal">
+                Assorted Sandwich &amp; Wrap Platters
+              </h3>
+              <span className="font-heading text-lg italic text-charcoal/70">$12 per person</span>
+            </div>
+          </div>
+
+          {/* Notices */}
+          <div className="mt-12 space-y-4 pt-4 text-center">
+            <p className="font-semibold text-charcoal">
+              Please Call In Advance for All Catering Orders
+            </p>
+            <p className="font-semibold text-charcoal">
+              Special Request for Items Not Listed May be Accepted on a Case By Case Basis
+            </p>
+            <p className="mt-4 text-sm text-charcoal/50 italic">Prices are subject to change</p>
+          </div>
+
         </div>
       </section>
-
-      {/* ── SAMPLE MENUS — Further down, as reference ── */}
-      <div id="menus">
-        <MenuSection
-          title="Sample Menus"
-          subtitle="A starting point — every menu is fully customized to your event."
-          categories={cateringMenus}
-          dark
-        />
-      </div>
 
       {/* ── CTA ── */}
       <CTASection
-        title="Let's Talk About Your Event"
-        subtitle="Tell us what you're envisioning. We'll handle the rest."
-        ctaText="Get a Quote"
-        ctaHref="#quote"
+        title="Ready to Book?"
+        subtitle="Call us or submit an inquiry and we'll get back to you within 24 hours."
+        ctaText="Get in Touch"
+        ctaHref="/contact"
       />
-
-      {/* ── QUOTE FORM ── */}
-      <section id="quote" className="bg-ivory py-24">
-        <div className="mx-auto max-w-2xl px-6">
-          <QuoteForm />
-        </div>
-      </section>
     </>
   );
 }

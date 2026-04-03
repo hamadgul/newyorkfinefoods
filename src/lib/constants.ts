@@ -9,9 +9,8 @@ export const CONTACT_PHONE = "(516) 205-7629";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Catering", href: "/catering" },
-  { label: "Events", href: "/events" },
   { label: "Pizza Trucks", href: "/pizza-trucks" },
+  { label: "Catering", href: "/catering" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;

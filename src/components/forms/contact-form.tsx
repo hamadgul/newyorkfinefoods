@@ -7,13 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FORMSPREE_ENDPOINT } from "@/lib/constants";
 
-type ServiceType = "" | "Catering" | "Full Event Service" | "Pizza Truck" | "All of the Above";
+type ServiceType = "" | "Catering" | "Pizza Truck";
 
 const serviceOptions: { value: ServiceType; label: string; description: string }[] = [
   { value: "Catering", label: "Catering", description: "Chef-crafted menus for your event" },
-  { value: "Full Event Service", label: "Full Event Service", description: "End-to-end event planning & catering" },
   { value: "Pizza Truck", label: "Pizza Truck", description: "Wood-fired pizza at your doorstep" },
-  { value: "All of the Above", label: "All of the Above", description: "The full New York Fine Foods experience" },
 ];
 
 export function ContactForm() {
@@ -41,7 +39,7 @@ export function ContactForm() {
     setLoading(true);
     setError("");
     const data = new FormData(e.currentTarget);
-    data.append("_form_type", serviceType === "All of the Above" ? "Full Service Inquiry" : `${serviceType} Inquiry`);
+    data.append("_form_type", `${serviceType} Inquiry`);
     data.append("serviceType", serviceType);
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -111,15 +109,11 @@ export function ContactForm() {
       <form className="space-y-6 rounded-lg bg-white p-8 shadow-sm" onSubmit={handleSubmit}>
         <h3 className="font-heading text-2xl font-bold text-charcoal">
           {serviceType === "Catering" && "Request a Catering Quote"}
-          {serviceType === "Full Event Service" && "Event Inquiry"}
           {serviceType === "Pizza Truck" && "Book a Pizza Truck"}
-          {serviceType === "All of the Above" && "Full Service Inquiry"}
         </h3>
         <p className="text-sm text-charcoal/50">
           {serviceType === "Catering" && "Tell us about your event and we'll prepare a custom proposal."}
-          {serviceType === "Full Event Service" && "Share your vision and we'll bring it to life."}
           {serviceType === "Pizza Truck" && "Give us the details and we'll roll up to your event."}
-          {serviceType === "All of the Above" && "Let us know everything — we'll handle the rest."}
         </p>
 
         {/* Common fields: Name, Email */}
@@ -153,31 +147,15 @@ export function ContactForm() {
         </div>
 
         {/* Catering-specific fields */}
-        {(serviceType === "Catering" || serviceType === "All of the Above") && (
+        {serviceType === "Catering" && (
           <div className="space-y-2">
             <Label htmlFor="c-event-type">Event Type</Label>
             <Input id="c-event-type" name="event_type" placeholder="e.g. Wedding, Corporate Dinner, Birthday" required />
           </div>
         )}
 
-        {/* Event-specific fields */}
-        {(serviceType === "Full Event Service" || serviceType === "All of the Above") && (
-          <>
-            {serviceType === "Full Event Service" && (
-              <div className="space-y-2">
-                <Label htmlFor="c-event-type-e">Event Type</Label>
-                <Input id="c-event-type-e" name="event_type" placeholder="e.g. Wedding, Corporate, Party, Festival" required />
-              </div>
-            )}
-            <div className="space-y-2">
-              <Label htmlFor="c-venue">Venue / Location</Label>
-              <Input id="c-venue" name="venue" placeholder="Venue name or address" />
-            </div>
-          </>
-        )}
-
         {/* Pizza Truck-specific fields */}
-        {(serviceType === "Pizza Truck" || serviceType === "All of the Above") && (
+        {serviceType === "Pizza Truck" && (
           <div className="space-y-2">
             <Label htmlFor="c-location">Event Location</Label>
             <Input id="c-location" name="location" placeholder="Address or venue name" required />
@@ -186,23 +164,14 @@ export function ContactForm() {
 
         {/* Details / Message */}
         <div className="space-y-2">
-          <Label htmlFor="c-details">
-            {serviceType === "Catering" && "Additional Details"}
-            {serviceType === "Full Event Service" && "Tell Us More"}
-            {serviceType === "Pizza Truck" && "Additional Details"}
-            {serviceType === "All of the Above" && "Tell Us About Your Vision"}
-          </Label>
+          <Label htmlFor="c-details">Additional Details</Label>
           <Textarea
             id="c-details"
             name="details"
             placeholder={
               serviceType === "Catering"
                 ? "Dietary restrictions, preferred style, budget range..."
-                : serviceType === "Full Event Service"
-                  ? "Your vision, theme, special requirements..."
-                  : serviceType === "Pizza Truck"
-                    ? "Event type, duration, special requests..."
-                    : "Tell us everything — services needed, theme, budget, special requests..."
+                : "Event type, duration, special requests..."
             }
             rows={4}
           />
@@ -218,11 +187,7 @@ export function ContactForm() {
             ? "Sending..."
             : serviceType === "Catering"
               ? "Request Quote"
-              : serviceType === "Full Event Service"
-                ? "Submit Inquiry"
-                : serviceType === "Pizza Truck"
-                  ? "Book Pizza Truck"
-                  : "Submit Inquiry"
+              : "Book Pizza Truck"
           }
         </Button>
       </form>
