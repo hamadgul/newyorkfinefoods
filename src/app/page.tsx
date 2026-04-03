@@ -104,7 +104,9 @@ export default function HomePage() {
         {/* Hero content */}
         <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
-            NYC Pizza Trucks &middot; Catering
+            <Link href="/pizza-trucks" className="transition-colors hover:text-gold-light underline underline-offset-4 decoration-gold/40 hover:decoration-gold">NYC Pizza Trucks</Link>
+            {" · "}
+            <Link href="/catering" className="transition-colors hover:text-gold-light underline underline-offset-4 decoration-gold/40 hover:decoration-gold">Catering</Link>
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Exceptional Food<br />
