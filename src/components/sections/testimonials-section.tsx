@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-cream py-24">
+    <section className="overflow-hidden bg-cream py-24">
       <div className="mx-auto max-w-6xl px-6">
         <FadeIn>
           <div className="mb-14 text-center">
@@ -21,12 +21,12 @@ export function TestimonialsSection() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 100}>
+            <FadeIn key={t.name} delay={i * 100} className="min-w-0">
               <div className="flex h-full flex-col rounded-xl border border-charcoal/10 bg-white p-7">
                 <div className="select-none font-heading text-5xl font-bold leading-none text-gold/30">
                   &ldquo;
                 </div>
-                <p className="mt-3 flex-1 text-base italic leading-relaxed text-charcoal/75">
+                <p className="mt-3 flex-1 break-words text-base italic leading-relaxed text-charcoal/75">
                   {t.quote}
                 </p>
                 <div className="mt-6 flex min-w-0 items-center gap-3 border-t border-charcoal/8 pt-5">
