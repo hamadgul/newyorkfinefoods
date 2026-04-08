@@ -321,6 +321,15 @@ export default function CateringPage() {
             <p className="mt-4 text-sm text-charcoal/50 italic">Prices are subject to change</p>
           </div>
 
+          <div className="mt-10 text-center">
+            <Link
+              href="/contact"
+              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
+            >
+              Book Catering
+            </Link>
+          </div>
+
         </div>
       </section>
 

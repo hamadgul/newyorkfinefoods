@@ -118,16 +118,16 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
-              href="/pizza-trucks#book"
+              href="/pizza-trucks#menu"
               className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
-              Book a Pizza Truck
+              Pizza Truck Menu
             </Link>
             <Link
-              href="/contact"
+              href="/catering#menu"
               className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
             >
-              Book Catering
+              Catering Menu
             </Link>
           </div>
 

@@ -296,6 +296,15 @@ export default function PizzaTrucksPage() {
             <p className="text-sm italic text-charcoal/50">Prices are subject to change</p>
           </div>
 
+          <div className="mt-10 text-center">
+            <Link
+              href="#book"
+              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
+            >
+              Book a Pizza Truck
+            </Link>
+          </div>
+
         </div>
       </section>
 
