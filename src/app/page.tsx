@@ -44,6 +44,13 @@ const services = [
     image: "/catering-service.jpg",
     href: "/catering",
   },
+  {
+    title: "Mobile Bar",
+    description:
+      "Professional bartenders, premium spirits, and a full bar setup brought to your venue — beer & wine to ultra-premium open bar packages.",
+    image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+    href: "/mobile-bar",
+  },
 ];
 
 const galleryItems: { src: string; type: "image" | "video" }[] = [
@@ -108,6 +115,8 @@ export default function HomePage() {
             <Link href="/pizza-trucks" className="transition-colors hover:text-gold-light underline underline-offset-4 decoration-gold/40 hover:decoration-gold">NYC Pizza Trucks</Link>
             {" · "}
             <Link href="/catering" className="transition-colors hover:text-gold-light underline underline-offset-4 decoration-gold/40 hover:decoration-gold">Catering</Link>
+            {" · "}
+            <Link href="/mobile-bar" className="transition-colors hover:text-gold-light underline underline-offset-4 decoration-gold/40 hover:decoration-gold">Mobile Bar</Link>
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Exceptional Food<br />
@@ -116,7 +125,7 @@ export default function HomePage() {
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
             Authentic Neapolitan pizza trucks and full-service catering — Anywhere in New York City &amp; the Tri-State Area.
           </p>
-          <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
+          <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Link
               href="/pizza-trucks#menu"
               className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
@@ -128,6 +137,12 @@ export default function HomePage() {
               className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
             >
               Catering Menu
+            </Link>
+            <Link
+              href="/mobile-bar"
+              className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
+            >
+              Off Premise Bar Service
             </Link>
           </div>
 
@@ -166,11 +181,11 @@ export default function HomePage() {
                 What We Do
               </h2>
               <p className="mx-auto mt-4 max-w-sm text-charcoal/55">
-                Two ways we make your next event unforgettable.
+                Three ways we make your next event unforgettable.
               </p>
             </div>
           </FadeIn>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <FadeIn key={service.title} delay={i * 120}>
                 <Link
@@ -187,7 +202,7 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/10" />
                   <div className="absolute bottom-0 left-0 right-0 p-7">
                     <span className="mb-3 inline-block rounded-full bg-burgundy/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ivory/90">
-                      {service.title === "Pizza Trucks" ? "Mobile" : "Full Service"}
+                      {service.title === "Pizza Trucks" ? "Mobile" : service.title === "Mobile Bar" ? "Bar Service" : "Full Service"}
                     </span>
                     <h3 className="font-heading text-2xl font-bold text-ivory md:text-3xl">
                       {service.title}
