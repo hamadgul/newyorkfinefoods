@@ -24,6 +24,11 @@ export function CTASection({
           {/* Glowing orbs */}
           <div className="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
           <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+          {/* Diagonal texture */}
+          <div
+            className="absolute inset-0 opacity-[0.035]"
+            style={{ backgroundImage: "repeating-linear-gradient(-45deg, #C9A84C 0px, #C9A84C 1px, transparent 0px, transparent 50%)", backgroundSize: "10px 10px" }}
+          />
           {/* Brand X watermark */}
           <div className="pointer-events-none absolute right-12 top-1/2 -translate-y-1/2 select-none font-heading text-[220px] font-bold leading-none text-gold/[0.04]">
             ×
@@ -34,7 +39,7 @@ export function CTASection({
         <div className="mx-auto mb-6 h-px w-16 bg-gold/40" />
         <h2 className="font-heading text-3xl font-bold md:text-5xl">{title}</h2>
         <p
-          className={`mt-5 text-lg leading-relaxed ${dark ? "text-ivory/60" : "text-charcoal/60"}`}
+          className={`mt-5 text-lg leading-relaxed ${dark ? "text-ivory/70" : "text-charcoal/70"}`}
         >
           {subtitle}
         </p>

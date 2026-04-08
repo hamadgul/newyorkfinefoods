@@ -32,6 +32,8 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Pizza Trucks",
+    badge: "Mobile",
+    badgeClass: "bg-gold/80 text-charcoal",
     description:
       "Authentic Neapolitan pizza cooked in 90 seconds at 900°F — brought straight to your event anywhere in NYC & the Tri-State Area.",
     image: "/pizza-trucks-service.jpg",
@@ -39,6 +41,8 @@ const services = [
   },
   {
     title: "Catering",
+    badge: "Full Service",
+    badgeClass: "bg-burgundy/70 text-ivory/90",
     description:
       "We bring restaurant-quality cuisine to your venue — custom menus, fresh preparation, and flawless service from 20 to 1,000 guests.",
     image: "/catering-service.jpg",
@@ -46,6 +50,8 @@ const services = [
   },
   {
     title: "Mobile Bar",
+    badge: "Bar Service",
+    badgeClass: "border border-ivory/30 bg-ivory/20 text-ivory",
     description:
       "Professional bartenders, premium spirits, and a full bar setup brought to your venue — beer & wine to ultra-premium open bar packages.",
     image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
@@ -180,7 +186,7 @@ export default function HomePage() {
               <h2 className="mt-2 font-heading text-3xl font-bold text-charcoal md:text-5xl">
                 What We Do
               </h2>
-              <p className="mx-auto mt-4 max-w-sm text-charcoal/55">
+              <p className="mx-auto mt-4 max-w-sm text-charcoal/70">
                 Three ways we make your next event unforgettable.
               </p>
             </div>
@@ -201,8 +207,8 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/10" />
                   <div className="absolute bottom-0 left-0 right-0 p-7">
-                    <span className="mb-3 inline-block rounded-full bg-burgundy/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ivory/90">
-                      {service.title === "Pizza Trucks" ? "Mobile" : service.title === "Mobile Bar" ? "Bar Service" : "Full Service"}
+                    <span className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${service.badgeClass}`}>
+                      {service.badge}
                     </span>
                     <h3 className="font-heading text-2xl font-bold text-ivory md:text-3xl">
                       {service.title}
@@ -274,32 +280,32 @@ export default function HomePage() {
             {/* Item 0: wide */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 3", gridRow: "1 / 2" }}>
               <Image src={galleryItems[0].src} alt="Gallery 1" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 1: tall */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "3 / 4", gridRow: "1 / 3" }}>
               <LazyVideo src={galleryItems[1].src} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 2 */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }}>
               <Image src={galleryItems[2].src} alt="Gallery 3" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 3 */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }}>
               <LazyVideo src={galleryItems[3].src} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 4 */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }}>
               <Image src={galleryItems[4].src} alt="Gallery 5" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 5: wide bottom */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "2 / 4", gridRow: "3 / 4" }}>
               <Image src={galleryItems[5].src} alt="Gallery 6" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+              <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
           </div>
         </div>

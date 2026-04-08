@@ -150,13 +150,14 @@ export default function AboutPage() {
           <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
             By the Numbers
           </h2>
-          <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+              <div key={stat.label} className="flex flex-col items-center rounded-xl border border-charcoal/8 bg-white px-4 py-8 text-center shadow-sm">
                 <p className="font-heading text-4xl font-bold text-gold md:text-5xl">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-sm font-medium text-charcoal/60">
+                <div className="mt-3 h-px w-8 bg-gold/40" />
+                <p className="mt-3 text-sm font-medium text-charcoal/70">
                   {stat.label}
                 </p>
               </div>

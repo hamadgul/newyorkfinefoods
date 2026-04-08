@@ -43,7 +43,7 @@ export function Navbar() {
         {/* Desktop nav */}
         <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
-            <li key={link.href} className="relative pb-1">
+            <li key={link.href} className="group relative pb-1">
               <Link
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-gold ${
@@ -52,9 +52,11 @@ export function Navbar() {
               >
                 {link.label}
               </Link>
-              {pathname === link.href && (
-                <span className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-gold" />
-              )}
+              <span
+                className={`absolute bottom-0 left-0 h-px bg-gold transition-all duration-300 ${
+                  pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
             </li>
           ))}
         </ul>
@@ -83,9 +85,9 @@ export function Navbar() {
                 className="h-6 w-auto brightness-0 invert"
               />
             </SheetTitle>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-6 divide-y divide-gold/10">
               {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="py-4">
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}

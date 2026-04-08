@@ -374,7 +374,7 @@ export default function PizzaTrucksPage() {
             {idealFor.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-charcoal/10 bg-white px-6 py-3 font-heading text-sm font-semibold text-charcoal shadow-sm transition-all duration-300 hover:border-gold hover:shadow-md"
+                className="rounded-full border border-charcoal/10 bg-white px-6 py-3 font-heading text-sm font-semibold text-charcoal shadow-sm transition-all duration-300 hover:border-gold hover:bg-gold hover:shadow-md"
               >
                 {item}
               </span>
