@@ -134,13 +134,13 @@ export default function HomePage() {
             </Link>
             <Link
               href="/catering#menu"
-              className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
+              className="rounded-full border border-ivory/40 bg-ivory/10 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory backdrop-blur-sm transition-all duration-300 hover:border-ivory/70 hover:bg-ivory/20 sm:px-10 sm:py-4"
             >
               Catering Menu
             </Link>
             <Link
-              href="/mobile-bar"
-              className="rounded-full border border-ivory/30 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:border-gold hover:text-gold sm:px-10 sm:py-4"
+              href="/mobile-bar#packages"
+              className="rounded-full border border-gold/40 bg-gold/10 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-gold backdrop-blur-sm transition-all duration-300 hover:border-gold/70 hover:bg-gold/20 sm:px-10 sm:py-4"
             >
               Off Premise Bar Service
             </Link>
