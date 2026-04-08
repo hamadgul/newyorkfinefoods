@@ -15,7 +15,12 @@ export function ScrollToTop() {
 
   return (
     <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.location.hash) {
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      }}
       aria-label="Scroll to top"
       className="fixed bottom-20 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-gold text-charcoal shadow-lg transition-all duration-300 hover:bg-gold-light hover:shadow-gold/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 sm:bottom-8 sm:right-6"
     >
