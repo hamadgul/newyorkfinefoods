@@ -438,29 +438,29 @@ export default function MobileBarPage() {
               <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
             </div>
             <div className="mt-10 space-y-3 text-sm text-charcoal/80">
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-charcoal/10 bg-white px-6 py-4">
+              <div className="flex flex-col gap-1 rounded-xl border border-charcoal/10 bg-white px-6 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <span>Setup, breakdown, cleanup &amp; equipment transport</span>
-                <span className="flex-shrink-0 font-semibold text-charcoal">Included</span>
+                <span className="font-semibold text-charcoal sm:flex-shrink-0">Included</span>
               </div>
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-charcoal/10 bg-white px-6 py-4">
+              <div className="flex flex-col gap-1 rounded-xl border border-charcoal/10 bg-white px-6 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <span>Travel within NYC boroughs or suburbs (≤30 miles)</span>
-                <span className="flex-shrink-0 font-semibold text-charcoal">Included</span>
+                <span className="font-semibold text-charcoal sm:flex-shrink-0">Included</span>
               </div>
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-charcoal/10 bg-white px-6 py-4">
-                <span>Travel beyond 30 miles (further LI, Hudson Valley, NJ/CT)</span>
-                <span className="flex-shrink-0 font-semibold text-charcoal">$150 flat or $2/mile round-trip</span>
+              <div className="flex flex-col gap-1 rounded-xl border border-charcoal/10 bg-white px-6 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <span>Travel beyond 30 miles (Long Island, Hudson Valley, NJ/CT)</span>
+                <span className="font-semibold text-charcoal sm:flex-shrink-0">$150 flat or $2/mile round-trip</span>
               </div>
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-charcoal/10 bg-white px-6 py-4">
+              <div className="flex flex-col gap-1 rounded-xl border border-charcoal/10 bg-white px-6 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <span>Small event (&lt;30 guests) — 5 hours, 1 bartender + full setup/breakdown</span>
-                <span className="flex-shrink-0 font-semibold text-charcoal">$1,250 flat</span>
+                <span className="font-semibold text-charcoal sm:flex-shrink-0">$1,250 flat</span>
               </div>
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-charcoal/10 bg-white px-6 py-4">
+              <div className="flex flex-col gap-1 rounded-xl border border-charcoal/10 bg-white px-6 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <span>Additional bartender (determined by guest count)</span>
-                <span className="flex-shrink-0 font-semibold text-charcoal">$45–$55/hr</span>
+                <span className="font-semibold text-charcoal sm:flex-shrink-0">$45–$55/hr</span>
               </div>
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-gold/30 bg-gold/5 px-6 py-4">
+              <div className="flex flex-col gap-1 rounded-xl border border-gold/30 bg-gold/5 px-6 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <span className="font-medium text-charcoal">Service charge on total (covers staffing, insurance, permits, equipment, fuel)</span>
-                <span className="flex-shrink-0 font-semibold text-charcoal">20–22%</span>
+                <span className="font-semibold text-charcoal sm:flex-shrink-0">20–22%</span>
               </div>
             </div>
           </div>

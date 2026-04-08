@@ -19,9 +19,9 @@ export function Footer() {
             />
           </Link>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ivory/50">
-            NYC&apos;s premier pizza truck and catering company. Authentic
-            Neapolitan pizza and custom catering brought to your event
-            anywhere in New York City &amp; the Tri-State Area.
+            NYC&apos;s premier pizza truck, catering, and mobile bar company.
+            Fine dining and full bar service brought to your event anywhere
+            in New York City &amp; the Tri-State Area.
           </p>
         </div>
 

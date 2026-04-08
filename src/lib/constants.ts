@@ -1,7 +1,7 @@
 export const SITE_NAME = "New York Fine Foods";
 export const SITE_TAGLINE = "Elevating Every Event with Exceptional Cuisine";
 export const SITE_DESCRIPTION =
-  "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.";
+  "NYC's premier catering, pizza truck, and mobile bar company. From intimate gatherings to grand celebrations, we bring fine dining and exceptional bar service to every occasion.";
 
 export const CONTACT_EMAIL = "info@newyorkfinefoods.com";
 export const CONTACT_PHONE = "(516) 205-7629";

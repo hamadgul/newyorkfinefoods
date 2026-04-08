@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     template: '%s | New York Fine Foods',
   },
   description:
-    "NYC's premier catering, events, and pizza truck company. From intimate gatherings to grand celebrations, we bring fine dining to every occasion.",
+    "NYC's premier catering, pizza truck, and mobile bar company. From intimate gatherings to grand celebrations, we bring fine dining and exceptional bar service to every occasion.",
   keywords: [
     'NYC catering',
     'catering company New York',
@@ -81,6 +81,8 @@ export const metadata: Metadata = {
     'Neapolitan pizza truck',
     'corporate catering New York',
     'wedding catering NYC',
+    'mobile bar NYC',
+    'off premise bar service New York',
     'New York Fine Foods',
   ],
   authors: [{ name: 'New York Fine Foods' }],
