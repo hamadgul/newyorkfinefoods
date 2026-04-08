@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { MobileBarInquiryForm } from "@/components/forms/mobile-bar-inquiry-form";
+import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { CONTACT_PHONE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -581,6 +582,8 @@ export default function MobileBarPage() {
           </div>
         </div>
       </section>
+
+      <StickyBookingBar label="Request a Bar Quote" />
 
       {/* ── INQUIRY FORM ── */}
       <section id="book" className="bg-cream py-24">

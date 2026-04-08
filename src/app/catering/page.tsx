@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { CTASection } from "@/components/sections/cta-section";
 import { EventInquiryForm } from "@/components/forms/event-inquiry-form";
+import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { JsonLd } from "@/components/json-ld";
 import { CONTACT_PHONE } from "@/lib/constants";
 
@@ -333,6 +334,8 @@ export default function CateringPage() {
 
         </div>
       </section>
+
+      <StickyBookingBar label="Book Catering" />
 
       {/* ── INQUIRY FORM ── */}
       <section id="book" className="bg-cream py-24">

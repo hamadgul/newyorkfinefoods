@@ -79,7 +79,7 @@ export function ContactForm() {
               key={option.value}
               type="button"
               onClick={() => setServiceType(option.value)}
-              className="group rounded-xl border-2 border-charcoal/10 bg-ivory/30 p-6 text-left transition-all duration-200 hover:border-gold hover:bg-gold/5 hover:shadow-lg"
+              className="group rounded-xl border-2 border-charcoal/10 bg-ivory/30 p-6 text-left transition-all duration-200 hover:border-gold hover:bg-gold/5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
               <span className="block font-heading text-lg font-bold text-charcoal transition-colors group-hover:text-gold">
                 {option.label}

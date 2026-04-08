@@ -63,13 +63,15 @@ export function TestimonialsSection() {
           </div>
         </FadeIn>
 
-        {/* Mobile: single column */}
-        <div className="flex flex-col gap-6 md:hidden">
-          {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 120}>
+        {/* Mobile: horizontal scroll-snap carousel */}
+        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {testimonials.map((t) => (
+            <div key={t.name} className="w-[82vw] shrink-0 snap-start sm:w-[55vw]">
               <TestimonialCard t={t} />
-            </FadeIn>
+            </div>
           ))}
+          {/* Trailing spacer so last card doesn't flush right */}
+          <div className="w-2 shrink-0" aria-hidden />
         </div>
 
         {/* Desktop: true two-column masonry stagger */}

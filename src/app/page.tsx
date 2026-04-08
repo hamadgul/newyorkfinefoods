@@ -6,6 +6,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { FadeIn } from "@/components/ui/fade-in";
 import { INSTAGRAM_URL, INSTAGRAM_HANDLE } from "@/lib/constants";
+import { darkBlur } from "@/lib/image-utils";
 
 export const metadata: Metadata = {
   title: {
@@ -279,7 +280,7 @@ export default function HomePage() {
           >
             {/* Item 0: wide */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 3", gridRow: "1 / 2" }}>
-              <Image src={galleryItems[0].src} alt="Gallery 1" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={galleryItems[0].src} alt="Gallery 1" fill loading="lazy" placeholder="blur" blurDataURL={darkBlur} className="object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 1: tall */}
@@ -289,7 +290,7 @@ export default function HomePage() {
             </div>
             {/* Item 2 */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }}>
-              <Image src={galleryItems[2].src} alt="Gallery 3" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={galleryItems[2].src} alt="Gallery 3" fill loading="lazy" placeholder="blur" blurDataURL={darkBlur} className="object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 3 */}
@@ -299,12 +300,12 @@ export default function HomePage() {
             </div>
             {/* Item 4 */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }}>
-              <Image src={galleryItems[4].src} alt="Gallery 5" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={galleryItems[4].src} alt="Gallery 5" fill loading="lazy" placeholder="blur" blurDataURL={darkBlur} className="object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
             {/* Item 5: wide bottom */}
             <div className="group relative overflow-hidden rounded-lg" style={{ gridColumn: "2 / 4", gridRow: "3 / 4" }}>
-              <Image src={galleryItems[5].src} alt="Gallery 6" fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={galleryItems[5].src} alt="Gallery 6" fill loading="lazy" placeholder="blur" blurDataURL={darkBlur} className="object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/30" />
             </div>
           </div>
@@ -357,6 +358,8 @@ export default function HomePage() {
                     alt={`Instagram post ${i + 1}`}
                     fill
                     loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={darkBlur}
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 )}

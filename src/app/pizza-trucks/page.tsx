@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
+import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { TruckCarousel } from "@/components/sections/truck-carousel";
 import { pizzaMenu } from "@/data/menus";
 import { JsonLd } from '@/components/json-ld'
@@ -382,6 +383,8 @@ export default function PizzaTrucksPage() {
           </div>
         </div>
       </section>
+
+      <StickyBookingBar label="Book a Pizza Truck" />
 
       {/* Booking Form */}
       <section id="book" className="bg-cream py-24">

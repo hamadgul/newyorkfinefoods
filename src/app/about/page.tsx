@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/sections/hero";
 import { CTASection } from "@/components/sections/cta-section";
+import { CountUp } from "@/components/ui/count-up";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { teamMembers, stats } from "@/data/team";
 
@@ -155,7 +156,7 @@ export default function AboutPage() {
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center rounded-xl border border-charcoal/8 bg-white px-4 py-8 text-center shadow-sm">
                 <p className="font-heading text-4xl font-bold text-gold md:text-5xl">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </p>
                 <div className="mt-3 h-px w-8 bg-gold/40" />
                 <p className="mt-3 text-sm font-medium text-charcoal/70">

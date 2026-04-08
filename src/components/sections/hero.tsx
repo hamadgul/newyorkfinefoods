@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { darkBlur } from "@/lib/image-utils";
 
 interface HeroProps {
   backgroundImage: string;
@@ -42,6 +43,8 @@ export function Hero({
             fill
             className="object-cover"
             priority
+            placeholder="blur"
+            blurDataURL={darkBlur}
           />
         )}
       </div>
