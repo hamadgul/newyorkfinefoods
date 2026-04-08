@@ -7,11 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FORMSPREE_ENDPOINT } from "@/lib/constants";
 
-type ServiceType = "" | "Catering" | "Pizza Truck";
+type ServiceType = "" | "Catering" | "Pizza Truck" | "Mobile Bar";
 
 const serviceOptions: { value: ServiceType; label: string; description: string }[] = [
   { value: "Catering", label: "Catering", description: "Chef-crafted menus for your event" },
   { value: "Pizza Truck", label: "Pizza Truck", description: "Neopolitan-fired pizza at your doorstep" },
+  { value: "Mobile Bar", label: "Mobile Bar", description: "Professional bartenders & full bar setup for your event" },
 ];
 
 export function ContactForm() {
@@ -110,10 +111,12 @@ export function ContactForm() {
         <h3 className="font-heading text-2xl font-bold text-charcoal">
           {serviceType === "Catering" && "Request a Catering Quote"}
           {serviceType === "Pizza Truck" && "Book a Pizza Truck"}
+          {serviceType === "Mobile Bar" && "Book a Mobile Bar"}
         </h3>
         <p className="text-sm text-charcoal/50">
           {serviceType === "Catering" && "Tell us about your event and we'll prepare a custom proposal."}
           {serviceType === "Pizza Truck" && "Give us the details and we'll roll up to your event."}
+          {serviceType === "Mobile Bar" && "Tell us about your event and we'll build a custom bar quote."}
         </p>
 
         {/* Common fields: Name, Email */}
@@ -162,6 +165,38 @@ export function ContactForm() {
           </div>
         )}
 
+        {/* Mobile Bar-specific fields */}
+        {serviceType === "Mobile Bar" && (
+          <>
+            <div className="space-y-2">
+              <Label htmlFor="c-mb-location">Event Location / Venue</Label>
+              <Input id="c-mb-location" name="location" placeholder="Address or venue name" required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="c-mb-package">Package Interest</Label>
+              <select
+                id="c-mb-package"
+                name="package_interest"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <option value="">Select a package...</option>
+                <optgroup label="Full Open Bar (We Supply All Alcohol)">
+                  <option value="Full Open Bar – Beer &amp; Wine Only ($26/person)">Beer &amp; Wine Only — $26/person</option>
+                  <option value="Full Open Bar – Standard ($34/person)">Standard Open Bar — $34/person</option>
+                  <option value="Full Open Bar – Premium ($45/person)">Premium Open Bar — $45/person (Most Popular)</option>
+                  <option value="Full Open Bar – Ultra-Premium ($62/person)">Ultra-Premium Open Bar — $62/person</option>
+                </optgroup>
+                <optgroup label="Service Only / Dry Hire (You Supply Alcohol)">
+                  <option value="Service Only – Basic ($22/person)">Basic Service — $22/person</option>
+                  <option value="Service Only – Standard ($28/person)">Standard Service — $28/person (Most Popular)</option>
+                  <option value="Service Only – Premium ($35/person)">Premium Service — $35/person</option>
+                </optgroup>
+                <option value="Not sure yet">Not sure yet — help me choose</option>
+              </select>
+            </div>
+          </>
+        )}
+
         {/* Details / Message */}
         <div className="space-y-2">
           <Label htmlFor="c-details">Additional Details</Label>
@@ -187,7 +222,9 @@ export function ContactForm() {
             ? "Sending..."
             : serviceType === "Catering"
               ? "Request Quote"
-              : "Book Pizza Truck"
+              : serviceType === "Mobile Bar"
+                ? "Request a Bar Quote"
+                : "Book Pizza Truck"
           }
         </Button>
       </form>
