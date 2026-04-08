@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/catering`,     priority: 0.8, changeFrequency: 'monthly', lastModified: new Date() },
     { url: `${BASE}/events`,       priority: 0.8, changeFrequency: 'monthly', lastModified: new Date() },
     { url: `${BASE}/pizza-trucks`, priority: 0.8, changeFrequency: 'monthly', lastModified: new Date() },
+    { url: `${BASE}/mobile-bar`,   priority: 0.8, changeFrequency: 'monthly', lastModified: new Date() },
     { url: `${BASE}/about`,        priority: 0.6, changeFrequency: 'monthly', lastModified: new Date() },
     { url: `${BASE}/contact`,      priority: 0.6, changeFrequency: 'monthly', lastModified: new Date() },
     // /blog is excluded while the listing page carries robots: noindex.
