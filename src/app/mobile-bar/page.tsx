@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { MobileBarInquiryForm } from "@/components/forms/mobile-bar-inquiry-form";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
@@ -592,13 +591,6 @@ export default function MobileBarPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <CTASection
-        title="Ready to Book Your Mobile Bar?"
-        subtitle="Call us or submit an inquiry and we'll get back to you within 24 hours."
-        ctaText="Get in Touch"
-        ctaHref="/contact"
-      />
     </>
   );
 }

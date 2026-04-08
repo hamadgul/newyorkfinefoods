@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { LazyVideo } from "@/components/ui/lazy-video";
-import { CTASection } from "@/components/sections/cta-section";
 import { EventInquiryForm } from "@/components/forms/event-inquiry-form";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { JsonLd } from "@/components/json-ld";
@@ -344,13 +343,6 @@ export default function CateringPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <CTASection
-        title="Ready to Book?"
-        subtitle="Fill out the inquiry form above or give us a call — we'll get back to you within 24 hours."
-        ctaText="Get in Touch"
-        ctaHref="/contact"
-      />
     </>
   );
 }
