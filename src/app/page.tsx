@@ -147,19 +147,19 @@ export default function HomePage() {
           </div>
 
           {/* Quick trust signals */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 border-t border-ivory/10 pt-6 text-ivory/40 sm:mt-16 sm:gap-8 sm:pt-8">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-ivory/40 sm:mt-16 sm:gap-8">
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-3xl font-bold text-ivory sm:text-4xl">2,500+</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70">2,500+</span>
               Events Catered
             </span>
-            <span className="hidden h-8 w-px bg-ivory/15 sm:block" />
+            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-3xl font-bold text-ivory sm:text-4xl">NYC</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70">NYC</span>
               &amp; Tri-State Area
             </span>
-            <span className="hidden h-8 w-px bg-ivory/15 sm:block" />
+            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-3xl font-bold text-ivory normal-case sm:text-4xl">9</span>
+              <span className="block font-heading text-2xl font-bold text-ivory/70 normal-case">9</span>
               Signature Pies
             </span>
           </div>
@@ -220,6 +220,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Services → Gallery transition */}
+      <div className="h-10 bg-gradient-to-b from-ivory to-charcoal" />
 
       {/* ── GALLERY — Editorial mixed grid ── */}
       <section className="bg-charcoal py-24">
@@ -302,8 +305,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Gallery → Testimonials transition */}
+      <div className="h-10 bg-gradient-to-b from-charcoal to-cream" />
+
       {/* ── TESTIMONIALS ── */}
       <TestimonialsSection />
+
+      {/* Testimonials → Instagram transition */}
+      <div className="h-10 bg-gradient-to-b from-cream to-charcoal" />
 
       {/* ── INSTAGRAM — Prominent section ── */}
       <section className="bg-charcoal py-24">
@@ -372,6 +381,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Instagram → CTA transition */}
+      <div className="h-10 bg-gradient-to-b from-charcoal to-cream" />
 
       {/* ── CTA ── */}
       <CTASection

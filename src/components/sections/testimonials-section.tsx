@@ -1,5 +1,49 @@
-import { testimonials } from "@/data/testimonials";
+import { testimonials, type Testimonial } from "@/data/testimonials";
 import { FadeIn } from "@/components/ui/fade-in";
+
+function StarRating() {
+  return (
+    <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} className="h-4 w-4 fill-gold text-gold" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function TestimonialCard({ t }: { t: Testimonial }) {
+  return (
+    <div className="relative flex flex-col overflow-hidden rounded-xl border border-charcoal/8 bg-white p-7 shadow-sm">
+      {/* Watermark quote mark */}
+      <span className="pointer-events-none absolute -top-3 -left-1 select-none font-heading text-[96px] font-bold leading-none text-gold/[0.08]">
+        &ldquo;
+      </span>
+      {/* Stars */}
+      <StarRating />
+      {/* Quote */}
+      <p className="relative mt-4 break-words text-base italic leading-relaxed text-charcoal/75">
+        {t.quote}
+      </p>
+      {/* Author */}
+      <div className="mt-6 flex min-w-0 items-center gap-3 border-t border-charcoal/8 pt-5">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/15">
+          <span className="font-heading text-sm font-bold text-gold">
+            {t.name.charAt(0)}
+          </span>
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-heading font-bold text-charcoal">{t.name}</p>
+          <p className="truncate text-sm text-charcoal/50">{t.role}</p>
+        </div>
+        <span className="shrink-0 rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 text-xs font-medium text-gold">
+          {t.service}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export function TestimonialsSection() {
   return (
@@ -13,39 +57,39 @@ export function TestimonialsSection() {
             <h2 className="mt-3 font-heading text-3xl font-bold text-charcoal md:text-5xl">
               What Our Clients Say
             </h2>
-            <p className="mx-auto mt-4 max-w-sm text-charcoal/55">
+            <p className="mx-auto mt-4 max-w-sm text-charcoal/60">
               Real feedback from corporate clients and private events across NYC.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        {/* Mobile: single column */}
+        <div className="flex flex-col gap-6 md:hidden">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 100} className="min-w-0">
-              <div className="flex h-full flex-col rounded-xl border border-charcoal/10 bg-white p-7">
-                <div className="select-none font-heading text-5xl font-bold leading-none text-gold/30">
-                  &ldquo;
-                </div>
-                <p className="mt-3 flex-1 break-words text-base italic leading-relaxed text-charcoal/75">
-                  {t.quote}
-                </p>
-                <div className="mt-6 flex min-w-0 items-center gap-3 border-t border-charcoal/8 pt-5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/15">
-                    <span className="font-heading text-sm font-bold text-gold">
-                      {t.name.charAt(0)}
-                    </span>
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate font-heading font-bold text-charcoal">{t.name}</p>
-                    <p className="truncate text-sm text-charcoal/50">{t.role}</p>
-                  </div>
-                  <span className="shrink-0 rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 text-xs font-medium text-gold">
-                    {t.service}
-                  </span>
-                </div>
-              </div>
+            <FadeIn key={t.name} delay={i * 120}>
+              <TestimonialCard t={t} />
             </FadeIn>
           ))}
+        </div>
+
+        {/* Desktop: true two-column masonry stagger */}
+        <div className="hidden gap-6 md:grid md:grid-cols-2 md:items-start">
+          {/* Left column */}
+          <div className="space-y-6">
+            {testimonials.filter((_, i) => i % 2 === 0).map((t, i) => (
+              <FadeIn key={t.name} delay={i * 150}>
+                <TestimonialCard t={t} />
+              </FadeIn>
+            ))}
+          </div>
+          {/* Right column — offset down for stagger */}
+          <div className="mt-10 space-y-6">
+            {testimonials.filter((_, i) => i % 2 === 1).map((t, i) => (
+              <FadeIn key={t.name} delay={i * 150 + 100}>
+                <TestimonialCard t={t} />
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>
