@@ -384,7 +384,7 @@ export default function PizzaTrucksPage() {
         </div>
       </section>
 
-      <StickyBookingBar label="Book a Pizza Truck" />
+      <StickyBookingBar label="Book a Pizza Truck" showAfter="menu" />
 
       {/* Booking Form */}
       <section id="book" className="bg-cream py-24">

@@ -583,7 +583,7 @@ export default function MobileBarPage() {
         </div>
       </section>
 
-      <StickyBookingBar label="Request a Bar Quote" />
+      <StickyBookingBar label="Request a Bar Quote" showAfter="packages" />
 
       {/* ── INQUIRY FORM ── */}
       <section id="book" className="bg-cream py-24">

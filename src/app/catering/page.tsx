@@ -335,7 +335,7 @@ export default function CateringPage() {
         </div>
       </section>
 
-      <StickyBookingBar label="Book Catering" />
+      <StickyBookingBar label="Book Catering" showAfter="menu" />
 
       {/* ── INQUIRY FORM ── */}
       <section id="book" className="bg-cream py-24">
