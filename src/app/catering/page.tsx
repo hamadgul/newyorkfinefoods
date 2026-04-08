@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { CTASection } from "@/components/sections/cta-section";
+import { EventInquiryForm } from "@/components/forms/event-inquiry-form";
 import { JsonLd } from "@/components/json-ld";
 import { CONTACT_PHONE } from "@/lib/constants";
 
@@ -117,7 +118,7 @@ export default function CateringPage() {
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
-              href="/contact"
+              href="#book"
               className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
               Book Catering
@@ -323,7 +324,7 @@ export default function CateringPage() {
 
           <div className="mt-10 text-center">
             <Link
-              href="/contact"
+              href="#book"
               className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
             >
               Book Catering
@@ -333,10 +334,17 @@ export default function CateringPage() {
         </div>
       </section>
 
+      {/* ── INQUIRY FORM ── */}
+      <section id="book" className="bg-cream py-24">
+        <div className="mx-auto max-w-2xl px-6">
+          <EventInquiryForm />
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <CTASection
         title="Ready to Book?"
-        subtitle="Call us or submit an inquiry and we'll get back to you within 24 hours."
+        subtitle="Fill out the inquiry form above or give us a call — we'll get back to you within 24 hours."
         ctaText="Get in Touch"
         ctaHref="/contact"
       />
