@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/sections/cta-section";
+import { HeroVideo } from "@/components/sections/hero-video";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -80,101 +81,8 @@ const instagramPosts: { src: string; type: "image" | "video" }[] = [
 export default function HomePage() {
   return (
     <>
-      {/* ── HERO: Full-impact services collage ── */}
-      <section className="relative min-h-screen overflow-hidden bg-charcoal">
-        {/* Background collage grid */}
-        <div className="absolute inset-0 grid grid-cols-3 grid-rows-2">
-          {[
-            { src: "/hero/1.jpg", type: "image" as const },
-            { src: "/hero/2.jpg", type: "image" as const },
-            { src: "/hero/3.jpg", type: "image" as const },
-            { src: "/hero/4.jpg", type: "image" as const },
-            { src: "/hero/5.jpg", type: "image" as const },
-            { src: "/hero/6.mp4", type: "video" as const },
-          ].map((item, i) => (
-            <div key={i} className="relative overflow-hidden">
-              {item.type === "video" ? (
-                <video
-                  src={item.src}
-                  muted
-                  loop
-                  playsInline
-                  autoPlay
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <Image
-                  src={item.src}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  priority={i < 3}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="absolute inset-0 bg-charcoal/75 backdrop-blur-[2px]" />
-
-        {/* Hero content */}
-        <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
-            <Link href="/pizza-trucks" className="transition-colors hover:text-gold-light">NYC Pizza Trucks</Link>
-            {" · "}
-            <Link href="/catering" className="transition-colors hover:text-gold-light">Catering</Link>
-            {" · "}
-            <Link href="/mobile-bar" className="transition-colors hover:text-gold-light">Mobile Bar</Link>
-          </p>
-          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
-            Exceptional Food<br />
-            <span className="text-gold">Unforgettable Events</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            Authentic Neapolitan pizza trucks, full-service catering, and off-premise bar service — Anywhere in New York City &amp; the Tri-State Area.
-          </p>
-          <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
-            <Link
-              href="/pizza-trucks#menu"
-              className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
-            >
-              Pizza Truck Menu
-            </Link>
-            <Link
-              href="/catering#menu"
-              className="rounded-full border border-ivory/40 bg-ivory/10 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory backdrop-blur-sm transition-all duration-300 hover:border-ivory/70 hover:bg-ivory/20 sm:px-10 sm:py-4"
-            >
-              Catering Menu
-            </Link>
-            <Link
-              href="/mobile-bar#packages"
-              className="rounded-full border border-gold/40 bg-gold/10 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-gold backdrop-blur-sm transition-all duration-300 hover:border-gold/70 hover:bg-gold/20 sm:px-10 sm:py-4"
-            >
-              Off Premise Bar Service
-            </Link>
-          </div>
-
-          {/* Quick trust signals */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-ivory/40 sm:mt-16 sm:gap-8">
-            <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">2,500+</span>
-              Events Catered
-            </span>
-            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
-            <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">NYC</span>
-              &amp; Tri-State Area
-            </span>
-            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
-            <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70 normal-case">9</span>
-              Signature Pies
-            </span>
-          </div>
-        </div>
-
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-ivory/80 to-transparent sm:h-32 sm:from-ivory" />
-      </section>
+      {/* ── HERO: Cinematic background video ── */}
+      <HeroVideo />
 
       {/* ── SERVICES ── */}
       <section className="bg-ivory py-24">
