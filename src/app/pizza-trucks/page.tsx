@@ -123,15 +123,15 @@ export default function PizzaTrucksPage() {
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-charcoal/75 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-charcoal/80 backdrop-blur-[2px]" />
 
         <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#F02A3C] [text-shadow:0_1px_10px_rgba(0,0,0,0.75)] sm:text-sm">
             Authentic Neapolitan Style Pizza &middot; Mobile &middot; Unforgettable
           </p>
-          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
+          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Pizza That<br />
-            <span className="text-gold">Comes to You</span>
+            <span className="text-ivory">Comes to You</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
             Our Authentic Neapolitan Style Pizza trucks bring fresh, handcrafted pizza —
@@ -140,7 +140,7 @@ export default function PizzaTrucksPage() {
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
               href="#book"
-              className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
+              className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
               Book a Truck
             </Link>
@@ -222,7 +222,7 @@ export default function PizzaTrucksPage() {
               </div>
               <Link
                 href="#book"
-                className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
+                className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
               >
                 Book a Truck
               </Link>
@@ -300,7 +300,7 @@ export default function PizzaTrucksPage() {
           <div className="mt-10 text-center">
             <Link
               href="#book"
-              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
+              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
             >
               Book a Pizza Truck
             </Link>
@@ -375,7 +375,7 @@ export default function PizzaTrucksPage() {
             {idealFor.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-charcoal/10 bg-white px-6 py-3 font-heading text-sm font-semibold text-charcoal shadow-sm transition-all duration-300 hover:border-gold hover:bg-gold hover:shadow-md"
+                className="rounded-full border border-charcoal/10 bg-white px-6 py-3 font-heading text-sm font-semibold text-charcoal shadow-sm transition-all duration-300 hover:border-gold hover:bg-gold hover:text-ivory hover:shadow-md"
               >
                 {item}
               </span>

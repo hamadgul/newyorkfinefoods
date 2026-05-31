@@ -16,7 +16,7 @@ export function NewsletterForm() {
       />
       <button
         type="submit"
-        className="rounded-sm bg-gold px-4 py-2 text-sm font-semibold text-charcoal transition-colors hover:bg-gold-light"
+        className="rounded-sm bg-gold px-4 py-2 text-sm font-semibold text-ivory transition-colors hover:bg-gold-light"
       >
         Join
       </button>

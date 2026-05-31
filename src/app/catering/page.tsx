@@ -106,12 +106,12 @@ export default function CateringPage() {
         <div className="absolute inset-0 bg-charcoal/80 backdrop-blur-[2px]" />
 
         <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-24 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold sm:text-sm">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#F02A3C] [text-shadow:0_1px_10px_rgba(0,0,0,0.75)] sm:text-sm">
             Hot Trays &middot; Party Heros &middot; Custom Menus
           </p>
-          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
+          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
             Food Worth<br />
-            <span className="text-gold">Celebrating</span>
+            <span className="text-ivory">Celebrating</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
             Hot trays, salads, party heros, and more — brought to your event anywhere in NYC &amp; the Tri-State Area.
@@ -119,7 +119,7 @@ export default function CateringPage() {
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
               href="#book"
-              className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
+              className="rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:px-10 sm:py-4"
             >
               Book Catering
             </Link>
@@ -325,7 +325,7 @@ export default function CateringPage() {
           <div className="mt-10 text-center">
             <Link
               href="#book"
-              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
+              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
             >
               Book Catering
             </Link>

@@ -57,7 +57,7 @@ export function StickyBookingBar({ label, href = "#book", showAfter }: StickyBoo
     <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gold/20 bg-charcoal/95 px-4 py-3 backdrop-blur-sm lg:hidden">
       <Link
         href={href}
-        className="flex w-full items-center justify-center rounded-full bg-gold py-3 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light"
+        className="flex w-full items-center justify-center rounded-full bg-gold py-3 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light"
       >
         {label}
       </Link>

@@ -27,7 +27,7 @@ export function CTASection({
           {/* Diagonal texture */}
           <div
             className="absolute inset-0 opacity-[0.035]"
-            style={{ backgroundImage: "repeating-linear-gradient(-45deg, #C9A84C 0px, #C9A84C 1px, transparent 0px, transparent 50%)", backgroundSize: "10px 10px" }}
+            style={{ backgroundImage: "repeating-linear-gradient(-45deg, #C8102E 0px, #C8102E 1px, transparent 0px, transparent 50%)", backgroundSize: "10px 10px" }}
           />
           {/* Brand X watermark */}
           <div className="pointer-events-none absolute right-12 top-1/2 -translate-y-1/2 select-none font-heading text-[220px] font-bold leading-none text-gold/[0.04]">
@@ -45,7 +45,7 @@ export function CTASection({
         </p>
         <Link
           href={ctaHref}
-          className="mt-10 inline-block rounded-full bg-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
+          className="mt-10 inline-block rounded-full bg-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
         >
           {ctaText}
         </Link>

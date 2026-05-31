@@ -93,7 +93,7 @@ export function QuoteForm() {
       <Button
         type="submit"
         disabled={loading}
-        className="w-full bg-gold text-charcoal hover:bg-gold-light font-semibold"
+        className="w-full bg-gold text-ivory hover:bg-gold-light font-semibold"
       >
         {loading ? "Sending..." : "Request Quote"}
       </Button>

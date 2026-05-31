@@ -9,11 +9,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-dm-sans);
   --font-heading: var(--font-playfair);
-  --color-gold: #C9A84C;
-  --color-gold-light: #D4B85E;
+  /* Brand "gold" tokens repointed to the food truck's brick-red livery.
+     Utility names (text-gold, bg-gold, gold-light) are kept intentionally to
+     avoid renaming ~450 references; they now resolve to red. */
+  --color-gold: #C8102E;
+  --color-gold-light: #E0233C;
   --color-charcoal: #1A1A1A;
   --color-cream: #FAF7F0;
-  --color-burgundy: #6B1D2A;
+  --color-burgundy: #7A1420;
   --color-ivory: #FFFDF5;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -61,18 +64,18 @@
   --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
   --popover-foreground: #1A1A1A;
-  --primary: #C9A84C;
-  --primary-foreground: #1A1A1A;
+  --primary: #C8102E;
+  --primary-foreground: #FFFDF5;
   --secondary: #FAF7F0;
   --secondary-foreground: #1A1A1A;
   --muted: #FAF7F0;
   --muted-foreground: #6B7280;
-  --accent: #6B1D2A;
+  --accent: #7A1420;
   --accent-foreground: #FFFDF5;
   --destructive: #DC2626;
   --border: #E5E0D5;
   --input: #E5E0D5;
-  --ring: #C9A84C;
+  --ring: #C8102E;
 }
 
 @layer base {
@@ -89,8 +92,8 @@
     font-family: var(--font-playfair);
   }
   ::selection {
-    background-color: #C9A84C;
-    color: #1A1A1A;
+    background-color: #C8102E;
+    color: #FFFDF5;
   }
 }
 

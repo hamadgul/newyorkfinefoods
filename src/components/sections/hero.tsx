@@ -83,7 +83,7 @@ export function Hero({
         {ctaText && (
           <Link
             href={ctaHref}
-            className="mt-8 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:mt-10 sm:px-10 sm:py-4"
+            className="mt-8 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25 sm:mt-10 sm:px-10 sm:py-4"
           >
             {ctaText}
           </Link>

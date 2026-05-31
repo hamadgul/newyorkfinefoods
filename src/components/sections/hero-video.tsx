@@ -93,12 +93,12 @@ export function HeroVideo() {
       </div>
 
       {/* ── Overlays for legibility (≈ rgba(0,0,0,0.45) + directional gradients) ── */}
-      <div className="absolute inset-0 bg-black/45" />
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-transparent to-charcoal/70" />
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/15 to-charcoal/80" />
 
       {/* ── Content ── */}
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
-        <p className="animate-in fade-in slide-in-from-bottom-2 text-xs font-medium uppercase tracking-[0.3em] text-gold duration-700 [animation-fill-mode:both] sm:text-sm">
+        <p className="animate-in fade-in slide-in-from-bottom-2 text-xs font-medium uppercase tracking-[0.3em] text-[#F02A3C] [text-shadow:0_1px_10px_rgba(0,0,0,0.75)] duration-700 [animation-fill-mode:both] sm:text-sm">
           <Link
             href="/pizza-trucks"
             className="rounded-sm transition-colors hover:text-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
@@ -121,10 +121,10 @@ export function HeroVideo() {
           </Link>
         </p>
 
-        <h1 className="mt-5 animate-in fade-in slide-in-from-bottom-3 font-heading text-5xl font-bold leading-[1.05] text-ivory duration-700 [animation-delay:120ms] [animation-fill-mode:both] sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="mt-5 animate-in fade-in slide-in-from-bottom-3 font-heading text-5xl font-bold leading-[1.05] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] duration-700 [animation-delay:120ms] [animation-fill-mode:both] sm:text-6xl md:text-7xl lg:text-8xl">
           Exceptional Food
           <br />
-          <span className="text-gold">Unforgettable Events</span>
+          <span className="text-ivory">Unforgettable Events</span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl animate-in fade-in slide-in-from-bottom-3 text-base leading-relaxed text-ivory/85 duration-700 [animation-delay:240ms] [animation-fill-mode:both] sm:text-lg md:text-xl">
@@ -135,7 +135,7 @@ export function HeroVideo() {
         <div className="mt-10 flex w-full animate-in fade-in slide-in-from-bottom-4 flex-col items-center gap-4 duration-700 [animation-delay:360ms] [animation-fill-mode:both] sm:w-auto sm:flex-row sm:justify-center">
           <Link
             href="/pizza-trucks#menu"
-            className="w-full rounded-full bg-gold px-9 py-4 text-sm font-bold uppercase tracking-widest text-charcoal shadow-lg shadow-black/20 transition-all duration-300 hover:bg-gold-light hover:shadow-xl hover:shadow-gold/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal sm:w-auto"
+            className="w-full rounded-full bg-gold px-9 py-4 text-sm font-bold uppercase tracking-widest text-ivory shadow-lg shadow-black/20 transition-all duration-300 hover:bg-gold-light hover:shadow-xl hover:shadow-gold/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal sm:w-auto"
           >
             View Pizza Truck Menu
           </Link>

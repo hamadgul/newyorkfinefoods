@@ -66,7 +66,7 @@ export function MenuSection({
                 <TabsTrigger
                   key={cat.category}
                   value={cat.category}
-                  className={`rounded-full border px-6 py-2.5 text-sm font-semibold transition-all data-[state=active]:border-gold data-[state=active]:bg-gold data-[state=active]:text-charcoal ${
+                  className={`rounded-full border px-6 py-2.5 text-sm font-semibold transition-all data-[state=active]:border-gold data-[state=active]:bg-gold data-[state=active]:text-ivory ${
                     dark
                       ? "border-ivory/25 text-ivory/80 hover:border-ivory/50 hover:text-ivory"
                       : "border-charcoal/15 text-charcoal/60 hover:border-charcoal/30 hover:text-charcoal"

@@ -24,7 +24,7 @@ export default function NotFound() {
       <div className="mt-4 h-px w-10 bg-gold/40" />
       <Link
         href="/"
-        className="mt-10 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-charcoal transition-all duration-300 hover:bg-gold-light hover:shadow-md hover:shadow-gold/20"
+        className="mt-10 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-md hover:shadow-gold/20"
       >
         Back to Home
       </Link>
