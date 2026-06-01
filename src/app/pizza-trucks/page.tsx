@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { TruckCarousel } from "@/components/sections/truck-carousel";
+import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { pizzaMenu } from "@/data/menus";
 import { JsonLd } from '@/components/json-ld'
 
@@ -232,8 +233,9 @@ export default function PizzaTrucksPage() {
       </section>
 
       {/* ── TRUCK GALLERY ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-6xl px-6">
           <div className="text-center">
             <h2 className="font-heading text-3xl font-bold text-ivory md:text-4xl">
               See Our Trucks in Action
@@ -310,8 +312,9 @@ export default function PizzaTrucksPage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-5xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-5xl px-6">
           <div className="text-center">
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
               Simple &amp; Seamless

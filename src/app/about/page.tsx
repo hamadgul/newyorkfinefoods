@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Hero } from "@/components/sections/hero";
 import { CTASection } from "@/components/sections/cta-section";
 import { CountUp } from "@/components/ui/count-up";
+import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { teamMembers, stats } from "@/data/team";
 
@@ -94,8 +95,9 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-5xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-5xl px-6">
           <h2 className="text-center font-heading text-3xl font-bold text-ivory md:text-4xl">
             What We Stand For
           </h2>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { MobileBarInquiryForm } from "@/components/forms/mobile-bar-inquiry-form";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
+import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { CONTACT_PHONE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -378,8 +379,9 @@ export default function MobileBarPage() {
       </section>
 
       {/* ── WHAT'S INCLUDED ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-5xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-5xl px-6">
           <div className="text-center">
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
               Every Package Includes
@@ -468,8 +470,9 @@ export default function MobileBarPage() {
       </section>
 
       {/* ── EXAMPLE QUOTE ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-3xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-3xl px-6">
           <div className="text-center">
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
               Real Pricing, No Surprises
@@ -517,8 +520,9 @@ export default function MobileBarPage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-5xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-5xl px-6">
           <div className="text-center">
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
               Simple &amp; Seamless

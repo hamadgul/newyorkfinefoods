@@ -6,6 +6,7 @@ import { HeroVideo } from "@/components/sections/hero-video";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { FadeIn } from "@/components/ui/fade-in";
+import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { INSTAGRAM_URL, INSTAGRAM_HANDLE } from "@/lib/constants";
 import { darkBlur } from "@/lib/image-utils";
 
@@ -140,8 +141,9 @@ export default function HomePage() {
       <div className="h-10 bg-gradient-to-b from-ivory to-charcoal" />
 
       {/* ── GALLERY — Editorial mixed grid ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-6xl px-6">
           <FadeIn>
             <div className="mb-14 text-center">
               <h2 className="font-heading text-3xl font-bold text-ivory md:text-5xl">
@@ -230,8 +232,9 @@ export default function HomePage() {
       <div className="h-10 bg-gradient-to-b from-cream to-charcoal" />
 
       {/* ── INSTAGRAM — Prominent section ── */}
-      <section className="bg-charcoal py-24">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-6xl px-6">
           <FadeIn>
             <div className="text-center">
               <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">

@@ -1,6 +1,7 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import type { MenuCategory, MenuItem } from "@/data/menus";
 
 interface MenuSectionProps {
@@ -47,8 +48,9 @@ export function MenuSection({
   );
 
   return (
-    <section className={`py-24 ${bg}`}>
-      <div className="mx-auto max-w-5xl px-6">
+    <section className={`relative overflow-hidden py-24 ${bg}`}>
+      {dark && <DarkSectionGlow />}
+      <div className="relative mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold md:text-4xl">
             {title}
