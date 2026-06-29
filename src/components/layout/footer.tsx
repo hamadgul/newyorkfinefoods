@@ -138,6 +138,19 @@ export function Footer() {
           </p>
         </div>
 
+        {/* Design credit */}
+        <p className="mt-4 text-center text-xs text-ivory/20">
+          Designed &amp; Developed by{" "}
+          <a
+            href="https://neuragul.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ivory/35 transition-colors hover:text-gold"
+          >
+            NeuraGul Labs
+          </a>
+        </p>
+
       </div>
     </footer>
   );
