@@ -10,7 +10,6 @@ import {
   SITE_NAME,
   SITE_DESCRIPTION,
   CONTACT_PHONE,
-  CONTACT_EMAIL,
   INSTAGRAM_URL,
 } from '@/lib/constants';
 import "./globals.css";
@@ -37,7 +36,6 @@ const organizationSchema = {
   url: 'https://www.newyorkfinefoods.com',
   logo: 'https://www.newyorkfinefoods.com/OGImage.png',
   telephone: CONTACT_PHONE,
-  email: CONTACT_EMAIL,
   sameAs: [INSTAGRAM_URL],
 }
 
@@ -48,7 +46,6 @@ const localBusinessSchema = {
   url: 'https://www.newyorkfinefoods.com',
   description: SITE_DESCRIPTION,
   telephone: CONTACT_PHONE,
-  email: CONTACT_EMAIL,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'New York',
