@@ -139,15 +139,28 @@ export function Footer() {
         </div>
 
         {/* Design credit */}
-        <p className="mt-4 text-center text-xs text-ivory/20">
-          Designed &amp; Developed by{" "}
+        <p className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-ivory/40">
+          <span>Designed &amp; Developed by</span>
           <a
             href="https://neuragul.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ivory/35 transition-colors hover:text-gold"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-3 py-1 font-semibold text-gold underline decoration-gold/40 decoration-dotted underline-offset-4 transition-all duration-200 hover:border-gold/60 hover:bg-gold/15 hover:decoration-solid hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]"
           >
             NeuraGul Labs
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            >
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
           </a>
         </p>
 
