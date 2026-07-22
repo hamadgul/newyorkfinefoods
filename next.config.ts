@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       {
         source: "/events",
         destination: "/catering",
-        permanent: false,
+        permanent: true,
       },
     ];
   },

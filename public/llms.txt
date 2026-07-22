@@ -1,0 +1,24 @@
+# New York Fine Foods
+
+> NYC's premier pizza truck, catering, and mobile bar company. We bring authentic
+> Neapolitan pizza trucks, full-service catering, and off-premise bar service to
+> weddings, corporate events, and parties across New York City and the Tri-State Area.
+
+## About
+New York Fine Foods serves all five NYC boroughs — Manhattan, Brooklyn, Queens,
+the Bronx, and Staten Island — plus the greater Tri-State Area (Long Island,
+Westchester, New Jersey, and Connecticut). Pizza truck catering packages start at $1,500.
+Phone: (516) 205-7629.
+
+## Services
+- [Pizza Truck Rental & Catering](https://www.newyorkfinefoods.com/pizza-trucks): Authentic Neapolitan pizza fired fresh on-site in a mobile 900°F oven; scales from ~25 to 5,000+ guests. Packages start at $1,500.
+- [Catering](https://www.newyorkfinefoods.com/catering): Hot trays, salads, party heros, and custom menus for events from 20 to 1,000 guests.
+- [Mobile Bar](https://www.newyorkfinefoods.com/mobile-bar): Professional bartenders and full off-premise bar service, from beer & wine to open-bar packages.
+
+## Key pages
+- [Home](https://www.newyorkfinefoods.com)
+- [Pizza Trucks](https://www.newyorkfinefoods.com/pizza-trucks)
+- [Catering](https://www.newyorkfinefoods.com/catering)
+- [Mobile Bar](https://www.newyorkfinefoods.com/mobile-bar)
+- [About](https://www.newyorkfinefoods.com/about)
+- [Contact](https://www.newyorkfinefoods.com/contact)

@@ -32,20 +32,32 @@ const PRICE_RANGE = '$$-$$$'
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://www.newyorkfinefoods.com/#organization',
   name: SITE_NAME,
   url: 'https://www.newyorkfinefoods.com',
-  logo: 'https://www.newyorkfinefoods.com/OGImage.png',
+  logo: 'https://www.newyorkfinefoods.com/logo.png',
+  image: 'https://www.newyorkfinefoods.com/OGImage.png',
   telephone: CONTACT_PHONE,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: CONTACT_PHONE,
+    contactType: 'customer service',
+    areaServed: 'US',
+    availableLanguage: 'English',
+  },
   sameAs: [INSTAGRAM_URL],
 }
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'CateringService'],
+  '@id': 'https://www.newyorkfinefoods.com/#localbusiness',
   name: SITE_NAME,
   url: 'https://www.newyorkfinefoods.com',
   description: SITE_DESCRIPTION,
   telephone: CONTACT_PHONE,
+  image: 'https://www.newyorkfinefoods.com/OGImage.png',
+  parentOrganization: { '@id': 'https://www.newyorkfinefoods.com/#organization' },
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'New York',

@@ -4,44 +4,124 @@ import Link from "next/link";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { TruckCarousel } from "@/components/sections/truck-carousel";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import { pizzaMenu } from "@/data/menus";
 import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
-  title: 'Pizza Trucks',
+  title: 'NYC Pizza Truck Rental & Catering',
   description:
-    'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+    'New York pizza truck catering for weddings, corporate events & parties. Authentic Neapolitan pizza fired fresh on-site, served anywhere in NYC & the Tri-State. Get a quote.',
   alternates: {
     canonical: 'https://www.newyorkfinefoods.com/pizza-trucks',
   },
   openGraph: {
-    title: 'Neapolitan Pizza Truck Rental NYC | New York Fine Foods',
+    title: 'NYC Pizza Truck Rental & Catering | New York Fine Foods',
     description:
-      'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+      'New York pizza truck catering for weddings, corporate events & parties. Authentic Neapolitan pizza fired fresh on-site, served anywhere in NYC & the Tri-State.',
     url: 'https://www.newyorkfinefoods.com/pizza-trucks',
+    images: ['/OGImage.png'],
   },
   twitter: {
-    title: 'Neapolitan Pizza Truck Rental NYC | New York Fine Foods',
+    card: 'summary_large_image',
+    title: 'NYC Pizza Truck Rental & Catering | New York Fine Foods',
     description:
-      'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+      'New York pizza truck catering for weddings, corporate events & parties. Authentic Neapolitan pizza fired fresh on-site, served anywhere in NYC & the Tri-State.',
+    images: ['/OGImage.png'],
   },
 };
 
 const pizzaTruckServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Neapolitan Pizza Truck Rental NYC',
+  serviceType: 'Pizza Truck Catering',
+  name: 'NYC Pizza Truck Rental & Catering',
   description:
-    'Book our Authentic Neapolitan Style Pizza trucks for your next event. Fresh pizza served anywhere in NYC.',
+    'Authentic Neapolitan pizza truck catering for weddings, corporate events, and parties across NYC and the Tri-State Area. Pizza fired fresh on-site in a mobile 900°F oven.',
   provider: {
     '@type': 'Organization',
+    '@id': 'https://www.newyorkfinefoods.com/#organization',
     name: 'New York Fine Foods',
     url: 'https://www.newyorkfinefoods.com',
   },
-  areaServed: 'New York City',
+  areaServed: [
+    'Manhattan',
+    'Brooklyn',
+    'Queens',
+    'The Bronx',
+    'Staten Island',
+    'New York City',
+    'Tri-State Area',
+  ],
   url: 'https://www.newyorkfinefoods.com/pizza-trucks',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Neapolitan Pizza Menu',
+    itemListElement: pizzaMenu.map((item) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'MenuItem',
+        name: item.name,
+        description: item.description,
+      },
+    })),
+  },
 }
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.newyorkfinefoods.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Pizza Trucks',
+      item: 'https://www.newyorkfinefoods.com/pizza-trucks',
+    },
+  ],
+}
+
+const pricingIncludes = [
+  'Mobile Neapolitan oven, truck & fuel',
+  'Professional service staff & on-site pizzaiolo',
+  'Full setup, service & cleanup',
+  'Fresh hand-stretched dough & premium toppings',
+];
+
+const faqs = [
+  {
+    q: 'How many guests can your pizza truck serve?',
+    a: 'Our trucks scale from intimate gatherings of around 25 guests up to large events of 5,000+. We fire 14" full-size and 10" personal Neapolitan pies continuously throughout your event, so there\'s always a hot pizza coming off the oven.',
+  },
+  {
+    q: 'How far in advance should I book?',
+    a: 'We recommend booking 4–8 weeks ahead, and earlier for peak wedding and holiday dates (spring, early summer, and December book up fastest). If your event is sooner, reach out anyway — we\'ll do our best to accommodate last-minute requests.',
+  },
+  {
+    q: 'What areas do you serve?',
+    a: 'We serve all five boroughs — Manhattan, Brooklyn, Queens, the Bronx, and Staten Island — plus the greater Tri-State Area including Long Island, Westchester, New Jersey, and Connecticut. Travel beyond NYC may include a small travel fee.',
+  },
+  {
+    q: 'Do you offer vegetarian and dietary options?',
+    a: 'Yes. Several of our signature pies are vegetarian (Margherita, Marinara, Bianca, Mushroom Truffle, and Burrata), and we welcome custom requests beyond the standard menu — just tell us what your guests need when you book.',
+  },
+  {
+    q: 'What space and power do you need on-site?',
+    a: 'Our pizza truck is fully self-contained — the oven runs on its own fuel, so no external power is required. We just need a level, accessible spot to park the truck (roughly a standard parking-space footprint) with clearance for the crew to serve.',
+  },
+  {
+    q: 'Can the pizza truck operate indoors?',
+    a: 'The truck itself serves from outdoors — a driveway, lot, curbside, backyard, or rooftop all work well. For fully indoor venues we can discuss a portable oven setup; reach out with your venue details and we\'ll find the right fit.',
+  },
+];
 
 const truckFeatures = [
   "Custom Neapolitan-style ovens",
@@ -91,33 +171,39 @@ export default function PizzaTrucksPage() {
   return (
     <>
       <JsonLd data={pizzaTruckServiceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
         {/* Background — dramatic pizza close-up with side-by-side action shots */}
         <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-3">
           <div className="relative col-span-1 md:col-span-2 overflow-hidden">
-            <video
-              src="/gallery/4.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="h-full w-full object-cover"
+            {/* Poster is the eager LCP element; the 1.4MB video lazy-loads over it */}
+            <Image
+              src="/gallery/pizza-truck-catering-nyc-poster.jpg"
+              alt="NYC Neapolitan pizza truck firing fresh pizza at an event"
+              fill
+              priority
+              sizes="(min-width: 768px) 66vw, 100vw"
+              className="object-cover"
+            />
+            <LazyVideo
+              src="/gallery/pizza-truck-catering-nyc.mp4"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
           <div className="relative hidden md:grid md:grid-rows-2">
             <div className="relative overflow-hidden">
               <Image
-                src="/trucks/2.jpg"
-                alt=""
+                src="/trucks/pizza-truck-catering-nyc.jpg"
+                alt="Neapolitan pizza truck catering setup in New York City"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="relative overflow-hidden">
               <Image
-                src="/trucks/3.jpg"
-                alt=""
+                src="/trucks/mobile-pizza-truck-nyc.jpg"
+                alt="Mobile pizza truck serving guests at an NYC event"
                 fill
                 className="object-cover"
               />
@@ -131,12 +217,13 @@ export default function PizzaTrucksPage() {
             Authentic Neapolitan Style Pizza &middot; Mobile &middot; Unforgettable
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
-            Pizza That<br />
-            <span className="text-ivory">Comes to You</span>
+            NYC Pizza Truck<br />
+            <span className="text-ivory">Catering</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            Our Authentic Neapolitan Style Pizza trucks bring fresh, handcrafted pizza —
-            made to order, served hot — to any event, anywhere in New York City or the Tri-State Area.
+            Pizza that comes to you — our Authentic Neapolitan Style Pizza trucks bring fresh,
+            handcrafted pizza, made to order and served hot, to any event anywhere in New York City
+            or the Tri-State Area.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
@@ -182,8 +269,8 @@ export default function PizzaTrucksPage() {
             <div className="relative w-full overflow-hidden rounded-2xl lg:w-1/2">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/trucks/1.jpg"
-                  alt="Authentic Neapolitan Style Pizza truck"
+                  src="/trucks/nyc-neapolitan-pizza-truck.jpg"
+                  alt="Authentic Neapolitan Style Pizza truck catering an event in NYC"
                   fill
                   loading="lazy"
                   className="object-cover"
@@ -198,11 +285,12 @@ export default function PizzaTrucksPage() {
                 Eco-Friendly &amp; Mobile
               </p>
               <h2 className="mt-2 font-heading text-3xl font-bold text-charcoal md:text-4xl">
-                Our Pizza Trucks
+                Our NYC Pizza Trucks
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-charcoal/70">
                 Our custom-built Authentic Neapolitan Style Pizza trucks bring
-                handcrafted pizza straight to your event. Each truck houses
+                handcrafted New York pizza straight to your event across Manhattan,
+                Brooklyn, Queens, and the wider Tri-State Area. Each truck houses
                 a specially designed oven that reaches 900°F, producing perfectly
                 charred, restaurant-quality pies in just 90 seconds. We offer
                 both 14&quot; full-size and 10&quot; personal Neapolitan pizzas, and
@@ -320,7 +408,7 @@ export default function PizzaTrucksPage() {
               Simple &amp; Seamless
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold text-ivory md:text-4xl">
-              How It Works
+              How Our Pizza Truck Catering Works
             </h2>
             <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
           </div>
@@ -382,6 +470,108 @@ export default function PizzaTrucksPage() {
               >
                 {item}
               </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS (pizza-specific) ── */}
+      <TestimonialsSection
+        service="Pizza Truck"
+        eyebrow="Pizza Truck Reviews"
+        heading="What Pizza Truck Clients Say"
+        subtext="Real feedback from weddings, block parties, and corporate events across NYC."
+      />
+
+      {/* ── PRICING ── */}
+      <section className="relative overflow-hidden bg-charcoal py-24">
+        <DarkSectionGlow />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+            Transparent Pricing
+          </p>
+          <h2 className="mt-3 font-heading text-3xl font-bold text-ivory md:text-4xl">
+            Pizza Truck Pricing
+          </h2>
+          <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ivory/60">
+            Every event is unique, so we build a custom quote around your date, guest count, and
+            menu. Full NYC pizza truck catering packages start at:
+          </p>
+          <p className="mt-6 font-heading text-5xl font-bold text-gold md:text-6xl">
+            $1,500<span className="align-super text-2xl">+</span>
+          </p>
+          <p className="mt-2 text-xs uppercase tracking-[0.3em] text-ivory/40">
+            Packages starting at
+          </p>
+
+          <ul className="mx-auto mt-10 grid max-w-xl gap-3 text-left sm:grid-cols-2">
+            {pricingIncludes.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-ivory/10 bg-ivory/5 p-4"
+              >
+                <svg
+                  className="mt-0.5 h-5 w-5 shrink-0 text-gold"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.79 6.8-6.79a1 1 0 011.4 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="text-sm text-ivory/80">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            href="#book"
+            className="mt-10 inline-block rounded-full bg-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-ivory transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/25"
+          >
+            Get a Custom Quote
+          </Link>
+          <p className="mt-4 text-sm italic text-ivory/40">
+            Final pricing depends on guest count, menu, and location.
+          </p>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-ivory py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+              Good to Know
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-charcoal md:text-4xl">
+              Pizza Truck Catering FAQs
+            </h2>
+            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          </div>
+          <div className="mt-12 divide-y divide-charcoal/10 overflow-hidden rounded-2xl border border-charcoal/10 bg-white">
+            {faqs.map((f) => (
+              <details key={f.q} className="group px-6 [&_summary]:list-none">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 py-5 font-heading text-lg font-semibold text-charcoal [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <svg
+                    className="h-5 w-5 shrink-0 text-gold transition-transform duration-300 group-open:rotate-180"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 8l5 5 5-5" />
+                  </svg>
+                </summary>
+                <p className="pb-5 leading-relaxed text-charcoal/70">{f.a}</p>
+              </details>
             ))}
           </div>
         </div>
