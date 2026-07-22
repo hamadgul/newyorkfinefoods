@@ -34,11 +34,11 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: "Pizza Trucks",
+    title: "NYC Pizza Trucks",
     badge: "Mobile",
     badgeClass: "bg-gold/80 text-ivory",
     description:
-      "Authentic Neapolitan pizza cooked in 90 seconds at 900°F — brought straight to your event anywhere in NYC & the Tri-State Area.",
+      "Authentic Neapolitan pizza truck catering cooked in 90 seconds at 900°F — brought straight to your event anywhere in NYC & the Tri-State Area.",
     image: "/pizza-trucks-service.jpg",
     href: "/pizza-trucks",
   },
@@ -64,7 +64,7 @@ const services = [
 
 const galleryItems: { src: string; type: "image" | "video" }[] = [
   { src: "/gallery/1.jpg", type: "image" },
-  { src: "/gallery/4.mp4", type: "video" },
+  { src: "/gallery/pizza-truck-catering-nyc.mp4", type: "video" },
   { src: "/gallery/2.jpg", type: "image" },
   { src: "/gallery/5.mp4", type: "video" },
   { src: "/gallery/3.jpg", type: "image" },

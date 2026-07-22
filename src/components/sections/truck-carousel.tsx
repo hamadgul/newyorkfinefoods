@@ -5,13 +5,13 @@ import Image from "next/image";
 import { LazyVideo } from "@/components/ui/lazy-video";
 
 const galleryItems: { src: string; type: "image" | "video" }[] = [
-  { src: "/trucks/1.jpg", type: "image" },
+  { src: "/trucks/nyc-neapolitan-pizza-truck.jpg", type: "image" },
   { src: "/trucks/margherita.jpg", type: "image" },
-  { src: "/trucks/4.mp4", type: "video" },
+  { src: "/trucks/nyc-pizza-truck-in-action.mp4", type: "video" },
   { src: "/trucks/bianca.jpg", type: "image" },
-  { src: "/trucks/2.jpg", type: "image" },
+  { src: "/trucks/pizza-truck-catering-nyc.jpg", type: "image" },
   { src: "/trucks/diavola.jpg", type: "image" },
-  { src: "/trucks/3.jpg", type: "image" },
+  { src: "/trucks/mobile-pizza-truck-nyc.jpg", type: "image" },
   { src: "/trucks/di-parma.jpg", type: "image" },
 ];
 
