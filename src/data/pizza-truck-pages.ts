@@ -154,7 +154,7 @@ export const pizzaTruckPages: PizzaTruckPage[] = [
       },
       {
         title: "Office and team parties",
-        body: "Summer outings and client appreciation days. See corporate catering.",
+        body: "Summer outings and client appreciation days. See [corporate catering](/corporate-catering).",
       },
     ],
     logistics: {
@@ -227,7 +227,7 @@ export const pizzaTruckPages: PizzaTruckPage[] = [
       },
       {
         title: "Weddings and engagement parties",
-        body: "Backyard and tented weddings where there's no kitchen on site. See pizza truck weddings.",
+        body: "Backyard and tented weddings where there's no kitchen on site. See [pizza truck weddings](/pizza-trucks/weddings).",
       },
       {
         title: "Out east in season",
@@ -252,7 +252,7 @@ export const pizzaTruckPages: PizzaTruckPage[] = [
     faqs: [
       {
         q: "Is there a mobile pizza truck on Long Island?",
-        a: "Yes. We cover all of Nassau and Suffolk, and out east through the Hamptons and North Fork in season.",
+        a: "Yes. We cover all of Nassau and Suffolk, and out east through the Hamptons and North Fork in season. We also do [Long Island catering](/catering/long-island) more broadly.",
       },
       {
         q: "How much does a pizza truck cost for a party?",
@@ -312,11 +312,11 @@ export const pizzaTruckPages: PizzaTruckPage[] = [
       },
       {
         title: "Weddings and rehearsal dinners",
-        body: "Home and tented weddings, plus the smaller dinner the night before. See pizza truck weddings.",
+        body: "Home and tented weddings, plus the smaller dinner the night before. See [pizza truck weddings](/pizza-trucks/weddings).",
       },
       {
         title: "Corporate events in Stamford",
-        body: "Team outings, client days and staff appreciation events. See corporate catering.",
+        body: "Team outings, client days and staff appreciation events. See [corporate catering](/corporate-catering).",
       },
       {
         title: "Graduation parties",

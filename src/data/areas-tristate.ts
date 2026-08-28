@@ -32,7 +32,7 @@ export const triStateAreas: ServiceArea[] = [
       },
       {
         title: "Weddings and engagement parties",
-        body: "Backyard and tented weddings across both counties, where there's no kitchen on site and the caterer has to bring one.",
+        body: "Backyard and tented weddings across both counties, where there's no kitchen on site and the caterer has to bring one. A [pizza truck wedding](/pizza-trucks/weddings) solves that outright.",
       },
       {
         title: "Summer out east",
@@ -55,7 +55,7 @@ export const triStateAreas: ServiceArea[] = [
     ],
     pizzaNote: {
       heading: "The Pizza Truck on Long Island",
-      body: "This is the truck's easiest room. Driveways, decks and lawns instead of one-way streets and parking permits, and an oven that runs on its own fuel so it needs nothing from the house. See the dedicated Long Island pizza truck page for how it works.",
+      body: "This is the truck's easiest room. Driveways, decks and lawns instead of one-way streets and parking permits, and an oven that runs on its own fuel so it needs nothing from the house. See the [Long Island pizza truck](/pizza-trucks/long-island) page for how it works.",
     },
     faqs: [
       {
@@ -132,7 +132,7 @@ export const triStateAreas: ServiceArea[] = [
     faqs: [
       {
         q: "Do you serve corporate campuses in Westchester?",
-        a: "Yes, including recurring weekly lunches. We handle the certificate of insurance and visitor logistics ahead of the date.",
+        a: "Yes, including recurring weekly lunches. We handle the certificate of insurance and visitor logistics ahead of the date — see [corporate catering](/corporate-catering) for how we work with companies.",
       },
       {
         q: "Can you staff a full-service event at a private home?",
@@ -212,7 +212,7 @@ export const triStateAreas: ServiceArea[] = [
       },
       {
         q: "Do you cater offices in Jersey City and Hoboken?",
-        a: "Yes, including recurring weekly lunches. See corporate catering for how we work with companies.",
+        a: "Yes, including recurring weekly lunches. See [corporate catering](/corporate-catering) for how we work with companies.",
       },
     ],
     siblings: ["staten-island", "manhattan"],
@@ -269,7 +269,7 @@ export const triStateAreas: ServiceArea[] = [
     ],
     pizzaNote: {
       heading: "Why the Truck Works Up Here",
-      body: "A wood-fired truck is close to the perfect answer for a venue with no kitchen. Fully self-contained, no power or gas needed from the site, continuous service for as long as the event runs, and it doubles as something for guests to gather around between the ceremony and the dancing.",
+      body: "A wood-fired truck is close to the perfect answer for a venue with no kitchen. Fully self-contained, no power or gas needed from the site, continuous service for as long as the event runs, and it doubles as something for guests to gather around between the ceremony and the dancing. See [pizza truck weddings](/pizza-trucks/weddings).",
     },
     faqs: [
       {
@@ -314,7 +314,7 @@ export const triStateAreas: ServiceArea[] = [
       },
       {
         title: "Corporate offices in Stamford",
-        body: "Recurring lunches, client days and holiday parties in the Stamford business district. See corporate catering.",
+        body: "Recurring lunches, client days and holiday parties in the Stamford business district. See [corporate catering](/corporate-catering).",
       },
       {
         title: "Weddings and rehearsal dinners",
@@ -339,7 +339,7 @@ export const triStateAreas: ServiceArea[] = [
     ],
     pizzaNote: {
       heading: "The Pizza Truck in Fairfield County",
-      body: "Private properties here have the space for it and then some. The same club caveat applies — if your venue has vendor rules, check them first. On a private driveway or lawn there's nothing to check, and the truck handles the rest.",
+      body: "Private properties here have the space for it and then some. The same club caveat applies — if your venue has vendor rules, check them first. On a private driveway or lawn there's nothing to check, and the truck handles the rest. See the [Connecticut pizza truck](/pizza-trucks/connecticut) page.",
     },
     faqs: [
       {
