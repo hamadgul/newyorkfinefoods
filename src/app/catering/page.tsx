@@ -6,40 +6,105 @@ import { EventInquiryForm } from "@/components/forms/event-inquiry-form";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { JsonLd } from "@/components/json-ld";
 import { CONTACT_PHONE } from "@/lib/constants";
+import { areaLinkOrder, getServiceArea } from "@/data/service-areas";
+
+const CATERING_TITLE = "NYC Catering | New York Fine Foods";
+const CATERING_DESCRIPTION =
+  "Catering across all five boroughs and the tri-state area. Hot trays, party heros, salads and full-service events. Call (516) 205-7629.";
 
 export const metadata: Metadata = {
-  title: "Catering",
-  description:
-    "New York Fine Foods catering menu — hot trays, salads, party heros, and more. Call to book.",
+  title: { absolute: CATERING_TITLE },
+  description: CATERING_DESCRIPTION,
   alternates: {
     canonical: "https://www.newyorkfinefoods.com/catering",
   },
+  // A page-level openGraph block REPLACES the layout default — restate images.
   openGraph: {
-    title: "Catering Menu | New York Fine Foods",
-    description:
-      "New York Fine Foods catering menu — hot trays, salads, party heros, and more. Call to book.",
+    title: CATERING_TITLE,
+    description: CATERING_DESCRIPTION,
     url: "https://www.newyorkfinefoods.com/catering",
+    type: "website",
+    images: ["/OGImage.png"],
   },
   twitter: {
-    title: "Catering Menu | New York Fine Foods",
-    description:
-      "New York Fine Foods catering menu — hot trays, salads, party heros, and more. Call to book.",
+    card: "summary_large_image",
+    title: CATERING_TITLE,
+    description: CATERING_DESCRIPTION,
+    images: ["/OGImage.png"],
   },
 };
 
 const cateringServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": "https://www.newyorkfinefoods.com/catering#service",
   name: "NYC Catering Services",
-  description: "New York Fine Foods catering — hot trays, salads, party heros, and more.",
+  serviceType: "Catering",
+  description:
+    "New York Fine Foods catering — hot trays, salads, party heros, and full-service events across NYC and the tri-state area.",
   provider: {
     "@type": "Organization",
+    "@id": "https://www.newyorkfinefoods.com/#organization",
     name: "New York Fine Foods",
     url: "https://www.newyorkfinefoods.com",
+    telephone: CONTACT_PHONE,
   },
-  areaServed: "New York City",
+  areaServed: [
+    { "@type": "City", name: "New York" },
+    { "@type": "City", name: "Brooklyn" },
+    { "@type": "City", name: "Queens" },
+    { "@type": "City", name: "The Bronx" },
+    { "@type": "City", name: "Staten Island" },
+    { "@type": "AdministrativeArea", name: "Long Island" },
+    { "@type": "AdministrativeArea", name: "Westchester County" },
+    { "@type": "AdministrativeArea", name: "New Jersey" },
+    { "@type": "AdministrativeArea", name: "Hudson Valley" },
+    { "@type": "AdministrativeArea", name: "Fairfield County" },
+  ],
   url: "https://www.newyorkfinefoods.com/catering",
 };
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.newyorkfinefoods.com" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Catering",
+      item: "https://www.newyorkfinefoods.com/catering",
+    },
+  ],
+};
+
+/**
+ * Answers to the cost questions that appear in the live People Also Ask box on
+ * borough catering SERPs. Deliberately no FAQPage schema — Google retired FAQ
+ * rich results in May 2026; this is for depth and AI citation.
+ */
+const cateringFaqs = [
+  {
+    q: "What's the average catering cost for 100 people?",
+    a: "It depends on whether you want trays dropped off or a fully staffed event, and on the menu you choose. Half and full tray pricing is listed on this page — call (516) 205-7629 with your headcount and date and we'll quote it properly rather than give you a range that means nothing.",
+  },
+  {
+    q: "How much will it cost to cater for 30 people?",
+    a: "A smaller party is usually a drop-off order — a few hot trays, a salad and a party hero will feed 30 comfortably. Work from the tray pricing above, or call us and we'll tell you exactly what to order so you don't over-buy.",
+  },
+  {
+    q: "What is the cheapest catering option?",
+    a: "Drop-off trays. No staffing, no service charge, and you set out the food yourself. Full-service catering with servers and bartenders costs more because it's a different job — we'll tell you honestly which one your event actually needs.",
+  },
+  {
+    q: "How much does a pizza truck cost?",
+    a: "Pizza truck catering starts at $1,500. The final number depends on guest count, service length and location. See pizza truck catering for how it works.",
+  },
+  {
+    q: "How far in advance should I order?",
+    a: "A few days for drop-off trays. Four to eight weeks for staffed events, weddings and anything in graduation or holiday season — spring, early summer and December fill first.",
+  },
+];
 
 const foodShowcase: { src: string; type: "image" | "video"; caption: string }[] = [
   { src: "/catering/1.jpg", type: "image", caption: "Neopolitan Personal Pizza" },
@@ -88,6 +153,7 @@ export default function CateringPage() {
   return (
     <>
       <JsonLd data={cateringServiceSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
@@ -110,11 +176,11 @@ export default function CateringPage() {
             Hot Trays &middot; Party Heros &middot; Custom Menus
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
-            Food Worth<br />
-            <span className="text-ivory">Celebrating</span>
+            NYC Catering
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
-            Hot trays, salads, party heros, and more — brought to your event anywhere in NYC &amp; the Tri-State Area.
+            Hot trays, salads, party heros and full-service events — brought to your
+            table anywhere in the five boroughs and the tri-state area.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <Link
@@ -133,11 +199,6 @@ export default function CateringPage() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-ivory/40 sm:mt-16 sm:gap-8">
             <span className="text-center text-xs uppercase tracking-widest">
-              <span className="block font-heading text-2xl font-bold text-ivory/70">2,500+</span>
-              Events Catered
-            </span>
-            <span className="hidden h-8 w-px bg-ivory/20 sm:block" />
-            <span className="text-center text-xs uppercase tracking-widest">
               <span className="block font-heading text-2xl font-bold text-ivory/70">20–1,000</span>
               Guests
             </span>
@@ -150,6 +211,68 @@ export default function CateringPage() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ivory to-transparent" />
+      </section>
+
+      {/* ── SERVICE AREAS — hub links down to every borough/region spoke ── */}
+      <section className="bg-ivory pt-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold">
+              Where We Cater
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-charcoal md:text-4xl">
+              Catering Across All Five Boroughs and the Tri-State Area
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal/60">
+              Every area works a little differently — the access, the venues, the
+              parking. Pick yours and we&apos;ll tell you how we handle it.
+            </p>
+            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          </div>
+
+          <ul className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+            {areaLinkOrder.map((slug) => {
+              const area = getServiceArea(slug);
+              if (!area) return null;
+              return (
+                <li key={slug}>
+                  <Link
+                    href={`/catering/${slug}`}
+                    className="group flex h-full flex-col justify-between rounded-xl border border-charcoal/10 bg-white p-5 transition-all duration-300 hover:border-gold hover:shadow-md"
+                  >
+                    <span className="font-heading text-lg font-bold text-charcoal transition-colors group-hover:text-gold">
+                      {area.metaTitle}
+                    </span>
+                    <span className="mt-2 text-sm text-charcoal/50">
+                      {area.places.length} areas covered
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 border-t border-charcoal/10 pt-8">
+            <Link
+              href="/corporate-catering"
+              className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light"
+            >
+              Corporate Catering NYC →
+            </Link>
+            <Link
+              href="/pizza-trucks"
+              className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light"
+            >
+              Pizza Truck Catering →
+            </Link>
+            <Link
+              href="/mobile-bar"
+              className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light"
+            >
+              Mobile Bar &amp; Bartenders →
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ── FOOD SHOWCASE ── */}
@@ -331,6 +454,31 @@ export default function CateringPage() {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── COST QUESTIONS — sourced from live People Also Ask ── */}
+      <section className="bg-ivory py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="font-heading text-3xl font-bold text-charcoal md:text-4xl">
+            What Catering Costs
+          </h2>
+          <div className="mt-10 space-y-3">
+            {cateringFaqs.map((faq) => (
+              <details
+                key={faq.q}
+                className="group rounded-xl border border-charcoal/10 bg-white p-6 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-4 font-heading text-lg font-bold text-charcoal">
+                  {faq.q}
+                  <span className="shrink-0 text-gold transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 leading-relaxed text-charcoal/70">{faq.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

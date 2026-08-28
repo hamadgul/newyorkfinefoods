@@ -7,23 +7,29 @@ import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
 import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { CONTACT_PHONE } from "@/lib/constants";
 
+const BAR_TITLE = "Mobile Bar & Bartenders NYC | Open Bar Packages";
+const BAR_DESCRIPTION =
+  "Full-service mobile bar for NYC events. TIPS-certified bartenders, liquor liability insurance, permits handled. Open bar packages from $26/person.";
+
 export const metadata: Metadata = {
-  title: "Mobile Bar",
-  description:
-    "Full-service mobile bar for NYC events. TIPS-certified bartenders, complete setup & breakdown, liquor liability insurance. Open bar packages from $26/person.",
+  title: { absolute: `${BAR_TITLE} | New York Fine Foods` },
+  description: BAR_DESCRIPTION,
   alternates: {
     canonical: "https://www.newyorkfinefoods.com/mobile-bar",
   },
+  // A page-level openGraph block REPLACES the layout default — restate images.
   openGraph: {
-    title: "Mobile Bar Services NYC | New York Fine Foods",
-    description:
-      "Full-service mobile bar for NYC events. TIPS-certified bartenders, complete setup & breakdown, liquor liability insurance. Open bar packages from $26/person.",
+    title: BAR_TITLE,
+    description: BAR_DESCRIPTION,
     url: "https://www.newyorkfinefoods.com/mobile-bar",
+    type: "website",
+    images: ["/OGImage.png"],
   },
   twitter: {
-    title: "Mobile Bar Services NYC | New York Fine Foods",
-    description:
-      "Full-service mobile bar for NYC events. TIPS-certified bartenders, complete setup & breakdown, liquor liability insurance. Open bar packages from $26/person.",
+    card: "summary_large_image",
+    title: BAR_TITLE,
+    description: BAR_DESCRIPTION,
+    images: ["/OGImage.png"],
   },
 };
 
@@ -38,7 +44,13 @@ const mobileBarServiceSchema = {
     name: "New York Fine Foods",
     url: "https://www.newyorkfinefoods.com",
   },
-  areaServed: "New York City",
+  areaServed: [
+    { "@type": "City", name: "New York" },
+    { "@type": "AdministrativeArea", name: "Long Island" },
+    { "@type": "AdministrativeArea", name: "Westchester County" },
+    { "@type": "AdministrativeArea", name: "New Jersey" },
+    { "@type": "AdministrativeArea", name: "Fairfield County" },
+  ],
   url: "https://www.newyorkfinefoods.com/mobile-bar",
 };
 
@@ -344,6 +356,16 @@ export default function MobileBarPage() {
                 Service Only / Dry Hire
                 <span className="ml-2 text-sm font-normal text-charcoal/50">(You Supply All Alcohol)</span>
               </h3>
+              <p className="mt-3 text-sm text-charcoal/60">
+                Just need staff?{" "}
+                <Link
+                  href="/mobile-bar/bartenders"
+                  className="font-bold text-gold underline underline-offset-2 transition-colors hover:text-gold-light"
+                >
+                  Hire TIPS-certified bartenders in NYC
+                </Link>{" "}
+                from $22 per person.
+              </p>
               <div className="mt-4 space-y-4">
                 {dryHirePackages.map((pkg) => (
                   <div
