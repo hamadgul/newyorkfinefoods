@@ -7,6 +7,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { FadeIn } from "@/components/ui/fade-in";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
+import { RichText } from "@/components/ui/rich-text";
 import { CONTACT_PHONE } from "@/lib/constants";
 import { darkBlur } from "@/lib/image-utils";
 import { getServiceArea, serviceAreas } from "@/data/service-areas";
@@ -159,7 +160,7 @@ export default async function ServiceAreaPage({ params }: Props) {
             </h2>
             {area.angle.body.map((p) => (
               <p key={p.slice(0, 32)} className="mt-5 text-lg leading-relaxed text-charcoal/70">
-                {p}
+                <RichText>{p}</RichText>
               </p>
             ))}
           </FadeIn>
@@ -186,7 +187,9 @@ export default async function ServiceAreaPage({ params }: Props) {
                   <h3 className="font-heading text-xl font-bold text-charcoal">
                     {item.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-charcoal/70">{item.body}</p>
+                  <p className="mt-3 leading-relaxed text-charcoal/70">
+                    <RichText>{item.body}</RichText>
+                  </p>
                 </div>
               </FadeIn>
             ))}
@@ -224,7 +227,7 @@ export default async function ServiceAreaPage({ params }: Props) {
               {area.pizzaNote.heading}
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ivory/70">
-              {area.pizzaNote.body}
+              <RichText>{area.pizzaNote.body}</RichText>
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -307,7 +310,7 @@ export default async function ServiceAreaPage({ params }: Props) {
               },
               {
                 q: "Do you provide bartenders as well?",
-                a: "Yes. TIPS-certified bartenders, liquor liability insurance and the Caterer's Alcohol Permit handled by us. Open bar packages start at $26 per person.",
+                a: "Yes. TIPS-certified bartenders, liquor liability insurance and the Caterer's Alcohol Permit handled by us. Open bar packages start at $26 per person, or [hire bartenders only](/mobile-bar/bartenders) from $22.",
               },
             ].map((faq) => (
               <FadeIn key={faq.q}>
@@ -318,7 +321,9 @@ export default async function ServiceAreaPage({ params }: Props) {
                       +
                     </span>
                   </summary>
-                  <p className="mt-4 leading-relaxed text-charcoal/70">{faq.a}</p>
+                  <p className="mt-4 leading-relaxed text-charcoal/70">
+                    <RichText>{faq.a}</RichText>
+                  </p>
                 </details>
               </FadeIn>
             ))}

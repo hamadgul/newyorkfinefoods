@@ -55,7 +55,7 @@ export const nycAreas: ServiceArea[] = [
     ],
     pizzaNote: {
       heading: "Or Bring the Pizza Truck",
-      body: "Brooklyn block parties and backyard weddings are the pizza truck's best room. Wood-fired Neapolitan pies at 900°F, ninety seconds each, served from a curbside spot or a driveway. Parking is the only real question in Brooklyn, and we'll answer it honestly before you book — some blocks work, some don't.",
+      body: "Brooklyn block parties and backyard weddings are the pizza truck's best room. Wood-fired Neapolitan pies at 900°F, ninety seconds each, served from a curbside spot or a driveway. It works for [parties](/pizza-trucks/parties) and [weddings](/pizza-trucks/weddings) alike. Parking is the only real question in Brooklyn, and we'll answer it honestly before you book — some blocks work, some don't.",
     },
     faqs: [
       {
@@ -125,7 +125,7 @@ export const nycAreas: ServiceArea[] = [
     ],
     pizzaNote: {
       heading: "Pizza Truck in the Driveway",
-      body: "Pull-in access, no curbside permit conversation, no idling on a one-way. The oven runs on its own fuel, so we need nothing from the house. 900°F, ninety seconds a pie, fourteen-inch and ten-inch personal. Pizza truck catering starts at $1,500.",
+      body: "Pull-in access, no curbside permit conversation, no idling on a one-way. The oven runs on its own fuel, so we need nothing from the house. 900°F, ninety seconds a pie, fourteen-inch and ten-inch personal. See [pizza truck for parties](/pizza-trucks/parties) — catering starts at $1,500.",
     },
     faqs: [
       {
@@ -174,7 +174,7 @@ export const nycAreas: ServiceArea[] = [
       },
       {
         title: "Long Island City offices",
-        body: "Working lunches and team dinners across the LIC towers and the Astoria studios. See corporate catering.",
+        body: "Working lunches and team dinners across the LIC towers and the Astoria studios. See [corporate catering](/corporate-catering).",
       },
       {
         title: "Apartment and co-op parties",
@@ -308,7 +308,7 @@ export const nycAreas: ServiceArea[] = [
     cateringFor: [
       {
         title: "Office lunches and client meetings",
-        body: "Midtown, Flatiron, FiDi, Hudson Yards. Set delivery window, rotating menu if it's recurring. See corporate catering.",
+        body: "Midtown, Flatiron, FiDi, Hudson Yards. Set delivery window, rotating menu if it's recurring. See [corporate catering](/corporate-catering).",
       },
       {
         title: "Loft and gallery events",

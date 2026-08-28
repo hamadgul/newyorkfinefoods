@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { FadeIn } from "@/components/ui/fade-in";
 import { StickyBookingBar } from "@/components/ui/sticky-booking-bar";
+import { RichText } from "@/components/ui/rich-text";
 import { CONTACT_PHONE } from "@/lib/constants";
 import { darkBlur } from "@/lib/image-utils";
 import { getPizzaTruckPage, pizzaTruckPages } from "@/data/pizza-truck-pages";
@@ -178,7 +179,7 @@ export default async function PizzaTruckTopicPage({ params }: Props) {
             </h2>
             {page.hook.body.map((p) => (
               <p key={p.slice(0, 32)} className="mt-5 text-lg leading-relaxed text-charcoal/70">
-                {p}
+                <RichText>{p}</RichText>
               </p>
             ))}
           </FadeIn>
@@ -203,7 +204,9 @@ export default async function PizzaTruckTopicPage({ params }: Props) {
                   <h3 className="font-heading text-lg font-bold text-charcoal">
                     {b.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-charcoal/70">{b.body}</p>
+                  <p className="mt-3 leading-relaxed text-charcoal/70">
+                    <RichText>{b.body}</RichText>
+                  </p>
                 </div>
               </FadeIn>
             ))}
@@ -221,7 +224,7 @@ export default async function PizzaTruckTopicPage({ params }: Props) {
             </h2>
             {page.logistics.body.map((p) => (
               <p key={p.slice(0, 32)} className="mt-5 leading-relaxed text-ivory/70">
-                {p}
+                <RichText>{p}</RichText>
               </p>
             ))}
             <p className="mt-6 text-sm uppercase tracking-[0.2em] text-gold">
@@ -275,7 +278,9 @@ export default async function PizzaTruckTopicPage({ params }: Props) {
                       +
                     </span>
                   </summary>
-                  <p className="mt-4 leading-relaxed text-charcoal/70">{faq.a}</p>
+                  <p className="mt-4 leading-relaxed text-charcoal/70">
+                    <RichText>{faq.a}</RichText>
+                  </p>
                 </details>
               </FadeIn>
             ))}

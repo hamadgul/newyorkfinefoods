@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import { pizzaMenu } from "@/data/menus";
+import { pizzaTruckPages } from "@/data/pizza-truck-pages";
 import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
@@ -471,6 +472,63 @@ export default function PizzaTrucksPage() {
                 {item}
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SPOKES — hub links down to every occasion & geo page ── */}
+      <section className="bg-cream py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+              Explore
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-charcoal md:text-4xl">
+              Pizza Truck Catering by Occasion &amp; Area
+            </h2>
+            <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
+          </div>
+
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2">
+            {pizzaTruckPages.map((page) => (
+              <li key={page.slug}>
+                <Link
+                  href={`/pizza-trucks/${page.slug}`}
+                  className="group flex h-full flex-col rounded-xl border border-charcoal/10 bg-white p-7 transition-all duration-300 hover:border-gold hover:shadow-md"
+                >
+                  <span className="font-heading text-xl font-bold text-charcoal transition-colors group-hover:text-gold">
+                    {page.h1}
+                  </span>
+                  <span className="mt-3 leading-relaxed text-charcoal/65">
+                    {page.heroSubtitle}
+                  </span>
+                  <span className="mt-4 text-sm font-bold uppercase tracking-widest text-gold">
+                    See details &rarr;
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 border-t border-charcoal/10 pt-8">
+            <Link
+              href="/catering"
+              className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light"
+            >
+              NYC Catering &rarr;
+            </Link>
+            <Link
+              href="/corporate-catering"
+              className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light"
+            >
+              Corporate Catering NYC &rarr;
+            </Link>
+            <Link
+              href="/mobile-bar/bartenders"
+              className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light"
+            >
+              Bartender for Hire NYC &rarr;
+            </Link>
           </div>
         </div>
       </section>
