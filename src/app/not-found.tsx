@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { SITE_NAME } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  robots: { index: false },
+};
 
 export default function NotFound() {
   return (

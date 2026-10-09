@@ -132,6 +132,10 @@ export function Footer() {
         <div className="mt-6 flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-ivory/25">
             &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+            {" · "}
+            <Link href="/privacy" className="underline-offset-2 transition-colors hover:text-ivory/60 hover:underline">
+              Privacy
+            </Link>
           </p>
           <p className="text-xs text-ivory/20">
             NYC &amp; Tri-State Area &middot; Pizza Trucks &middot; Catering &middot; Mobile Bar

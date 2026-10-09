@@ -25,16 +25,22 @@ export interface PizzaTruckPage {
   ctaTitle: string;
   ctaButton: string;
   schemaName: string;
-  schemaAreaServed: { type: "City" | "AdministrativeArea"; name: string }[];
+  schemaAreaServed: { type: "City" | "AdministrativeArea" | "State"; name: string }[];
   related: { href: string; label: string }[];
 }
 
+/** Full service region — mirrors REGION_AREA_SERVED in src/lib/schema.ts. */
 const NYC_AREAS: PizzaTruckPage["schemaAreaServed"] = [
-  { type: "City", name: "New York" },
+  { type: "City", name: "Manhattan" },
+  { type: "City", name: "Brooklyn" },
+  { type: "City", name: "Queens" },
+  { type: "City", name: "The Bronx" },
+  { type: "City", name: "Staten Island" },
   { type: "AdministrativeArea", name: "Long Island" },
   { type: "AdministrativeArea", name: "Westchester County" },
-  { type: "AdministrativeArea", name: "New Jersey" },
-  { type: "AdministrativeArea", name: "Fairfield County" },
+  { type: "AdministrativeArea", name: "Hudson Valley" },
+  { type: "State", name: "New Jersey" },
+  { type: "State", name: "Connecticut" },
 ];
 
 export const pizzaTruckPages: PizzaTruckPage[] = [
@@ -299,7 +305,7 @@ export const pizzaTruckPages: PizzaTruckPage[] = [
     hook: {
       heading: "Check the Venue's Vendor Rules First",
       body: [
-        "Fairfield County has a high concentration of clubs, associations and managed communities, and many of them have firm rules about outside vendors — insurance minimums, approved-vendor lists, sometimes an outright exclusive with an in-house kitchen.",
+        "A truck raises questions a drop-off caterer never hits. Country clubs, beach and yacht clubs and managed associations in Fairfield County often control which vendors come on site and where a vehicle may park — on top of insurance minimums, approved-vendor lists and the occasional exclusive with an in-house kitchen.",
         "It's worth establishing which applies to your venue before you shortlist anyone. Send us the requirements and we'll tell you plainly whether we can meet them. On a private driveway or lawn there's nothing to check, and the truck handles the rest.",
       ],
     },
@@ -365,7 +371,7 @@ export const pizzaTruckPages: PizzaTruckPage[] = [
     schemaName: "Connecticut Pizza Truck Catering",
     schemaAreaServed: [
       { type: "AdministrativeArea", name: "Fairfield County" },
-      { type: "AdministrativeArea", name: "Connecticut" },
+      { type: "State", name: "Connecticut" },
     ],
     related: [
       { href: "/catering/connecticut", label: "Connecticut Catering" },

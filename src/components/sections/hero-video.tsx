@@ -122,7 +122,7 @@ export function HeroVideo() {
         </p>
 
         <h1 className="mt-5 animate-in fade-in slide-in-from-bottom-3 font-heading text-5xl font-bold leading-[1.05] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] duration-700 [animation-delay:120ms] [animation-fill-mode:both] sm:text-6xl md:text-7xl lg:text-8xl">
-          Exceptional Food
+          Exceptional Food{" "}
           <br />
           <span className="text-ivory">Unforgettable Events</span>
         </h1>

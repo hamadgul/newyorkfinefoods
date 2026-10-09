@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ORG_REF, REGION_AREA_SERVED } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { LazyVideo } from "@/components/ui/lazy-video";
@@ -42,25 +43,8 @@ const cateringServiceSchema = {
   serviceType: "Catering",
   description:
     "New York Fine Foods catering — hot trays, salads, party heros, and full-service events across NYC and the tri-state area.",
-  provider: {
-    "@type": "Organization",
-    "@id": "https://www.newyorkfinefoods.com/#organization",
-    name: "New York Fine Foods",
-    url: "https://www.newyorkfinefoods.com",
-    telephone: CONTACT_PHONE,
-  },
-  areaServed: [
-    { "@type": "City", name: "New York" },
-    { "@type": "City", name: "Brooklyn" },
-    { "@type": "City", name: "Queens" },
-    { "@type": "City", name: "The Bronx" },
-    { "@type": "City", name: "Staten Island" },
-    { "@type": "AdministrativeArea", name: "Long Island" },
-    { "@type": "AdministrativeArea", name: "Westchester County" },
-    { "@type": "AdministrativeArea", name: "New Jersey" },
-    { "@type": "AdministrativeArea", name: "Hudson Valley" },
-    { "@type": "AdministrativeArea", name: "Fairfield County" },
-  ],
+  provider: ORG_REF,
+  areaServed: REGION_AREA_SERVED,
   url: "https://www.newyorkfinefoods.com/catering",
 };
 
@@ -86,7 +70,7 @@ const breadcrumbSchema = {
 const cateringFaqs = [
   {
     q: "What's the average catering cost for 100 people?",
-    a: "It depends on whether you want trays dropped off or a fully staffed event, and on the menu you choose. Half and full tray pricing is listed on this page — call (516) 205-7629 with your headcount and date and we'll quote it properly rather than give you a range that means nothing.",
+    a: "For drop-off catering, our published prices put sandwich and wrap platters for 100 guests at $1,200 ($12 per person). Party heros start at $20 a foot and an 8-foot hero serves 30, so about 27 feet covers 100 people. Hot entrée trays run $90–$130 for a full tray. A fully staffed event costs more because you're also paying for staff hours — call (516) 205-7629 with your headcount and date for an exact quote.",
   },
   {
     q: "How much will it cost to cater for 30 people?",
@@ -283,7 +267,7 @@ export default function CateringPage() {
               The Food Speaks for Itself
             </h2>
             <p className="mt-4 text-lg text-charcoal/60">
-              Every dish is prepared fresh, plated with care, and served at its peak.
+              Hot trays in half and full sizes, party heros from 2 to 8 feet (an 8-foot hero serves 30), and sandwich platters at $12 per person. Order a few days ahead for drop-off.
             </p>
             <div className="mx-auto mt-6 h-px w-16 bg-gold/50" />
           </div>

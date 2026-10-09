@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ORG_REF, REGION_AREA_SERVED } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { PizzaBookingForm } from "@/components/forms/pizza-booking-form";
@@ -41,21 +42,8 @@ const pizzaTruckServiceSchema = {
   name: 'NYC Pizza Truck Rental & Catering',
   description:
     'Authentic Neapolitan pizza truck catering for weddings, corporate events, and parties across NYC and the Tri-State Area. Pizza fired fresh on-site in a mobile 900°F oven.',
-  provider: {
-    '@type': 'Organization',
-    '@id': 'https://www.newyorkfinefoods.com/#organization',
-    name: 'New York Fine Foods',
-    url: 'https://www.newyorkfinefoods.com',
-  },
-  areaServed: [
-    'Manhattan',
-    'Brooklyn',
-    'Queens',
-    'The Bronx',
-    'Staten Island',
-    'New York City',
-    'Tri-State Area',
-  ],
+  provider: ORG_REF,
+  areaServed: REGION_AREA_SERVED,
   url: 'https://www.newyorkfinefoods.com/pizza-trucks',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -218,7 +206,7 @@ export default function PizzaTrucksPage() {
             Authentic Neapolitan Style Pizza &middot; Mobile &middot; Unforgettable
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
-            NYC Pizza Truck<br />
+            NYC Pizza Truck{" "}<br />
             <span className="text-ivory">Catering</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">

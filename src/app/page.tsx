@@ -24,11 +24,14 @@ export const metadata: Metadata = {
     description:
       "NYC's premier catering and pizza truck company. From intimate gatherings to large celebrations, we bring fine dining to every occasion.",
     url: 'https://www.newyorkfinefoods.com',
+    images: ['/OGImage.png'],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'New York Fine Foods | NYC Catering & Pizza Trucks',
     description:
       "NYC's premier catering and pizza truck company. From intimate gatherings to large celebrations, we bring fine dining to every occasion.",
+    images: ['/OGImage.png'],
   },
 }
 
@@ -47,7 +50,7 @@ const services = [
     badge: "Full Service",
     badgeClass: "bg-burgundy/70 text-ivory/90",
     description:
-      "We bring restaurant-quality cuisine to your venue — custom menus, fresh preparation, and flawless service from 20 to 1,000 guests.",
+      "Hot trays, party heros and full-service catering for 20 to 1,000 guests — across the five boroughs, Long Island, Westchester, New Jersey, Connecticut and the Hudson Valley.",
     image: "/catering-service.jpg",
     href: "/catering",
   },

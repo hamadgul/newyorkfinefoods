@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ORG_REF, REGION_AREA_SERVED, breadcrumbSchema } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
@@ -12,7 +13,7 @@ const BAR_DESCRIPTION =
   "Full-service mobile bar for NYC events. TIPS-certified bartenders, liquor liability insurance, permits handled. Open bar packages from $26/person.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${BAR_TITLE} | New York Fine Foods` },
+  title: { absolute: BAR_TITLE },
   description: BAR_DESCRIPTION,
   alternates: {
     canonical: "https://www.newyorkfinefoods.com/mobile-bar",
@@ -36,21 +37,13 @@ export const metadata: Metadata = {
 const mobileBarServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": "https://www.newyorkfinefoods.com/mobile-bar#service",
   name: "Mobile Full Bar Setup NYC",
+  serviceType: "Mobile Bar Service",
   description:
     "Full-service mobile bar for NYC events. TIPS-certified bartenders, complete setup & breakdown, liquor liability insurance.",
-  provider: {
-    "@type": "Organization",
-    name: "New York Fine Foods",
-    url: "https://www.newyorkfinefoods.com",
-  },
-  areaServed: [
-    { "@type": "City", name: "New York" },
-    { "@type": "AdministrativeArea", name: "Long Island" },
-    { "@type": "AdministrativeArea", name: "Westchester County" },
-    { "@type": "AdministrativeArea", name: "New Jersey" },
-    { "@type": "AdministrativeArea", name: "Fairfield County" },
-  ],
+  provider: ORG_REF,
+  areaServed: REGION_AREA_SERVED,
   url: "https://www.newyorkfinefoods.com/mobile-bar",
 };
 
@@ -178,6 +171,7 @@ export default function MobileBarPage() {
   return (
     <>
       <JsonLd data={mobileBarServiceSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: "Mobile Bar", path: "/mobile-bar" }])} />
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen overflow-hidden bg-charcoal">
@@ -200,7 +194,7 @@ export default function MobileBarPage() {
             Mobile Bar &middot; NYC &amp; Surrounding Areas &middot; Full-Service
           </p>
           <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] text-ivory [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-5xl md:text-7xl lg:text-8xl">
-            The Bar<br />
+            The Bar{" "}<br />
             <span className="text-ivory">Comes to You</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ivory/70 sm:mt-6 md:text-xl">
