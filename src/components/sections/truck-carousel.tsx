@@ -4,15 +4,17 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { LazyVideo } from "@/components/ui/lazy-video";
 
-const galleryItems: { src: string; type: "image" | "video" }[] = [
-  { src: "/trucks/nyc-neapolitan-pizza-truck.jpg", type: "image" },
-  { src: "/trucks/margherita.jpg", type: "image" },
+type GalleryItem = { src: string; type: "image" | "video"; alt?: string };
+
+const galleryItems: GalleryItem[] = [
+  { src: "/trucks/nyc-neapolitan-pizza-truck.jpg", type: "image", alt: "New York Fine Foods pizza truck lit up at night on an NYC street" },
+  { src: "/trucks/margherita.jpg", type: "image", alt: "Margherita Neapolitan pizza with fresh mozzarella and basil" },
   { src: "/trucks/nyc-pizza-truck-in-action.mp4", type: "video" },
-  { src: "/trucks/bianca.jpg", type: "image" },
-  { src: "/trucks/pizza-truck-catering-nyc.jpg", type: "image" },
-  { src: "/trucks/diavola.jpg", type: "image" },
-  { src: "/trucks/mobile-pizza-truck-nyc.jpg", type: "image" },
-  { src: "/trucks/di-parma.jpg", type: "image" },
+  { src: "/trucks/bianca.jpg", type: "image", alt: "Bianca white Neapolitan pizza with basil and olive oil" },
+  { src: "/trucks/pizza-truck-catering-nyc.jpg", type: "image", alt: "Guest picking up boxed pizzas at the New York Fine Foods truck window" },
+  { src: "/trucks/diavola.jpg", type: "image", alt: "Diavola Neapolitan pizza with spicy salami and jalapeños" },
+  { src: "/trucks/mobile-pizza-truck-nyc.jpg", type: "image", alt: "Boxed Neapolitan cheese pizza in front of the New York Fine Foods truck" },
+  { src: "/trucks/di-parma.jpg", type: "image", alt: "Di Parma Neapolitan pizza with prosciutto and arugula" },
 ];
 
 export function TruckCarousel() {
@@ -83,7 +85,9 @@ export function TruckCarousel() {
   }, [isPaused, scrollByCard]);
 
   // Render a single card
-  const renderCard = (item: { src: string; type: "image" | "video" }, i: number) => (
+  // The track renders three copies for the infinite loop; only the middle
+  // copy carries alt text so assistive tech and crawlers read each photo once.
+  const renderCard = (item: GalleryItem, i: number) => (
     <div
       key={i}
       className="group relative aspect-[4/3] w-[75vw] flex-shrink-0 overflow-hidden rounded-lg sm:w-[40vw] md:w-[28vw] lg:w-[22vw]"
@@ -96,9 +100,14 @@ export function TruckCarousel() {
       ) : (
         <Image
           src={item.src}
-          alt=""
+          alt={
+            i >= galleryItems.length && i < galleryItems.length * 2
+              ? item.alt ?? ""
+              : ""
+          }
           fill
           loading="lazy"
+          sizes="(min-width:1024px) 22vw, (min-width:768px) 28vw, (min-width:640px) 40vw, 75vw"
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
       )}

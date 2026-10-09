@@ -35,10 +35,3 @@ export const teamMembers: TeamMember[] = [
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
   },
 ];
-
-export const stats = [
-  { value: "2,500+", label: "Events Catered" },
-  { value: "30+", label: "Years of Experience" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "50+", label: "Team Members" },
-];

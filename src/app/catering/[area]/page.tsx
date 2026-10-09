@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ORG_REF } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -69,13 +70,7 @@ export default async function ServiceAreaPage({ params }: Props) {
     name: area.metaTitle,
     serviceType: "Catering",
     description: area.metaDescription,
-    provider: {
-      "@type": "Organization",
-      "@id": `${BASE}/#organization`,
-      name: "New York Fine Foods",
-      url: BASE,
-      telephone: CONTACT_PHONE,
-    },
+    provider: ORG_REF,
     areaServed: {
       "@type": area.schemaAreaType,
       name: area.schemaAreaName,

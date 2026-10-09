@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { CTASection } from '@/components/sections/cta-section'
+import { JsonLd } from '@/components/json-ld'
+import { ORG_REF, WEBSITE_ID, breadcrumbSchema } from '@/lib/schema'
 
 const BASE = 'https://www.newyorkfinefoods.com'
 const TITLE = 'Catering & Pizza Truck Guides | New York Fine Foods'
@@ -30,8 +32,27 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getAllPosts()
 
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${BASE}/blog#blog`,
+    url: `${BASE}/blog`,
+    name: 'Catering & Pizza Truck Guides',
+    description: DESCRIPTION,
+    isPartOf: { '@id': WEBSITE_ID },
+    publisher: ORG_REF,
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      url: `${BASE}/blog/${post.slug}`,
+      datePublished: post.date,
+    })),
+  }
+
   return (
     <>
+      <JsonLd data={blogSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: 'Blog', path: '/blog' }])} />
       <section className="bg-ivory pb-20 pt-36">
         <div className="mx-auto max-w-4xl px-6">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold">

@@ -9,9 +9,16 @@ import { JsonLd } from '@/components/json-ld';
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
-  CONTACT_PHONE,
-  INSTAGRAM_URL,
+  CONTACT_PHONE_INTL,
+  SAME_AS_PROFILES,
 } from '@/lib/constants';
+import {
+  BASE_URL,
+  ORG_ID,
+  ORG_REF,
+  WEBSITE_ID,
+  REGION_AREA_SERVED,
+} from '@/lib/schema';
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -29,50 +36,48 @@ const dmSans = DM_Sans({
 // TODO: confirm priceRange with client before deploying — appears in Google's local knowledge panel
 const PRICE_RANGE = '$$-$$$'
 
-const organizationSchema = {
+/**
+ * One entity for the business. FoodEstablishment is a LocalBusiness subtype
+ * (and therefore an Organization), so a single node carries both the brand
+ * and the local data, and every Service.provider { @id } lands on it.
+ * (The old 'CateringService' type does not exist in schema.org.)
+ */
+const businessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://www.newyorkfinefoods.com/#organization',
+  '@type': ['Organization', 'FoodEstablishment'],
+  '@id': ORG_ID,
   name: SITE_NAME,
-  url: 'https://www.newyorkfinefoods.com',
-  logo: 'https://www.newyorkfinefoods.com/logo.png',
-  image: 'https://www.newyorkfinefoods.com/OGImage.png',
-  telephone: CONTACT_PHONE,
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: CONTACT_PHONE,
-    contactType: 'customer service',
-    areaServed: 'US',
-    availableLanguage: 'English',
-  },
-  sameAs: [INSTAGRAM_URL],
-}
-
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'CateringService'],
-  '@id': 'https://www.newyorkfinefoods.com/#localbusiness',
-  name: SITE_NAME,
-  url: 'https://www.newyorkfinefoods.com',
+  url: BASE_URL,
   description: SITE_DESCRIPTION,
-  telephone: CONTACT_PHONE,
-  image: 'https://www.newyorkfinefoods.com/OGImage.png',
-  parentOrganization: { '@id': 'https://www.newyorkfinefoods.com/#organization' },
+  logo: `${BASE_URL}/logo.png`,
+  image: `${BASE_URL}/OGImage.png`,
+  telephone: CONTACT_PHONE_INTL,
+  servesCuisine: ['Pizza', 'Italian'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'New York',
     addressRegion: 'NY',
     addressCountry: 'US',
   },
-  areaServed: 'New York City',
+  areaServed: REGION_AREA_SERVED,
   priceRange: PRICE_RANGE,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: CONTACT_PHONE_INTL,
+    contactType: 'customer service',
+    areaServed: REGION_AREA_SERVED,
+    availableLanguage: 'English',
+  },
+  sameAs: SAME_AS_PROFILES,
 }
 
 const webSiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': WEBSITE_ID,
   name: SITE_NAME,
-  url: 'https://www.newyorkfinefoods.com',
+  url: BASE_URL,
+  publisher: ORG_REF,
 }
 
 export const metadata: Metadata = {
@@ -128,8 +133,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
-        <JsonLd data={organizationSchema} />
-        <JsonLd data={localBusinessSchema} />
+        <JsonLd data={businessSchema} />
         <JsonLd data={webSiteSchema} />
         <Navbar />
         <main>{children}</main>

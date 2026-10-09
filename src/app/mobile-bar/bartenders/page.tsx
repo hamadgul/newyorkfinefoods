@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ORG_REF, REGION_AREA_SERVED } from "@/lib/schema";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { CTASection } from "@/components/sections/cta-section";
@@ -39,20 +40,8 @@ const serviceSchema = {
   name: "Bartender Hire NYC",
   serviceType: "Bartending Service",
   description: DESCRIPTION,
-  provider: {
-    "@type": "Organization",
-    "@id": `${BASE}/#organization`,
-    name: "New York Fine Foods",
-    url: BASE,
-    telephone: CONTACT_PHONE,
-  },
-  areaServed: [
-    { "@type": "City", name: "New York" },
-    { "@type": "AdministrativeArea", name: "Long Island" },
-    { "@type": "AdministrativeArea", name: "Westchester County" },
-    { "@type": "AdministrativeArea", name: "New Jersey" },
-    { "@type": "AdministrativeArea", name: "Fairfield County" },
-  ],
+  provider: ORG_REF,
+  areaServed: REGION_AREA_SERVED,
   url: URL,
 };
 

@@ -1,24 +1,47 @@
 # New York Fine Foods
 
-> NYC's premier pizza truck, catering, and mobile bar company. We bring authentic
-> Neapolitan pizza trucks, full-service catering, and off-premise bar service to
-> weddings, corporate events, and parties across New York City and the Tri-State Area.
+> NYC pizza truck, catering, and mobile bar company. We bring Neapolitan pizza trucks, drop-off and full-service catering, and off-premise bar service to weddings, corporate events, and parties across New York City, Long Island, Westchester, the Hudson Valley, New Jersey, and Connecticut.
 
-## About
-New York Fine Foods serves all five NYC boroughs — Manhattan, Brooklyn, Queens,
-the Bronx, and Staten Island — plus the greater Tri-State Area (Long Island,
-Westchester, New Jersey, and Connecticut). Pizza truck catering packages start at $1,500.
-Phone: (516) 205-7629.
+## Key facts
+- Service area: all five NYC boroughs (Manhattan, Brooklyn, Queens, the Bronx, Staten Island), Long Island (Nassau and Suffolk), Westchester County, the Hudson Valley, northern New Jersey (Bergen, Hudson, Essex), and Connecticut (Fairfield County).
+- Pizza truck catering starts at $1,500. Neapolitan pies fired at 900°F in about 90 seconds; 14" full-size and 10" personal. Serves roughly 25 to 5,000+ guests. The truck is self-contained and needs only a level spot about the size of a parking space.
+- Catering: hot trays (full entrée trays $90–$130), party heros from $20 per foot (an 8-foot hero serves 30), sandwich and wrap platters at $12 per person. Events from 20 to 1,000 guests.
+- Mobile bar: open bar packages from $26 per person (beer & wine) to $62 (ultra-premium); dry hire (you supply the alcohol) from $22 per person. TIPS-certified bartenders, liquor liability insurance, Caterer's Alcohol Permit handled.
+- Lead time: a few days for drop-off trays; 4–8 weeks for staffed events, weddings, and peak season (spring, early summer, December).
+- Phone: (516) 205-7629.
 
 ## Services
-- [Pizza Truck Rental & Catering](https://www.newyorkfinefoods.com/pizza-trucks): Authentic Neapolitan pizza fired fresh on-site in a mobile 900°F oven; scales from ~25 to 5,000+ guests. Packages start at $1,500.
-- [Catering](https://www.newyorkfinefoods.com/catering): Hot trays, salads, party heros, and custom menus for events from 20 to 1,000 guests.
-- [Mobile Bar](https://www.newyorkfinefoods.com/mobile-bar): Professional bartenders and full off-premise bar service, from beer & wine to open-bar packages.
+- [Pizza Truck Rental & Catering](https://www.newyorkfinefoods.com/pizza-trucks): Neapolitan pizza fired fresh on-site; packages from $1,500.
+- [Catering](https://www.newyorkfinefoods.com/catering): hot trays, salads, party heros, platters, and full-service events.
+- [Corporate Catering](https://www.newyorkfinefoods.com/corporate-catering): office lunches, client dinners, launches, and holiday parties; COI on file, invoicing.
+- [Mobile Bar](https://www.newyorkfinefoods.com/mobile-bar): full off-premise bar service and open bar packages.
+- [Bartenders for Hire](https://www.newyorkfinefoods.com/mobile-bar/bartenders): TIPS-certified bartenders, dry hire from $22 per person.
 
-## Key pages
-- [Home](https://www.newyorkfinefoods.com)
-- [Pizza Trucks](https://www.newyorkfinefoods.com/pizza-trucks)
-- [Catering](https://www.newyorkfinefoods.com/catering)
-- [Mobile Bar](https://www.newyorkfinefoods.com/mobile-bar)
+## Pizza truck by occasion and area
+- [Pizza Truck Weddings](https://www.newyorkfinefoods.com/pizza-trucks/weddings)
+- [Pizza Truck for Parties](https://www.newyorkfinefoods.com/pizza-trucks/parties)
+- [Long Island Pizza Truck](https://www.newyorkfinefoods.com/pizza-trucks/long-island)
+- [Connecticut Pizza Truck](https://www.newyorkfinefoods.com/pizza-trucks/connecticut)
+
+## Catering by area
+- [Manhattan Catering](https://www.newyorkfinefoods.com/catering/manhattan)
+- [Brooklyn Catering](https://www.newyorkfinefoods.com/catering/brooklyn)
+- [Queens Catering](https://www.newyorkfinefoods.com/catering/queens)
+- [Bronx Catering](https://www.newyorkfinefoods.com/catering/bronx)
+- [Staten Island Catering](https://www.newyorkfinefoods.com/catering/staten-island)
+- [Long Island Catering](https://www.newyorkfinefoods.com/catering/long-island)
+- [Westchester Catering](https://www.newyorkfinefoods.com/catering/westchester)
+- [Hudson Valley Catering](https://www.newyorkfinefoods.com/catering/hudson-valley)
+- [New Jersey Catering](https://www.newyorkfinefoods.com/catering/new-jersey)
+- [Connecticut Catering](https://www.newyorkfinefoods.com/catering/connecticut)
+
+## Guides
+- [How Much Does a Pizza Truck Cost for a Party?](https://www.newyorkfinefoods.com/blog/pizza-truck-cost-party-nyc)
+- [What Does Catering Cost for 100 People in NYC?](https://www.newyorkfinefoods.com/blog/catering-cost-100-people-nyc)
+- [Pizza Truck vs. Traditional Catering: Which Fits Your Event?](https://www.newyorkfinefoods.com/blog/pizza-truck-vs-traditional-catering)
+
+## Optional
+- [Full text of service, area, and guide pages](https://www.newyorkfinefoods.com/llms-full.txt)
 - [About](https://www.newyorkfinefoods.com/about)
 - [Contact](https://www.newyorkfinefoods.com/contact)
+- [Blog](https://www.newyorkfinefoods.com/blog)

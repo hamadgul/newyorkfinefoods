@@ -22,6 +22,7 @@ export function getAllPosts(): BlogPost[] {
       title: data.title as string,
       description: data.description as string,
       date: data.date as string,
+      updated: (data.updated as string | undefined) ?? undefined,
       tags: (data.tags as string[]) ?? [],
       content,
     }

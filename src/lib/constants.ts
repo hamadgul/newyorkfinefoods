@@ -5,6 +5,8 @@ export const SITE_DESCRIPTION =
 
 export const CONTACT_EMAIL = "info@newyorkfinefoods.com";
 export const CONTACT_PHONE = "(516) 205-7629";
+/** E.164-style form for structured data. */
+export const CONTACT_PHONE_INTL = "+1-516-205-7629";
 // export const CONTACT_ADDRESS = "245 West 29th Street, New York, NY 10001";
 
 export const NAV_LINKS = [
@@ -19,6 +21,17 @@ export const NAV_LINKS = [
 
 export const INSTAGRAM_HANDLE = "@newyorkfinefoods";
 export const INSTAGRAM_URL = "https://www.instagram.com/newyorkfinefoods";
+
+/**
+ * Third-party profiles of THIS business, for schema.org sameAs. Only add
+ * profiles that exist and are claimed — add Google Business Profile, Yelp,
+ * The Knot etc. here as each one goes live.
+ */
+export const SAME_AS_PROFILES = [
+  INSTAGRAM_URL,
+  "https://www.zola.com/wedding-vendors/wedding-catering/new-york-fine-foods",
+  "https://www.bestfoodtrucks.com/truck/new-york-fine-foods",
+] as const;
 
 // Formspree endpoint — override via NEXT_PUBLIC_FORMSPREE_ENDPOINT env var
 export const FORMSPREE_ENDPOINT =

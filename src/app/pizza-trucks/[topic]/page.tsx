@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ORG_REF } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -76,13 +77,7 @@ export default async function PizzaTruckTopicPage({ params }: Props) {
     name: page.schemaName,
     serviceType: "Pizza Truck Catering",
     description: page.metaDescription,
-    provider: {
-      "@type": "Organization",
-      "@id": `${BASE}/#organization`,
-      name: "New York Fine Foods",
-      url: BASE,
-      telephone: CONTACT_PHONE,
-    },
+    provider: ORG_REF,
     areaServed: page.schemaAreaServed.map((a) => ({
       "@type": a.type,
       name: a.name,

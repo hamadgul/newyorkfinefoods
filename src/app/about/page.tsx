@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/sections/hero";
 import { CTASection } from "@/components/sections/cta-section";
-import { CountUp } from "@/components/ui/count-up";
 import { DarkSectionGlow } from "@/components/ui/dark-section-glow";
+import { JsonLd } from "@/components/json-ld";
+import { ORG_REF, WEBSITE_ID, breadcrumbSchema } from "@/lib/schema";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { teamMembers, stats } from "@/data/team";
+import { teamMembers } from "@/data/team";
 
 export const metadata: Metadata = {
   title: 'About',
@@ -19,12 +20,25 @@ export const metadata: Metadata = {
     description:
       "Learn about New York Fine Foods — our story, our values, and the passionate team behind NYC's premier catering company.",
     url: 'https://www.newyorkfinefoods.com/about',
+    images: ['/OGImage.png'],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'About | New York Fine Foods',
     description:
       "Learn about New York Fine Foods — our story, our values, and the passionate team behind NYC's premier catering company.",
+    images: ['/OGImage.png'],
   },
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://www.newyorkfinefoods.com/about#webpage",
+  url: "https://www.newyorkfinefoods.com/about",
+  name: "About New York Fine Foods",
+  isPartOf: { "@id": WEBSITE_ID },
+  about: ORG_REF,
 };
 
 const values = [
@@ -53,6 +67,8 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={aboutPageSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: "About", path: "/about" }])} />
       <Hero
         backgroundImage="/pizza-trucks-service.jpg"
         title="Our Story"
@@ -147,28 +163,6 @@ export default function AboutPage() {
         </div>
       </section>
       */}
-
-      {/* Stats */}
-      <section className="bg-ivory py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center font-heading text-3xl font-bold text-charcoal md:text-4xl">
-            By the Numbers
-          </h2>
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center rounded-xl border border-charcoal/8 bg-white px-4 py-8 text-center shadow-sm">
-                <p className="font-heading text-4xl font-bold text-gold md:text-5xl">
-                  <CountUp value={stat.value} />
-                </p>
-                <div className="mt-3 h-px w-8 bg-gold/40" />
-                <p className="mt-3 text-sm font-medium text-charcoal/70">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <CTASection

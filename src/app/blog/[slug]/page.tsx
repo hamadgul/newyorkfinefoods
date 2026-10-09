@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { marked } from 'marked'
 import { getPostBySlug, getAllPosts } from '@/lib/blog'
 import { JsonLd } from '@/components/json-ld'
+import { ORG_REF, WEBSITE_ID } from '@/lib/schema'
 import { CTASection } from '@/components/sections/cta-section'
 
 const BASE = 'https://www.newyorkfinefoods.com'
@@ -18,7 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {}
 
   const url = `${BASE}/blog/${post.slug}`
-  const title = `${post.title} | New York Fine Foods`
+  // Keep titles within ~60 chars: drop the brand suffix on long headlines.
+  const branded = `${post.title} | New York Fine Foods`
+  const title = branded.length <= 60 ? branded : post.title
 
   return {
     title: { absolute: title },
@@ -73,28 +76,24 @@ export default async function BlogPostPage({ params }: Props) {
   const html = await marked.parse(post.content)
   const url = `${BASE}/blog/${post.slug}`
 
+  // Author stays the business until a real, named author is published on
+  // /about — never invent a Person.
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
+    image: `${BASE}/OGImage.png`,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    author: {
-      '@type': 'Organization',
-      '@id': `${BASE}/#organization`,
-      name: 'New York Fine Foods',
-    },
-    publisher: {
-      '@type': 'Organization',
-      '@id': `${BASE}/#organization`,
-      name: 'New York Fine Foods',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${BASE}/logo.png`,
-      },
+    isPartOf: { '@id': WEBSITE_ID },
+    author: ORG_REF,
+    publisher: ORG_REF,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['article h1', '[data-speakable]'],
     },
   }
 
@@ -130,7 +129,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h1 className="font-heading text-3xl font-bold leading-tight text-charcoal sm:text-4xl md:text-5xl">
             {post.title}
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-charcoal/60">
+          <p data-speakable className="mt-4 text-lg leading-relaxed text-charcoal/60">
             {post.description}
           </p>
           <time
